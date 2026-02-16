@@ -99,8 +99,6 @@ Auf der theoretischen Ebene sind die Risiken oft weniger sichtbar, aber nicht mi
 
 Die Astrofotografie misst die elektromagnetischen Strahlung von weit entfernten Objekten mit optischen Systemen und Sensoren. Dabei kommt es zu physikalisch begründeten Einschränkungen, die nicht durch nachgelagerte Software wegoptimiert werden können. Folgend werden diese physikalischen Grenzen hergeleitet und erläutert.
 
-=== Optische Systeme
-
 Ein optisches System ist eine Anordnung aus Spiegeln oder Linsen, die Licht sammelt und in einer Bildebene fokussiert. In der Astronomie kommen typischerweise reflektierende (Newton-, Cassegrain-Systeme) oder refraktive (Linsenteleskope) Systeme zum Einsatz. Unabhängig vom konkreten Aufbau lassen sich die physikalischen Eigenschaften durch wenige fundamentale Parameter beschreiben.
 
 Ein zentraler Begriff ist die Apertur $D$. Sie bezeichnet den effektiven Durchmesser der lichtsammelnden Öffnung. Die zugehörige Lichtsammelfläche $A$ ergibt sich aus dem Flächeninhalt eines Kreises #cite(<schroeder2000astronomical>):
