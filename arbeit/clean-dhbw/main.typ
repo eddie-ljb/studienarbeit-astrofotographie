@@ -112,9 +112,59 @@ Die Anzahl der detektierten Photonen ist proportional zur einfallenden Strahlung
 Hier ist wichtig zu unterscheiden: Die Apertur beeinflusst sowohl die Lichtmenge als auch die theoretische Auflösung des Systems. Die Brennweite $f$ hingegen beschreibt den Abstand, in dem parallel einfallende Strahlen fokussiert werden. Sie bestimmt den Bildmaßstab, also wie groß ein Himmelsausschnitt auf dem Sensor erscheint. Der Bildmaßstab hängt zusätzlich von der Pixelgröße des Sensors ab und wird typischerweise in Bogensekunden pro Pixel angegeben #cite(<born1999principles>) #cite(<karttunen2017fundamental>).
 Während die Brennweite also die geometrische Abbildungsgröße beeinflusst, bestimmt die Apertur die physikalische Leistungsfähigkeit des Systems.
 
-=== Beugung und Auflösungsgrenze
+Die geometrische Optik beschreibt Licht als Strahlen von Lichtteilchen, sogenannten Photonen. Für die tatsächliche Detailauflösung eines Teleskops reicht dieses Modell jedoch nicht aus. Licht besitzt eine endliche Wellenlänge 𝜆 und verhält sich daher wie eine elektromagnetische Welle. Sobald eine solche Welle durch eine endliche Öffnung – also die Apertur eines Teleskops – begrenzt wird, tritt Beugung auf.
 
-=== atmosphärische Einflüsse
+Beugung bedeutet, dass sich Wellen beim Durchgang durch eine Öffnung nicht streng geradlinig ausbreiten, sondern in Form eines Intensitätsmusters. Dadurch wird eine punktförmige Lichtquelle im Bild nicht als mathematischer Punkt dargestellt, sondern als ausgedehnte Intensitätsverteilung. Diese Intensitätsverteilung wird als Point Spread Function (PSF) bezeichnet. Sie beschreibt, wie ein einzelner Lichtpunkt durch das optische System dargestellt wird #cite(<goodman2005fourier>).
+
+Mathematisch lässt sich zeigen, dass die komplexe Feldverteilung in der Bildebene proportional zur Fourier-Transformation der Aperturfunktion ist. Das bedeutet, dass die Form der Öffnung direkt die Form des entstehenden Beugungsmusters bestimmt #cite(<goodman2005fourier>). Für eine kreisförmige Apertur ergibt sich ein charakteristisches Intensitätsmuster, das sogenannte Airy-Muster #cite(<born1999principles>). Dieses besteht aus:
+
+- einem hellen zentralen Maximum (Airy-Scheibe),
+- mehreren konzentrischen, schwächer werdenden Nebenringen.
+
+Die Breite des zentralen Maximums bestimmt, wie fein zwei nahe beieinanderliegende Sterne unterschieden werden können. Zwei Punktquellen gelten nach dem Rayleigh-Kriterium als gerade noch getrennt, wenn das Maximum der einen Quelle im ersten Minimum der anderen liegt #cite(<rayleigh1879optics>) #cite(<born1999principles>).
+
+Aus der wellenoptischen Analyse ergibt sich für den minimal auflösbaren Winkelabstand:
+
+$ theta = 1.22 * lambda / D $
+
+Dabei ist θ der minimale Winkelabstand, λ die Wellenlänge des Lichts und $D$ der Aperturdurchmesser. Die Konstante 1.22 ergibt sich aus der ersten Nullstelle der zugrunde liegenden Bessel-Funktion, welche das Beugungsprofil einer Kreisöffnung beschreibt #cite(<born1999principles>). 
+
+Diese Gleichung zeigt zwei wesentliche Zusammenhänge:
+1. Je größer die Apertur $D$, desto kleiner wird $theta$, wodurch sich die Auflösung verbessert.
+2. Je kleiner die Wellenlänge $lambda$, desto höher ist die erreichbare Auflösung.
+
+Damit ist die Beugungsgrenze eine direkte Folge der Wellennatur des Lichts. Sie stellt eine fundamentale physikalische Begrenzung dar. Selbst ein optisch perfektes System kann diese Grenze nicht unterschreiten.
+
+Aus systemtheoretischer Sicht lässt sich das Teleskop als lineares, ortsinvariantes System modellieren. Das aufgezeichnete Bild entsteht als Faltung des idealen Objekts mit der PSF #cite(<goodman2005fourier>). Im Frequenzraum entspricht dies einer Multiplikation mit der sogenannten Optical Transfer Function (OTF). Diese besitzt eine endliche Grenzfrequenz, wodurch hohe räumliche Frequenzen – also sehr feine Details – nicht übertragen werden. Informationen oberhalb dieser Grenzfrequenz sind physikalisch nicht im Bild enthalten und können daher auch durch nachgelagerte Bildverarbeitung nicht rekonstruiert werden.
+
+Neben der durch die Beugung bestimmten Auflösungsgrenze stellt die Erdatmosphäre den dominierenden limitierenden Faktor der Astrofotografie dar. Selbst wenn ein Teleskop theoretisch beugungsbegrenzt arbeitet, wird die tatsächlich erreichbare Detailauflösung in der Praxis meist durch atmosphärische Turbulenzen eingeschränkt.
+
+Die Atmosphäre ist kein homogenes Medium. Temperatur-, Druck- und Dichteschwankungen führen zu lokalen Variationen des Brechungsindex. Da Licht beim Durchgang durch ein Medium mit veränderlichem Brechungsindex unterschiedlich stark abgelenkt wird, entstehen zufällige Phasenverschiebungen der einfallenden Wellenfront. Diese zeitlich variierenden Verzerrungen werden als Seeing bezeichnet #cite(<roddier1999adaptive>).
+
+Physikalisch lässt sich die Atmosphäre als turbulentes Strömungsfeld modellieren. Die statistische Beschreibung dieser Turbulenz erfolgt häufig im Rahmen der Kolmogorov-Theorie, welche annimmt, dass Energie in großen Wirbeln eingetragen und über kleinere Skalen dissipiert wird #cite(<tatarskii1961turbulence>). Für die optische Abbildung ist dabei entscheidend, wie stark die einfallende Wellenfront über die Apertur eines Teleskops verzerrt wird.
+
+Zur Quantifizierung dieser Verzerrung wird der sogenannte Fried-Parameter 
+$r_0$ eingeführt #cite(<roddier1999adaptive>). Der Fried-Parameter beschreibt die Kohärenzlänge der Atmosphäre, also den maximalen Durchmesser einer Apertur, über den die Wellenfront noch näherungsweise eben ist. Anschaulich bedeutet dies: Innerhalb einer Fläche mit Durchmesser $r_0$ sind die atmosphärisch bedingten Phasenfehler relativ gering; bei größeren Aperturen addieren sich unterschiedliche Verzerrungen. 
+
+Die effektive Winkelauflösung eines atmosphärisch begrenzten Systems kann näherungsweise durch
+
+$ theta_"seeing" ≈ lambda/r_0 $
+
+beschrieben werden #cite(<roddier1999adaptive>). Dabei ist $lambda$ die Wellenlänge des Lichts und $r_0$ der Fried-Parameter. Aus dieser Beziehung folgt unmittelbar: Je kleiner $r_0$, desto größer wird $theta_"seeing"$ und desto schlechter ist die erreichbare Auflösung.
+
+Typische Werte für $r_0$ in Mitteleuropa führen zu Seeing-Werten zwischen etwa 1″ und 3″ #cite(<tokovinin2002seeing>). Zum Vergleich: Die beugungsbegrenzte Auflösung eines 200-mm-Teleskops im sichtbaren Bereich liegt bei unter 1″. Damit ist in den meisten Fällen nicht die Optik, sondern die Atmosphäre der begrenzende Faktor.
+
+Ein weiterer wichtiger Aspekt ist die zeitliche Dynamik des Seeings. Die atmosphärischen Strukturen ändern sich auf Zeitskalen von Millisekunden bis Sekunden. Dies führt dazu, dass die Point Spread Function eines Sterns nicht konstant ist, sondern zeitlich fluktuiert. In Einzelaufnahmen erscheinen Sterne dadurch aufgebläht oder leicht verzerrt.
+
+Neben der Turbulenz wirken weitere atmosphärische Effekte auf die Bildqualität:
+
+- Extinktion: Absorption und Streuung des Lichts an Molekülen und Aerosolen verringern die Intensität und verändern das Spektrum des einfallenden Lichts #cite(<karttunen2017fundamental>).
+
+- Lichtverschmutzung: Streuung künstlicher Lichtquellen in der Atmosphäre erhöht den Hintergrundpegel und reduziert den Kontrast schwacher Objekte #cite(<tokovinin2002seeing>).
+
+- Airglow: natürliche Emission der Hochatmosphäre, die insbesondere bei langen Belichtungszeiten relevant wird #cite(<karttunen2017fundamental>).
+
+Diese Effekte beeinflussen primär das Signal-Rausch-Verhältnis, während die Turbulenz direkt die effektive Auflösung begrenzt. Die Atmosphäre wirkt wie ein zusätzlicher, zeitlich variabler Unschärfefilter. Selbst ein optisch perfektes Teleskop kann unter realen Bedingungen seine beugungsbegrenzte Auflösung häufig nicht erreichen. Für die spätere Betrachtung des Image Stackings ist insbesondere relevant, dass atmosphärische Effekte statistischer Natur sind und sich zeitlich verändern. Dies eröffnet zwar Möglichkeiten zur Auswahl besonders scharfer Einzelbilder (z. B. „Lucky Imaging“), hebt jedoch die grundsätzliche physikalische Limitierung nicht auf.
 
 == Sensorik und digitale Bildentstehung
 
