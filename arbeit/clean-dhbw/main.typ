@@ -97,11 +97,24 @@ Auf der theoretischen Ebene sind die Risiken oft weniger sichtbar, aber nicht mi
 
 == Physikalische Grundlagen
 
-- Optische Systeme
+Die Astrofotografie misst die elektromagnetischen Strahlung von weit entfernten Objekten mit optischen Systemen und Sensoren. Dabei kommt es zu physikalisch begründeten Einschränkungen, die nicht durch nachgelagerte Software wegoptimiert werden können. Folgend werden diese physikalischen Grenzen hergeleitet und erläutert.
 
-- Beugung und Auflösungsgrenze
+=== Optische Systeme
 
-- atmosphärische Einflüsse
+Ein optisches System ist eine Anordnung aus Spiegeln oder Linsen, die Licht sammelt und in einer Bildebene fokussiert. In der Astronomie kommen typischerweise reflektierende (Newton-, Cassegrain-Systeme) oder refraktive (Linsenteleskope) Systeme zum Einsatz. Unabhängig vom konkreten Aufbau lassen sich die physikalischen Eigenschaften durch wenige fundamentale Parameter beschreiben.
+
+Ein zentraler Begriff ist die Apertur $D$. Sie bezeichnet den effektiven Durchmesser der lichtsammelnden Öffnung. Die zugehörige Lichtsammelfläche $A$ ergibt sich aus dem Flächeninhalt eines Kreises #cite(<schroeder2000astronomical>):
+
+$ A = pi * (D/2)^2 $
+
+Die Anzahl der detektierten Photonen ist proportional zur einfallenden Strahlungsleistung und damit proportional zur Lichtsammelfläche $A$. Folglich wächst die gemessene Photonenzahl mit $D^2$. Eine Verdopplung der Apertur führt somit zu einer Vervierfachung der gesammelten Photonenmenge bei gleicher Belichtungszeit #cite(<schroeder2000astronomical>).
+
+Hier ist wichtig zu unterscheiden: Die Apertur beeinflusst sowohl die Lichtmenge als auch die theoretische Auflösung des Systems. Die Brennweite $f$ hingegen beschreibt den Abstand, in dem parallel einfallende Strahlen fokussiert werden. Sie bestimmt den Bildmaßstab, also wie groß ein Himmelsausschnitt auf dem Sensor erscheint. Der Bildmaßstab hängt zusätzlich von der Pixelgröße des Sensors ab und wird typischerweise in Bogensekunden pro Pixel angegeben #cite(<born1999principles>) #cite(<karttunen2017fundamental>).
+Während die Brennweite also die geometrische Abbildungsgröße beeinflusst, bestimmt die Apertur die physikalische Leistungsfähigkeit des Systems.
+
+=== Beugung und Auflösungsgrenze
+
+=== atmosphärische Einflüsse
 
 == Sensorik und digitale Bildentstehung
 
