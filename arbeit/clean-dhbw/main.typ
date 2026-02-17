@@ -297,6 +297,59 @@ Obwohl das Rauschen mit $1/sqrt(N)$ reduziert werden kann, bleiben physikalische
 
 Stacking verbessert somit das Signal-Rausch-Verhältnis, jedoch nicht die fundamentale Auflösungsgrenze.
 
+== Stacking-Verfahren
+
+Die bisherigen mathematischen Betrachtungen basieren auf der idealisierten Annahme additiven, statistisch unabhängigen und näherungsweise gaussverteilten Rauschens. In der praktischen Astrofotografie treten jedoch zusätzliche Effekte wie kosmische Strahlen, Satellitenspuren, Hotpixel oder variable Transparenzbedingungen auf. Daher existieren verschiedene Stacking-Verfahren, die unterschiedliche statistische Eigenschaften und Robustheiten aufweisen.
+
+Das einfachste Verfahren ist das arithmetische Mittel:
+
+$ I_"mean"(x,y) = (1/N) * sum_(i=1)^N I_i(x,y) $
+
+Unter Annahme gaussverteilten, unabhängigen Rauschens stellt das arithmetische Mittel den Maximum-Likelihood-Schätzer für das wahre Signal dar und minimiert die Varianz der Schätzung #cite(<zackay2017coadd2>). Die Varianz reduziert sich proportional zu $1/N$, wodurch das Signal-Rausch-Verhältnis mit $sqrt(N)$ wächst.
+
+Sind die Einzelaufnahmen unterschiedlich verrauscht, ist eine gewichtete Mittelwertbildung optimal:
+
+$ I_"weighted" = (sum w_i * I_i) / (sum w_i) $
+
+mit
+
+$ w_i ~ 1 / sigma_i^2 $
+
+Diese Gewichtung entspricht ebenfalls einer Maximum-Likelihood-Schätzung unter heteroskedastischem, gaussverteiltem Rauschen #cite(<zackay2017coadd2>).
+
+Lineare Verfahren sind statistisch effizient, jedoch empfindlich gegenüber Ausreißern.
+
+In realen Datensätzen treten häufig Ausreißer auf, etwa durch kosmische Strahlung oder sporadische Störungen. Das Median-Stacking definiert das kombinierte Bild als
+
+$ I_"median"(x,y) = "median"(I_1, ..., I_N) $
+
+Der Median ist gegenüber Ausreißern robust, da extreme Werte keinen linearen Einfluss auf das Ergebnis besitzen. Für rein gaussverteiltes Rauschen ist er jedoch weniger effizient als das arithmetische Mittel. Die asymptotische Effizienz beträgt etwa $2/pi$ relativ zum Mittelwert #cite(<zackay2017coadd2>).
+
+Ein häufig verwendetes Verfahren ist das sogenannte Sigma-Clipping. Hierbei wird iterativ der Mittelwert berechnet und Werte, die um mehr als $k * sigma$ vom Mittelwert abweichen, werden verworfen. Dieses Verfahren kombiniert die statistische Effizienz des Mittelwertes mit einer erhöhten Robustheit gegenüber Ausreißern #cite(<howell2006ccd>).
+
+Ist das System unterabgetastet, kann durch gezielte Subpixel-Verschiebungen eine effektiv höhere Abtastdichte erreicht werden. Der Drizzle-Algorithmus rekonstruiert aus mehreren leicht verschobenen Aufnahmen ein höher aufgelöstes Bildgitter #cite(<fruchter2002drizzle>).
+
+Dabei werden Pixelwerte nicht einfach gemittelt, sondern als gewichtete Flächenanteile auf ein feineres Raster projiziert. Mathematisch entspricht dies einer linearen Rekonstruktionsoperation, die die vorhandene Bandbreite des Signals besser ausnutzt, jedoch keine neue physikalische Information erzeugt.
+
+Drizzle ist insbesondere bei stark unterabgetasteten Weltraumteleskopen wie dem Hubble Space Telescope etabliert.
+
+Bei bodengebundener Beobachtung variiert die atmosphärische Verzerrung zeitlich. Lucky Imaging basiert auf der Selektion der schärfsten Einzelaufnahmen innerhalb einer Bildserie #cite(<roddier1999adaptive>) #cite(<law2006lucky>).
+
+Anstatt alle Frames zu mitteln, werden nur diejenigen mit besonders kleiner effektiver PSF kombiniert. Dadurch kann sich die effektive Auflösung der finalen Aufnahme der beugungsbegrenzten Grenze annähern, sofern kurzzeitig günstige Seeing-Bedingungen auftreten.
+
+Dieses Verfahren verbessert die Auflösung nicht durch Signalverarbeitung, sondern durch statistische Auswahl günstiger physikalischer Zustände der Atmosphäre.
+
+Die verschiedenen Stacking-Methoden unterscheiden sich hinsichtlich:
+
+- statistischer Effizienz
+- Robustheit gegenüber Ausreißern
+- Fähigkeit zur Rekonstruktion unterabgetasteter Daten
+- Empfindlichkeit gegenüber systematischen Fehlern
+
+Lineare Mittelungsverfahren maximieren das SNR unter idealisierten Annahmen. Robuste Verfahren reduzieren Artefakte. Rekonstruktive Verfahren wie Drizzle verbessern die effektive Abtastung. Selektive Verfahren wie Lucky Imaging nutzen atmosphärische Variabilität aus.
+
+Keine dieser Methoden kann jedoch die durch Beugung oder Seeing vorgegebene physikalische Bandbreite des Systems erweitern.
+
 == Auflösung im Stacking-Kontext
 
 Die vorangegangenen Kapitel haben gezeigt, dass die physikalische Auflösung eines optischen Systems durch Beugung und atmosphärische Turbulenz begrenzt ist #cite(<born1999principles>) #cite(<fried1966optical_resolution>). Gleichzeitig wurde dargestellt, dass Image Stacking das Signal-Rausch-Verhältnis proportional zu $sqrt(N)$ verbessert #cite(<janesick2007photon_transfer>) #cite(<zackay2017coadd2>). Im Folgenden wird untersucht, inwieweit sich durch Stacking auch die räumliche Auflösung beeinflussen lässt.
