@@ -97,15 +97,19 @@ Auf der theoretischen Ebene sind die Risiken oft weniger sichtbar, aber nicht mi
 
 == Physikalische Grundlagen
 
-Die Astrofotografie misst elektromagnetische Strahlung weit entfernter Objekte mithilfe optischer Systeme und elektronischer Sensoren. Die erreichbare Bildqualität ist dabei nicht ausschließlich eine Frage technischer Präzision oder algorithmischer Nachbearbeitung, sondern unterliegt fundamentalen physikalischen Grenzen. Diese ergeben sich aus der Wellennatur des Lichts, der endlichen Apertur optischer Systeme sowie aus atmosphärischen Einflüssen #cite(<hecht2016optics>). Im Folgenden werden diese Grenzen systematisch hergeleitet und erläutert.
+Die Astrofotografie misst elektromagnetische Strahlung weit entfernter Objekte mithilfe optischer Systeme und elektronischer Sensoren. Die erreichbare Bildqualität ist dabei nicht ausschließlich eine Frage technischer Präzision oder algorithmischer Nachbearbeitung, sondern unterliegt fundamentalen physikalischen Grenzen. Diese ergeben sich aus den Eigenschaften des Lichts, dem Aufbau optischer Systeme sowie aus atmosphärischen Einflüssen #cite(<hecht2016optics>). Im Folgenden werden diese Grenzen systematisch hergeleitet und erläutert.
 
-Ein optisches System ist eine Anordnung aus Spiegeln oder Linsen, die Licht sammelt und in einer Bildebene fokussiert. Ein zentraler Parameter ist die Apertur $D$, also der effektive Durchmesser der lichtsammelnden Öffnung. Die zugehörige Lichtsammelfläche $A$ entspricht dem Flächeninhalt eines Kreises #cite(<schroeder2000astronomical>) #cite(<hecht2016optics>):
+Ein optisches System ist eine Anordnung aus Spiegeln oder Linsen, die Licht sammelt und in einer Bildebene fokussiert. Das Licht trifft in Form von kleinen Quantenteilchen, sogenannten Photonen auf. Ein zentraler Parameter ist die Apertur $D$, also der effektive Durchmesser der lichtsammelnden Öffnung. Die zugehörige Lichtsammelfläche $A$ entspricht dem Flächeninhalt eines Kreises #cite(<schroeder2000astronomical>) #cite(<hecht2016optics>):
 
 $ A = pi * (D/2)^2 $
 
-Die Anzahl der detektierten Photonen ist proportional zur einfallenden Strahlungsleistung und damit proportional zur Lichtsammelfläche #cite(<schroeder2000astronomical>) #cite(<mclean2010electronic_imaging_astronomy>). Folglich wächst die gemessene Photonenzahl mit $D^2$. Eine Verdopplung der Apertur führt somit zu einer Vervierfachung der gesammelten Photonenmenge bei gleicher Belichtungszeit #cite(<schroeder2000astronomical>).
+Die Anzahl der detektierten Photonen ist proportional zur einfallenden Strahlungsleistung und damit proportional zur Lichtsammelfläche. Da je mehr Lichtstrahlen einfallen, desto mehr Photonen gelangen durch die Apertur #cite(<schroeder2000astronomical>) #cite(<mclean2010electronic_imaging_astronomy>). Folglich wächst die gemessene Photonenzahl mit $D^2$. Eine Verdopplung der Apertur führt somit zu einer Vervierfachung der gesammelten Photonenmenge bei gleicher Belichtungszeit #cite(<schroeder2000astronomical>). Die Belichtungszeit beschreibt die Dauer, wie lange Licht auf den Sensor beziehungsweise die  Apertur fällt. 
 
-Neben der Apertur ist die Brennweite $f$ eine weitere Kenngröße. Sie beschreibt den Abstand, in dem parallel einfallende Strahlen fokussiert werden. Zusammen mit der Pixelgröße bestimmt sie den Bildmaßstab, also wie viele Bogensekunden einem Pixel entsprechen #cite(<born1999principles>) #cite(<karttunen2017fundamental>). Während die Brennweite die geometrische Abbildungsgröße beeinflusst, bestimmt die Apertur sowohl die Lichtmenge als auch die theoretische Auflösung.
+Neben der Apertur ist die Brennweite $f$ eine weitere Kenngröße. Sie beschreibt den Abstand, in dem parallel einfallende Strahlen fokussiert werden.
+
+
+
+Zusammen mit der Pixelgröße bestimmt die Brennweite den Bildmaßstab, also wie viele Bogensekunden einem Pixel entsprechen #cite(<born1999principles>) #cite(<karttunen2017fundamental>). Während die Brennweite die geometrische Abbildungsgröße beeinflusst, bestimmt die Apertur sowohl die Lichtmenge als auch die theoretische Auflösung.
 
 Die geometrische Optik beschreibt Licht als geradlinig propagierende Strahlen. Für die tatsächliche Detailauflösung eines Teleskops reicht dieses Modell jedoch nicht aus. Licht besitzt eine endliche Wellenlänge $lambda$ und verhält sich daher wie eine elektromagnetische Welle #cite(<hecht2016optics>). Wird eine solche Welle durch eine endliche Öffnung – also die Apertur eines Teleskops – begrenzt, entsteht Beugung.
 
