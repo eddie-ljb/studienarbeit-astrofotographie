@@ -95,305 +95,240 @@ Auf der theoretischen Ebene sind die Risiken oft weniger sichtbar, aber nicht mi
 
 = Theoretische Grundlagen
 
-== Physikalische Grundlagen
+== Astronomische Strahlungsquellen und Photonenfluss
 
-Die Astrofotografie misst elektromagnetische Strahlung weit entfernter Objekte mithilfe optischer Systeme und elektronischer Sensoren. Die erreichbare Bildqualität ist dabei nicht ausschließlich eine Frage technischer Präzision oder algorithmischer Nachbearbeitung, sondern unterliegt fundamentalen physikalischen Grenzen. Diese ergeben sich aus den Eigenschaften des Lichts, dem Aufbau optischer Systeme sowie aus atmosphärischen Einflüssen #cite(<hecht2016optics>). Im Folgenden werden diese Grenzen systematisch hergeleitet und erläutert.
+Dieser Abschnitt beschreibt, wie astronomische Objekte elektromagnetische Strahlung erzeugen und wie sich diese Strahlung im Photonenbild als Photonfluss am Teleskop und am Sensor ausdrücken lässt. Diese Begriffe bilden die physikalische Grundlage für die weitere Betrachtung der Grenzen der Astrofotografie. @smiljanic_em_2019 @smiljanic_obs_2019 @galyam_obs_2012
 
-Ein optisches System ist eine Anordnung aus Spiegeln oder Linsen, die Licht sammelt und in einer Bildebene fokussiert. Das Licht trifft in Form von kleinen Quantenteilchen, sogenannten Photonen auf. Ein zentraler Parameter ist die Apertur $D$, also der effektive Durchmesser der lichtsammelnden Öffnung. Die zugehörige Lichtsammelfläche $A$ entspricht dem Flächeninhalt eines Kreises #cite(<schroeder2000astronomical>) #cite(<hecht2016optics>):
+Die meisten Informationen über das Universum werden aus der Analyse der elektromagnetischen Strahlung gewonnen, die astronomische Objekte aussenden oder reflektieren. @smiljanic_em_2019 @smiljanic_obs_2019 @galyam_obs_2012 Diese Strahlung lässt sich als elektromagnetische Welle mit Wellenlänge λ und Frequenz ν beschreiben, die über die Beziehung λ · ν = c mit der Lichtgeschwindigkeit c verknüpft sind. @smiljanic_em_2019 Alternativ kann Licht im Teilchenbild als Strom masseloser Quanten (Photonen) aufgefasst werden, die diskrete Energiepakete transportieren. @smiljanic_em_2019 @galyam_obs_2012
 
-$ A = pi * (D/2)^2 $
+Für die Astrofotografie ist insbesondere die Teilchen-Sicht relevant, da elektronische Detektoren wie CCDs und CMOS-Sensoren letztlich einzelne Photonen registrieren und in elektrische Ladung umwandeln. @smiljanic_em_2019 @romanishin_ccd_2002 @bolte_sn_2004 Die Stärke des Bildsignals und das unvermeidliche Photonrauschen hängen direkt von der Anzahl der detektierten Photonen ab und lassen sich nur im Photonenbild adäquat beschreiben. @romanishin_ccd_2002 @bolte_sn_2004
 
-Die Anzahl der detektierten Photonen ist proportional zur einfallenden Strahlungsleistung und damit proportional zur Lichtsammelfläche. Da je mehr Lichtstrahlen einfallen, desto mehr Photonen gelangen durch die Apertur #cite(<schroeder2000astronomical>) #cite(<mclean2010electronic_imaging_astronomy>). Folglich wächst die gemessene Photonenzahl mit $D^2$. Eine Verdopplung der Apertur führt somit zu einer Vervierfachung der gesammelten Photonenmenge bei gleicher Belichtungszeit #cite(<schroeder2000astronomical>). Die Belichtungszeit beschreibt die Dauer, wie lange Licht auf den Sensor beziehungsweise die  Apertur fällt. 
+Astronomische Objekte emittieren Strahlung über einen weiten Bereich des elektromagnetischen Spektrums, von Radiowellen bis Gammastrahlung. @esa_em_2002 @smiljanic_em_2019 Für die bodengebundene Astrofotografie ist vor allem das optische Fenster der Erdatmosphäre relevant, das grob den Bereich von etwa 300–900 nm umfasst und den sichtbaren Bereich (ca. 400–700 nm) sowie angrenzendes nahes Infrarot einschließt. @esa_em_2002 @smiljanic_em_2019
 
-Neben der Apertur ist die Brennweite $f$ eine weitere Kenngröße. Sie beschreibt den Abstand, in dem parallel einfallende Strahlen fokussiert werden.
+Für eine illustrative Darstellung des elektromagnetischen Spektrums und der atmosphärischen Transmissionsfenster eignet sich eine schematische Abbildung, wie sie beispielsweise von der Europäischen Weltraumorganisation (ESA) bereitgestellt wird. @esa_em_2002
 
+Ein Photon mit der Frequenz ν besitzt die Energie
 
+$ E = h · ν = (h · c) / lambda $
 
-Zusammen mit der Pixelgröße bestimmt die Brennweite den Bildmaßstab, also wie viele Bogensekunden einem Pixel entsprechen #cite(<born1999principles>) #cite(<karttunen2017fundamental>). Während die Brennweite die geometrische Abbildungsgröße beeinflusst, bestimmt die Apertur sowohl die Lichtmenge als auch die theoretische Auflösung.
+wobei h die Planck-Konstante und c die Lichtgeschwindigkeit im Vakuum ist. @smiljanic_em_2019 @libretexts_photon_2021
 
-Die geometrische Optik beschreibt Licht als geradlinig propagierende Strahlen. Für die tatsächliche Detailauflösung eines Teleskops reicht dieses Modell jedoch nicht aus. Licht besitzt eine endliche Wellenlänge $lambda$ und verhält sich daher wie eine elektromagnetische Welle #cite(<hecht2016optics>). Wird eine solche Welle durch eine endliche Öffnung – also die Apertur eines Teleskops – begrenzt, entsteht Beugung.
+- E: Energie eines Photons [J]  
+- h: Planck-Konstante ≈ 6,626 · 10^{-34} J·s  
+- ν: Frequenz [Hz]  
+- λ: Wellenlänge [m]  
+- c: Lichtgeschwindigkeit ≈ 3,0 · 10^8 m/s  
 
-Beugung führt dazu, dass eine punktförmige Lichtquelle im Bild nicht als idealer Punkt erscheint, sondern als ausgedehnte Intensitätsverteilung. Diese Intensitätsverteilung wird als Point Spread Function (PSF) bezeichnet. Sie beschreibt die Antwort des optischen Systems auf eine ideale Punktquelle #cite(<goodman2005fourier>) #cite(<hecht2016optics>).
+Diese Gleichung folgt aus der Quantisierung der elektromagnetischen Strahlung in Energiequanten E = hν sowie der wellenoptischen Beziehung c = λν. @smiljanic_em_2019 @galyam_obs_2012 Kürzere Wellenlängen (blaues und ultraviolettes Licht) tragen somit mehr Energie pro Photon als längere Wellenlängen (rotes und infrarotes Licht). @smiljanic_em_2019 @libretexts_photon_2021
 
-Mathematisch ergibt sich im Fernfeld, dass die komplexe Feldverteilung in der Bildebene proportional zur Fourier-Transformation der Aperturfunktion ist #cite(<goodman2005fourier>). Für eine kreisförmige Apertur entsteht daraus ein charakteristisches Intensitätsmuster, das sogenannte Airy-Muster #cite(<born1999principles>) #cite(<hecht2016optics>). Dieses besteht aus einem zentralen Maximum (Airy-Scheibe) sowie konzentrischen Nebenringen mit abnehmender Intensität.
+Für die Astrofotografie bedeutet dies, dass bei gleicher Strahlungsleistung im optischen Bereich langwelliges Licht mehr Photonen pro Sekunde liefert als kurzwelligeres Licht, da die Energie pro Photon kleiner ist. @libretexts_photon_2021 Da elektronische Detektoren Photonen zählen, wirkt sich dies direkt auf die erreichbare Signalstärke und das Signal-Rausch-Verhältnis in unterschiedlichen Filterbändern aus. @romanishin_ccd_2002 @bolte_sn_2004
 
-Die Breite des zentralen Maximums definiert die theoretische Auflösungsgrenze eines beugungsbegrenzten Systems. Nach dem Rayleigh-Kriterium beträgt der minimale auflösbare Winkelabstand zweier Punktquellen:
+Zur quantitativen Beschreibung der Strahlung werden in der Radiometrie Leistungsgrößen verwendet, die sich mit Hilfe der Photonenergie in photonische Größen übersetzen lassen. @wilson_era_2013 @pbrt_radiometry_2022
 
-$ theta = 1.22 * lambda / D $
+Wichtige radiometrische Größen sind: @wilson_era_2013 @pbrt_radiometry_2022
 
-#cite(<rayleigh1879optics>) #cite(<born1999principles>) #cite(<hecht2016optics>)
+- Strahlungsleistung (radiant power) Φ_e [W]  
+  Gesamtenergie pro Zeit, die in Form elektromagnetischer Strahlung transportiert wird.
 
-Dabei ist $theta$ der minimale Winkelabstand, $lambda$ die Wellenlänge und $D$ der Aperturdurchmesser. Die Konstante 1.22 ergibt sich aus der ersten Nullstelle der zugrunde liegenden Bessel-Funktion, welche das Beugungsprofil einer Kreisöffnung beschreibt #cite(<born1999principles>) #cite(<hecht2016optics>).
+- Bestrahlungsstärke (irradiance) E_e [W/m²]  
+  Strahlungsleistung pro Fläche, die auf eine Detektorfläche fällt.
 
-Diese Beziehung zeigt, dass eine größere Apertur die Winkelauflösung verbessert, da $theta$ mit wachsendem $D$ kleiner wird. Die Beugungsgrenze ist somit eine direkte Konsequenz der Wellennatur des Lichts #cite(<born1999principles>) #cite(<hecht2016optics>).
+- Strahlungsflussdichte (flux density) f_ν oder f_λ [z. B. W/m²/Hz, W/m²/nm]  
+  Strahlungsleistung pro Fläche und Frequenz- oder Wellenlängenintervall.
 
-Aus systemtheoretischer Sicht lässt sich das Teleskop als lineares, ortsinvariantes System modellieren. Das Bild entsteht als Faltung des idealen Objekts mit der PSF #cite(<goodman2005fourier>). Im Frequenzraum entspricht dies einer Multiplikation mit der Optical Transfer Function (OTF). Diese besitzt eine endliche Grenzfrequenz. Räumliche Frequenzen oberhalb dieser Grenze werden nicht übertragen #cite(<goodman2005fourier>). Feine Detailinformationen, die diese Grenzfrequenz überschreiten, sind physikalisch nicht im Bild enthalten und können daher nicht durch nachgelagerte Bildverarbeitung rekonstruiert werden.
+Diese Größen sind in der astronomischen und optischen Literatur formal definiert und bilden die Basis für photometrische Messungen. @wilson_era_2013 @pbrt_radiometry_2022
 
-Neben der beugungsbedingten Grenze stellt die Erdatmosphäre den dominierenden limitierenden Faktor der bodengebundenen Astrofotografie dar #cite(<fried1966optical_resolution>) #cite(<roddier1999adaptive>). Selbst wenn ein Teleskop theoretisch beugungsbegrenzt arbeitet, wird die erreichbare Detailauflösung häufig durch atmosphärische Turbulenzen bestimmt.
+Im Photonenbild sind die folgenden Größen zentral: @libretexts_photon_2021
 
-Die Atmosphäre weist räumlich und zeitlich schwankende Brechungsindizes auf. Temperatur- und Dichteunterschiede führen zu zufälligen Phasenverschiebungen der einfallenden Wellenfront. Diese Verzerrungen werden als Seeing bezeichnet #cite(<roddier1999adaptive>) #cite(<fried1966optical_resolution>).
+- Photonenzahl N: Anzahl der Photonen (dimensionslos).  
+- Photonfluss Φ_p = dN/dt [Photons/s]: Anzahl der Photonen pro Zeit, die durch eine betrachtete Fläche oder ein System treten. @photonics_flux_2023  
+- Photonflussdichte (Photonen-Bestrahlungsstärke) $Φ_{p,A} = d"N"/(d"t" · d"A")$[Photons $s^{-1} m^{-2}$]: Anzahl der Photonen pro Zeit und Fläche. @libretexts_photon_2021
 
-Zur Quantifizierung dieser Effekte wird der Fried-Parameter $r_0$ eingeführt #cite(<fried1966optical_resolution>) #cite(<roddier1999adaptive>). Er beschreibt die Kohärenzlänge der Atmosphäre, also den maximalen Durchmesser einer Apertur, über den die Wellenfront noch näherungsweise eben ist. Ist die Apertur $D$ größer als $r_0$, so wird die Abbildung nicht mehr primär durch Beugung, sondern durch atmosphärische Turbulenz bestimmt.
+Für (annähernd) monochromatische Strahlung oder Strahlung in einem schmalen spektralen Band mit Bestrahlungsstärke E_e [W/m²] bei Wellenlänge λ ergibt sich der Zusammenhang: @libretexts_photon_2021
 
-Die effektive Winkelauflösung eines atmosphärisch begrenzten Systems lässt sich näherungsweise durch
+$ Φ_{p,A} = E_e/E = E_e/(h · c / lambda) = (E_e · lambda)/(h · c) $
 
-$ theta_"seeing" approx lambda / r_0 $
+mit $Φ_{p,A}$ als Photonflussdichte [Photons s^{-1} m^{-2}] und E_e als Bestrahlungsstärke [W/m²]. Die Konstante h·c ist das Produkt aus Planck-Konstante und Lichtgeschwindigkeit. @libretexts_photon_2021 Die Formel ergibt sich daraus, dass Bestrahlungsstärke Energie pro Zeit und Fläche beschreibt und die Zahl der Photonen pro Zeit und Fläche gerade der Strahlungsleistung dividiert durch die Energie pro Photon entspricht. @libretexts_photon_2021
 
-beschreiben #cite(<fried1966optical_resolution>) #cite(<roddier1999adaptive>).
+Diese Beziehung verbindet radiometrische Messgrößen mit der tatsächlich detektierten Photonenzahl und ist damit eine fundamentale Grundlage für die Berechnung erwarteter Photonenzahlen in der Astrofotografie. @romanishin_ccd_2002
 
-Damit ergeben sich zwei konkurrierende Auflösungsgrenzen:
+In der optischen Astronomie wird die beobachtete Helligkeit eines Objekts über das Magnitudensystem beschrieben. @romanishin_ccd_2002 @smiljanic_meas_2019 Die Differenz der scheinbaren Magnituden zweier Objekte m₁ und m₂ ist über deren Flussdichten f₁ und f₂ durch
 
-- Beugungsgrenze: $ theta_(diff) = 1.22 * lambda / D $
-- Seeing-Grenze: $ theta_"seeing" approx lambda / r_0 $
+$ m_1 - m_2 = -2{,}5 · log_{10} ( f_1 / f_2 ) $
 
-Die tatsächlich erreichbare Winkelauflösung wird durch den jeweils größeren dieser beiden Werte bestimmt. Praktisch gilt daher näherungsweise:
+definiert. @romanishin_ccd_2002 Hier bezeichnet f typischerweise den Strahlungsfluss (oder die Strahlungsflussdichte) eines Objekts in einem bestimmten photometrischen Band. @romanishin_ccd_2002
 
-$ theta_"eff" approx max(1.22 * lambda / D, lambda / r_0) $
+Durch Umstellen erhält man das Flussverhältnis in Abhängigkeit von der Magnitudendifferenz: @romanishin_ccd_2002
 
-Ist $D < r_0$, dominiert die Beugung.  
-Ist $D > r_0$, dominiert die Atmosphäre.
+$ f_1 / f_2 = 10^(-0,4(m_1 - m_2)) $
 
-Typische Seeing-Werte in Mitteleuropa liegen zwischen etwa 1″ und 3″ #cite(<tokovinin2002seeing>). Damit ist in vielen Fällen nicht die Optik, sondern die Atmosphäre der begrenzende Faktor.
+Ein Unterschied von 1 mag entspricht einem Flussverhältnis von etwa 2,512, ein Unterschied von 5 mag einem Faktor 100. @romanishin_ccd_2002 Da der Photonfluss im jeweiligen Band proportional zum Strahlungsfluss ist, gilt dieses Verhältnis auch für Photonflussdichten.
 
-Neben der Turbulenz wirken weitere atmosphärische Effekte wie Extinktion, Streuung und Lichtverschmutzung auf das Signal-Rausch-Verhältnis #cite(<karttunen2017fundamental>) #cite(<cinzano2001world_atlas_night_sky>) #cite(<falchi2016new_world_atlas>). Diese reduzieren den Kontrast schwacher Objekte, beeinflussen jedoch nicht unmittelbar die geometrische Beugungsgrenze.
+Photometrische Systeme werden über Referenzsterne (z. B. Vega) kalibriert, deren Fluss oder Photonfluss in den jeweiligen Bändern als Nullpunkt dient. @romanishin_ccd_2002 Kennt man den Fluss f_ref oder die Photonflussdichte $Φ_{p,"ref"}$ eines Sterns mit Magnitude m = 0 in einem Filterband, so lässt sich der Fluss eines Sterns der Magnitude m durch
 
-== Sensorik und digitale Bildentstehung
+$ f / f_"ref" = 10^(-0,4m) $
 
-Während Kapitel 2.1 die physikalischen Grenzen der optischen Abbildung beschreibt, befasst sich dieser Abschnitt mit der Umwandlung des optischen Signals in ein digitales Bild. Die Sensorik stellt dabei die Schnittstelle zwischen physikalischer Strahlung und numerischer Verarbeitung dar #cite(<mclean2010electronic_imaging_astronomy>).
+bestimmen. @romanishin_ccd_2002 Entsprechend skaliert die Photonflussdichte mit demselben Faktor 10^{-0,4 m}. @romanishin_ccd_2002 In der Literatur zur CCD-Photometrie finden sich konkrete Nullpunktflüsse, aus denen typische Photonflussdichten für 0-mag-Sterne im V-Band am oberen Atmosphärenrand berechnet werden können. @romanishin_ccd_2002 Diese Werte ermöglichen praxisnahe Abschätzungen erwarteter Photonenzahlen am Teleskop und dienen damit der Planung von Belichtungszeiten. @romanishin_ccd_2002
 
-Moderne Astrofotografie verwendet überwiegend CCD- (Charge-Coupled Device) oder CMOS-Sensoren (Complementary Metal-Oxide Semiconductor). Beide Sensortypen bestehen aus einem zweidimensionalen Raster lichtempfindlicher Pixel, in denen einfallende Photonen in elektrische Ladung umgewandelt werden #cite(<howell2006ccd>) #cite(<holst2011cmos>) #cite(<mclean2010electronic_imaging_astronomy>).
+Die von einem Objekt empfangene Photonenzahl hängt linear von der effektiven Sammelfläche des optischen Systems ab. @wilson_era_2013 @howell_ccd_2006 Für ein Teleskop mit Aperturdurchmesser D ergibt sich zunächst die geometrische Öffnungsfläche
 
-Trifft ein Photon auf das Halbleitermaterial des Sensors, kann es ein Elektron-Loch-Paar erzeugen. Dieser Prozess wird als photoelektrischer Effekt im Halbleiter beschrieben #cite(<hecht2016optics>). Die Wahrscheinlichkeit, dass ein Photon in ein Elektron umgewandelt wird, wird durch die Quanteneffizienz (QE) charakterisiert. Sie ist definiert als
+$ A_"geo" = \pi · D^2 / 4 $
 
-$ "QE" = "Anzahl~der~erzeugten~Elektronen" / "Anzahl~der~einfallenden~Photonen" $
+mit D in Metern und A_geo in Quadratmetern. Aufgrund von Reflexionsverlusten an Spiegeln, Absorption in Linsen und Filtern sowie Obstruktionen durch Sekundärspiegel steht jedoch nur ein Teil dieser Fläche effektiv zur Verfügung. @howell_ccd_2006
 
-Typische Quanteneffizienzen moderner Sensoren liegen zwischen 50 % und über 80 % im sichtbaren Spektralbereich #cite(<howell2006ccd>) #cite(<janesick2007photon_transfer>).
+Die effektive Sammelfläche kann durch
 
-Die im Pixel gesammelte elektrische Ladung ist somit proportional zur Anzahl detektierter Photonen #cite(<mclean2010electronic_imaging_astronomy>). Nach Ablauf der Belichtungszeit wird diese Ladung ausgelesen und in eine digitale Zahl überführt.
+$ A_"eff" = A_"geo" · tau_"opt" $
 
-Die digitale Bildentstehung ist stets mit Rauschprozessen verbunden. Diese lassen sich physikalisch in mehrere Komponenten unterteilen:
+beschrieben werden, wobei τ_opt die Gesamtdurchlässigkeit des optischen Systems (dimensionslos, 0–1) darstellt. @howell_ccd_2006 Diese Größe fasst alle optischen Verluste zusammen und bestimmt, wie viele Photonen pro Sekunde bei einem gegebenen Photonfluss tatsächlich das Detektorsystem erreichen. @howell_ccd_2006
+Sei Φ_p die Photonflussdichte des astronomischen Objekts am Ort des Teleskops, dann ist die Zahl der vom Objekt eingefangenen Photonen pro Sekunde
 
-1. Photonisches Rauschen (Shot Noise)  
-2. Ausleserauschen  
-3. Dunkelstromrauschen  
+$ N_"obj" = Φ_p · A_"eff" $
 
-Photonisches Rauschen entsteht aufgrund der diskreten Natur des Lichts. Die Anzahl der während einer Belichtungszeit eintreffenden Photonen folgt einer Poisson-Verteilung #cite(<howell2006ccd>) #cite(<janesick2001ccd>) #cite(<janesick2007photon_transfer>). Für eine mittlere Photonenzahl $N$ gilt:
+mit N_obj in Photons/s. @romanishin_ccd_2002 @wilson_era_2013 Berücksichtigt man zusätzlich die atmosphärische Transmission T_atm(λ) zwischen 0 und 1, ergibt sich am Boden
 
-$ sigma_"shot" = sqrt(N) $
+$ N_("obj","ground") = Φ_p · A_"eff" · T_"atm"(lambda) $
 
-Die Varianz entspricht dabei dem Erwartungswert der Verteilung. Das daraus resultierende Signal-Rausch-Verhältnis (SNR) ist definiert als
+Die atmosphärische Transmission ist stark wellenlängenabhängig und reduziert insbesondere im blauen und ultravioletten Bereich den Photonfluss, während das optische Fenster eine vergleichsweise hohe Transmission aufweist. @esa_em_2002 @smiljanic_em_2019
 
-$ "SNR" = "Signal" / "Rauschen" $
+Für ein ausgedehntes Objekt mit gegebener Oberflächenhelligkeit (z. B. in Magnituden pro Quadratbogensekunde) ist neben der Sammelfläche auch die Winkelskalierung des Systems entscheidend. @romanishin_ccd_2002 @bolte_sn_2004 Ein Pixel mit Winkelmaßstab θ_pix [Bogensekunden/Pixel] deckt am Himmel einen soliden Winkel Ω_pix ab (nach Umrechnung der Winkeleinheiten in Steradiant). @romanishin_ccd_2002
 
-Für rein photonisch begrenztes Rauschen ergibt sich
+Der mittlere Photonenzufluss pro Pixel und Belichtungszeit t_exp ergibt sich näherungsweise zu
 
-$ "SNR" approx N / sqrt(N) = sqrt(N) $
+$ N_"pix" approx Φ_{p,"SB"} · A_"eff" · Omega_"pix" · t_"exp" $
 
-Dies zeigt, dass das SNR nur mit der Quadratwurzel der gesammelten Photonen wächst. Eine Verdopplung des SNR erfordert daher eine Vervierfachung der Belichtungszeit oder der Lichtsammelfläche #cite(<janesick2007photon_transfer>).
+wobei $Φ_{p,"SB"}$ die Photonflussdichte pro Steradiant ist. @romanishin_ccd_2002 @bolte_sn_2004 Dieser Ausdruck verknüpft die physikalische Oberflächenhelligkeit des Objekts mit der registrierten Photonenzahl im Pixel und bildet eine wichtige Grundlage für die Diskussion von Sampling und Signal-Rausch-Verhältnis.
 
-Zusätzlich tritt Ausleserauschen auf, das durch elektronische Verstärker und Analog-Digital-Wandler verursacht wird. Es ist weitgehend unabhängig vom Signal und wird meist als konstante Standardabweichung $sigma_"read"$ modelliert #cite(<holst2011cmos>) #cite(<mclean2010electronic_imaging_astronomy>).
+Der Detektor wandelt eingehende Photonen mit der wellenlängenabhängigen Quanteneffizienz QE(λ) in Elektronen um. @howell_ccd_2006 @aavso_ccd_2013 Die mittlere Zahl der erzeugten Signal-Elektronen pro Pixel ist damit
 
-Der Dunkelstrom entsteht durch thermisch erzeugte Ladungsträger im Halbleiter. Seine Varianz wächst mit der Belichtungszeit und ist temperaturabhängig #cite(<howell2006ccd>) #cite(<janesick2001ccd>).
+$ N_e = N_"pix" · Q"E"(lambda) $
 
-Unter Annahme statistischer Unabhängigkeit addieren sich die Varianzen der einzelnen Rauschquellen:
+wobei N_e die Anzahl der registrierten Elektronen und QE(λ) eine dimensionslose Effizienz zwischen 0 und 1 ist. @howell_ccd_2006 @aavso_ccd_2013 Die Quanteneffizienz koppelt die astrophysikalische Photonenstatistik an das elektrische Signal und bestimmt, wie effizient Photonen unterschiedlicher Wellenlängen in messbare Signale umgesetzt werden. @howell_ccd_2006 @aavso_ccd_2013
 
-$ sigma_"gesamt"^2 = sigma_"shot"^2 + sigma_"read"^2 + sigma_"dark"^2 $
+== Atmosphäre und Transmission
 
-#cite(<janesick2001ccd>) #cite(<janesick2007photon_transfer>)
+Die Erdatmosphäre beeinflusst den Weg der Photonen vom astronomischen Objekt bis zum Detektor und begrenzt damit sowohl die effektive Signalstärke als auch die erreichbare Auflösung in der Astrofotografie. Sie schwächt das Signal durch Extinktion und verändert die Bilder durch turbulente Brechungsindexfluktuationen. @massey_atmos_2000 @spiff_atmos_rit_2005
 
-Dieses Rauschmodell ist zentral für die spätere Analyse des Image Stackings.
+Die durch die Atmosphäre laufende Strahlung wird abgeschwächt, weil Photonen absorbiert oder aus der Sichtlinie gestreut werden. @massey_atmos_2000 @airmass_wiki_2004 In der optischen Astronomie wird diese Abschwächung als atmosphärische Extinktion bezeichnet und hängt vor allem von der Luftmasse und von der Wellenlänge ab. @massey_atmos_2000
 
-Die gesammelte Ladung wird über einen Analog-Digital-Wandler (ADC) in diskrete Grauwertstufen überführt. Bei einem 16-Bit-System stehen beispielsweise $2^16 = 65536$ Intensitätsstufen zur Verfügung. Die Bittiefe bestimmt die maximale Differenzierbarkeit von Signalstärken, beeinflusst jedoch nicht das physikalische Rauschen selbst #cite(<mclean2010electronic_imaging_astronomy>).
 
-Ein weiterer wichtiger Parameter ist die Full-Well-Kapazität eines Pixels. Sie gibt an, wie viele Elektronen maximal gespeichert werden können, bevor Sättigung eintritt #cite(<howell2006ccd>) #cite(<janesick2007photon_transfer>).
+Die wichtigsten Beiträge zur Extinktion sind: @airmass_wiki_2004
 
-Neben der physikalischen Auflösung des optischen Systems bestimmt die Pixelgröße die digitale Abtastung des Bildes. Die kontinuierliche Intensitätsverteilung der PSF wird durch diskrete Pixelwerte repräsentiert.
+- Rayleigh-Streuung an Luftmolekülen  
+  Rayleigh-Streuung tritt an Teilchen auf, die deutlich kleiner als die Wellenlänge sind, und führt zu einer starken Wellenlängenabhängigkeit der Extinktion ∝ 1/λ⁴. @massey_atmos_2000 @airmass_wiki_2004 Kurzwelliges (blaues, UV) Licht wird daher deutlich stärker gestreut als langwelliges (rotes) Licht, was u. a. zum Blau des Tageshimmels führt.
 
-Nach dem Nyquist-Shannon-Abtasttheorem muss die Abtastfrequenz mindestens doppelt so hoch sein wie die höchste im Signal enthaltene Frequenz, um Alias-Effekte zu vermeiden #cite(<nyquist1928telegraph_transmission>) #cite(<shannon1949presence_of_noise>). Übertragen auf die Astrofotografie bedeutet dies: Die Pixelgröße sollte klein genug sein, um die PSF ausreichend fein abzutasten #cite(<goodman2005fourier>).
+- Mie-Streuung an Aerosolen  
+  Mie-Streuung wird durch größere Partikel wie Staub, Tröpfchen und Aerosole verursacht und weist eine schwächere Wellenlängenabhängigkeit auf. @aerosol_bremen_2010 Sie trägt insbesondere im roten Spektralbereich und bei niedrigen Beobachtungshöhen zur Extinktion bei. @airmass_wiki_2004
 
-Ist die Pixelgröße zu groß (Unterabtastung), gehen Detailinformationen verloren, selbst wenn das optische System theoretisch höhere Auflösung liefern könnte. Ist sie deutlich kleiner als erforderlich (Überabtastung), steigt zwar die Datenmenge, das physikalische Informationslimit wird jedoch nicht erweitert.
+- Molekulare Absorption  
+  Moleküle wie Ozon (O₃), Wasserdampf (H₂O) und Sauerstoff (O₂) absor­bieren Photonen in bestimmten Spektralbändern. @airmass_wiki_2004 Dies führt zu charakteristischen Absorptionsbändern (z. B. Ozon im UV, Wasserbänder im nahen IR), in denen die Transmission stark reduziert ist. @esa_em_2002
 
-Damit ergibt sich eine weitere praktische Begrenzung: Die effektive Detailerkennbarkeit wird durch das Zusammenspiel von optischer Auflösung, atmosphärischem Seeing und sensorischer Abtastung bestimmt #cite(<mclean2010electronic_imaging_astronomy>).
+Für die Astrofotografie bedeutet dies, dass die transmittierte Strahlung in einem Filterband durch alle drei Mechanismen gleichzeitig reduziert wird. Der Extinktionskoeffizient k(λ) fasst diese Effekte häufig effektiv pro Wellenlängenbereich zusammen (Einheit meist mag/Luftmasse). @massey_atmos_2000
 
-== Mathematische Grundlagen
+Die Luftmasse X beschreibt, um welchen Faktor der Strahlungsweg durch die Atmosphäre gegenüber dem Zenit vergrößert ist. @airmass_wiki_2004 Bei einem einfachen planparallelen Atmosphärenmodell erhält man für den Zenitwinkel z die Näherung
 
-Die physikalischen Prozesse der Bildentstehung führen zu einem verrauschten digitalen Signal. Image Stacking basiert auf statistischen Prinzipien zur Reduktion dieses Rauschens. In diesem Kapitel werden die mathematischen Grundlagen dargestellt, auf denen diese Methode beruht #cite(<shannon1949presence_of_noise>).
+$X approx sec(z) = 1 / cos(z)$
 
-Eine einzelne Aufnahme kann als Summe aus idealem Signal und Rauschterm modelliert werden:
+mit z als Winkel zwischen Beobachtungsrichtung und Zenit. @massey_atmos_2000 Für moderat große Zenitwinkel (typisch z ≲ 60°) liefert diese Beziehung hinreichend genaue Werte für photometrische Korrekturen. @massey_atmos_2000
 
-$ I_i(x,y) = S(x,y) + N_i(x,y) $
+Bei größeren Zenitwinkeln (d. h. nahe am Horizont) ist die planparallele Näherung nicht mehr ausreichend, und es werden empirisch verbesserte Formeln verwendet, beispielsweise
 
-Dabei ist
+$X approx sec(z) · [1 - 0{,}0012 · (sec^2(z) - 1)]$
 
-- $S(x,y)$ das wahre, ortsabhängige Signal,
-- $N_i(x,y)$ ein zufälliger Rauschterm der $i$-ten Aufnahme.
+die die Erdkrümmung und die vertikale Struktur der Atmosphäre besser berücksichtigen. @massey_atmos_2000
 
-Es wird angenommen, dass:
+Die beobachtete Helligkeit F eines Objekts in einem Filterband wird durch die Extinktion gemäß
 
-1. der Erwartungswert des Rauschens null ist  
-   $ E[N_i(x,y)] = 0 $
-2. die Rauschprozesse verschiedener Aufnahmen statistisch unabhängig sind
-3. die Varianz des Rauschens $sigma^2$ beträgt
+$F_"obs" = F_0 · 10^{-0{,}4 · k(lambda) · X}$
 
-Diese Annahmen sind für photonisches Rauschen bei identischen Aufnahmebedingungen näherungsweise erfüllt #cite(<howell2006ccd>) #cite(<janesick2007photon_transfer>).
+abgeschwächt, wobei F₀ der extraterristrische Fluss (oberhalb der Atmosphäre), k(λ) der Extinktionskoeffizient in mag pro Luftmasse und X die Luftmasse ist. @massey_atmos_2000
 
-Werden $N$ unabhängige Aufnahmen gemittelt, ergibt sich:
+- F_obs: beobachteter Fluss am Teleskop  
+- F₀: Fluss ohne atmosphärische Dämpfung  
+- k(λ): Extinktionskoeffizient [mag/Luftmasse]  
+- X: Luftmasse (dimensionslos)
 
-$ I_"stack"(x,y) = (1/N) * sum_(i=1)^N I_i(x,y) $
+Die Formel folgt aus der Definition, dass eine Extinktion k·X in Magnituden einer logarithmischen Abschwächung des Flusses entspricht, und aus der Beziehung zwischen Magnitudendifferenz und Flussverhältnis. @massey_atmos_2000  
 
-Einsetzen des Modells liefert:
+Typische Extinktionswerte in mittleren Breiten liegen beispielsweise bei etwa 0,4 mag/Luftmasse im B-Band (blau), 0,2 mag/Luftmasse im V-Band und 0,1 mag/Luftmasse im R-Band, während im nahen IR die Extinktion weiter abnimmt. @unittoolbox_airmass_2001 Dies verdeutlicht, dass kurze Wellenlängen deutlich stärker von der Atmosphäre gedämpft werden als lange. @massey_atmos_2000
 
-$ I_"stack"(x,y) = S(x,y) + (1/N) * sum_(i=1)^N N_i(x,y) $
+Da der Photonfluss direkt proportional zum Fluss F ist, reduziert die atmosphärische Extinktion die am Teleskop verfügbare Photonenzahl um denselben Faktor wie die Strahlungsleistung. @massey_atmos_2000 @romanishin_ccd_2002 Für die effektive Photonflussdichte $Φ_(p,"obs")$ gilt damit analog
 
-Der Erwartungswert des Stack-Bildes ist somit:
+$Φ_{p,"obs"} = Φ_{p,0} · 10^{-0{,}4 · k(lambda) · X}$
 
-$ E[I_"stack"] = S(x,y) $
+wobei $Φ_(p,0)$ die Photonflussdichte ohne atmosphärische Abschwächung ist. Die Folge ist, dass bei hoher Luftmasse und in kurzwelligen Filtern deutlich weniger Photonen den Detektor erreichen und damit für ein gegebenes Signal-Rausch-Verhältnis längere Belichtungszeiten erforderlich werden. @massey_atmos_2000 @bolte_sn_2004 Dies verknüpft die Wahl der Beobachtungszeit (Objekt möglichst in der Nähe des Meridians) direkt mit der physikalischen Photonstatistik.
 
-Das Signal bleibt also unverändert erhalten.
+Neben der Extinktion verändert die Atmosphäre die räumliche Struktur des Lichts durch turbulente Fluktuationen des Brechungsindex. @spiff_atmos_rit_2005 @seeing_wiki_2003 Diese Turbulenz führt dazu, dass die Wellenfronten verformt werden und ein punktförmiger Stern nicht als Beugungsscheibchen der Optik, sondern als verwaschene Seeing-Scheibe erscheint. @seeing_wiki_2003
 
-Die Varianz des gemittelten Rauschens beträgt:
 
-$ "Var"(I_"stack") = sigma^2 / N $
+Die Atmosphäre weist auf verschiedenen Höhen und Skalen Temperatur- und Dichteschwankungen auf, die den Brechungsindex lokal verändern. @seeing_wiki_2003 Luftzellen mit leicht unterschiedlichem Brechungsindex bewegen sich durch das Teleskopfeld und verzerren die ankommende Wellenfront. @spiff_atmos_rit_2005
 
-Die Standardabweichung reduziert sich damit zu:
+Integriert man diese Schwankungen entlang der Sichtlinie, erhält man ein stochastisches Wellenfrontfehlerfeld, das sich zeitlich ändert. @seeing_wiki_2003 Je nach Stärke der Turbulenz werden unterschiedliche räumliche Skalen dominieren, was durch das sogenannte C_N²-Profil (Strukturkonstante des Brechungsindex) beschrieben wird. @seeing_wiki_2003  
 
-$ sigma_"stack" = sigma / sqrt(N) $
+Für praktische Anwendungen fasst man die Wirkung der Turbulenz im Fried-Parameter r₀ zusammen.
 
-Das Signal-Rausch-Verhältnis verbessert sich folglich um den Faktor:
+Der Fried-Parameter r₀ (Fried’s coherence length) ist ein Maß für die Qualität der atmosphärischen Übertragung. @fried_param_wiki_2011 Er ist definiert als der Durchmesser einer Kreisöffnung, für die der durch die Atmosphäre verursachte rms-Wellenfrontfehler etwa 1 radian (≈ λ/6) beträgt. @seeing_tutorial_2024
 
-$ "SNR"_"stack" = "SNR"_"single" * sqrt(N) $
+- r₀: Fried-Parameter [m]  
+  Durchmesser eines Bereiches der Eintrittspupille, über den die Wellenfront als „weitgehend kohärent“ angesehen werden kann.
 
-Diese Beziehung stellt die zentrale mathematische Begründung für Image Stacking dar #cite(<janesick2007photon_transfer>) #cite(<zackay2017coadd2>).
+Ist der Teleskopdurchmesser D deutlich kleiner als r₀, kann das System näherungsweise beugungsbegrenzt arbeiten; ist D deutlich größer als r₀, dominiert das Seeing, und die Auflösung wird nicht mehr durch die Optik, sondern durch die Atmosphäre begrenzt. @seeing_tutorial_2024 @littlefair_ao_lecture_2018
 
-Neben der Mittelwertbildung wird häufig der Median verwendet:
+Typische Werte an guten Standorten liegen bei r₀ ≈ 10 cm bei λ = 500 nm, was einem Seeing von etwa 1″ entspricht. @littlefair_ao_lecture_2018 Der Fried-Parameter skaliert mit der Wellenlänge ungefähr wie
 
-$ I_"median"(x,y) = "median"(I_1, ..., I_N) $
+$r_0 ~ lambda^{6/5}$
 
-Der Median ist robuster gegenüber Ausreißern (z. B. kosmischen Strahlen oder Satellitenspuren). Für rein gaussverteiltes Rauschen ist der Median jedoch geringfügig weniger effizient als das arithmetische Mittel. Die asymptotische Varianz des Medians beträgt näherungsweise:
+sodass im nahen Infrarot deutlich größere r₀-Werte und damit kleinere Seeing-Scheiben möglich sind als im sichtbaren Bereich. @littlefair_ao_lecture_2018 @fried_param_wiki_2011
 
-$ "Var"_"median" approx (pi/2) * (sigma^2 / N) $
+Die Turbulenzzellen wandern mit den Winden über das Teleskop hinweg, sodass sich das Muster der Wellenfrontverzerrungen auf Zeitskalen von Millisekunden bis Sekunden ändert. @seeing_wiki_2003 Die charakteristische Zeit, über die die atmosphärischen Bedingungen im Mittel stabil bleiben, wird durch den atmosphärischen Zeitkonstanten t₀ beschrieben. @seeing_wiki_2003
 
-Damit verbessert sich das SNR ebenfalls mit $sqrt(N)$, jedoch mit einem leicht größeren Proportionalitätsfaktor #cite(<zackay2017coadd2>).
+- t₀: atmosphärische Kohärenzzeit [s]  
+  Zeit, nach der sich das Turbulenzmuster signifikant verändert.
 
-Sind einzelne Aufnahmen unterschiedlich verrauscht, kann eine gewichtete Mittelwertbildung verwendet werden:
+Für langbelichtete Bilder über viele t₀ hinweg ergibt sich ein gemitteltes Seeing-Bild, während kurzbelichtete Aufnahmen („Lucky Imaging“) Momente mit besonders geringem Wellenfrontfehler nutzen können. @seeing_wiki_2003 Dies erklärt, warum sehr kurze Einzelbelichtungen zu deutlich schärferen Einzelbildern führen können, obwohl die mittlere Seeing-Bedingung unverändert ist. @spiff_atmos_rit_2005
 
-$ I_"weighted" = (sum w_i * I_i) / (sum w_i) $
+Der Einfluss der Atmosphäre auf die Abbildung eines punktförmigen Sterns lässt sich durch den FWHM-Durchmesser der Seeing-Scheibe in Bogensekunden charakterisieren. @seeing_wiki_2003 In der theoretischen Beschreibung der Kolmogorov-Turbulenz ergibt sich ein Zusammenhang zwischen Fried-Parameter r₀ und der FWHM des Seeing-Scheibchens (für langbelichtete Bilder) von näherungsweise
 
-Optimale Gewichte ergeben sich proportional zum Kehrwert der Varianz:
+$"FWHM"_"seeing" approx 0{,}98 · lambda / r_0$
 
-$ w_i ~ 1 / sigma_i^2 $
+wobei λ die Beobachtungswellenlänge und r₀ der Fried-Parameter ist (beide in gleichen Längeneinheiten). @caltech_coronograph_2004  
 
-Dies entspricht einer Maximum-Likelihood-Schätzung unter Annahme gaussverteilten Rauschens #cite(<zackay2017coadd2>).
+Um den Wert in Bogensekunden auszudrücken, wird der Ausdruck mit dem Umrechnungsfaktor 206265 (Bogensekunden pro Radiant) multipliziert:
 
-Vor dem Stacking müssen die Einzelbilder räumlich ausgerichtet werden. Eine Verschiebung um Bruchteile eines Pixels erfordert Interpolation. Mathematisch wird eine diskrete Verschiebung im Ortsraum als Phasenfaktor im Frequenzraum beschrieben:
+$"FWHM"_"seeing"("arcsec") approx 0{,}98 · (lambda / r_0) · 206265$
 
-$ F_"shifted"(u,v) = F(u,v) * exp(-2pi i (u Delta x + v Delta y)) $
+- λ: Wellenlänge [m]  
+- r₀: Fried-Parameter [m]  
+- FWHM_seeing: charakteristischer Seeing-Durchmesser [arcsec]
 
-#cite(<goodman2005fourier>) #cite(<guizar2008subpixel_registration>)
+Die Formel zeigt, dass ein größerer Fried-Parameter (bessere atmosphärische Bedingungen) zu einem kleineren Seeing-Durchmesser führt und dass Seeing bei längeren Wellenlängen etwas günstiger ist. @littlefair_ao_lecture_2018
 
-Fehlerhafte Registrierung führt zu einer zusätzlichen Faltung mit einer Verschiebungsfunktion und somit zu einem Verlust hochfrequenter Information #cite(<goodman2005fourier>).
+In der Praxis ergibt sich die beobachtete Punktspreizfunktion (PSF) eines Sterns aus der Faltung der optischen PSF des Teleskops mit der atmosphärischen PSF. @cfht_psf_1998
 
-Obwohl das Rauschen mit $1/sqrt(N)$ reduziert werden kann, bleiben physikalische Grenzen bestehen:
+$h_"eff" = h_"optik" * h_"atm"$
 
-1. Die Bandbreite der OTF bleibt unverändert #cite(<goodman2005fourier>).
-2. Beugungs- und Seeing-Grenzen werden nicht verschoben #cite(<fried1966optical_resolution>).
-3. Systematische Fehler (z. B. Nachführfehler) mitteln sich nicht zwingend heraus.
+- h_eff: effektive PSF des Gesamtsystems  
+- h_optik: PSF der beugungsbegrenzten Optik  
+- h_atm: PSF der Atmosphäre (Seeing)
 
-Stacking verbessert somit das Signal-Rausch-Verhältnis, jedoch nicht die fundamentale Auflösungsgrenze.
+Die Faltung beschreibt mathematisch, dass das Bild eines Punktes durch jeden Teil des Systems „verschmiert“ wird. @cfht_psf_1998 Ist die atmosphärische PSF deutlich breiter als die optische Beugungsscheibe, dominiert h_atm, und das System ist seeing-begrenzt; ist hingegen die Optik der limitierende Faktor (z. B. bei Raumteleskopen oder mit leistungsfähiger Adaptiver Optik), bestimmt h_optik die effektive Auflösung. @cfht_psf_1998 @littlefair_ao_lecture_2018
+
+Die Betrachtung von Extinktion und Seeing vervollständigt den Weg der Photonen vom astronomischen Objekt über die Atmosphäre bis in das Teleskop. Die Luftmasse und die wellenlängenabhängige Extinktion bestimmen, wie viele Photonen überhaupt den Detektor erreichen und damit die erreichbare Signalstärke und das Signal-Rausch-Verhältnis. @massey_atmos_2000 @bolte_sn_2004  
+
+Gleichzeitig setzen turbulente Brechungsindexfluktuationen, beschrieben durch den Fried-Parameter r₀ und den Seeing-Scheibendurchmesser, eine reale Auflösungsgrenze, die häufig deutlich über der theoretischen Beugungsgrenze der Optik liegt. @seeing_wiki_2003 @fried_param_wiki_2011 Selbst ein perfektes, beugungsbegrenztes Teleskop kann diese Grenze ohne adaptive Optik nicht unterschreiten. Damit liefert die Atmosphäre eine zentrale physikalische Begründung dafür, warum die in der Optik ideal erreichbare Auflösung in der bodengebundenen Astrofotografie meist nicht ausgeschöpft werden kann. @littlefair_ao_lecture_2018
+text
+
+== Optische Systeme der Astrofotografie
+
+== Abbildung, Sampling und digitale Erfassung
+
+== Signal-Rausch-Verhältnis und Belichtungszeit
+
+== Begrenzende Faktoren der Bildqualität
+
+== Lösungsansätze in der Astrofotografie
 
 == Stacking-Verfahren
-
-Die bisherigen mathematischen Betrachtungen basieren auf der idealisierten Annahme additiven, statistisch unabhängigen und näherungsweise gaussverteilten Rauschens. In der praktischen Astrofotografie treten jedoch zusätzliche Effekte wie kosmische Strahlen, Satellitenspuren, Hotpixel oder variable Transparenzbedingungen auf. Daher existieren verschiedene Stacking-Verfahren, die unterschiedliche statistische Eigenschaften und Robustheiten aufweisen.
-
-Das einfachste Verfahren ist das arithmetische Mittel:
-
-$ I_"mean"(x,y) = (1/N) * sum_(i=1)^N I_i(x,y) $
-
-Unter Annahme gaussverteilten, unabhängigen Rauschens stellt das arithmetische Mittel den Maximum-Likelihood-Schätzer für das wahre Signal dar und minimiert die Varianz der Schätzung #cite(<zackay2017coadd2>). Die Varianz reduziert sich proportional zu $1/N$, wodurch das Signal-Rausch-Verhältnis mit $sqrt(N)$ wächst.
-
-Sind die Einzelaufnahmen unterschiedlich verrauscht, ist eine gewichtete Mittelwertbildung optimal:
-
-$ I_"weighted" = (sum w_i * I_i) / (sum w_i) $
-
-mit
-
-$ w_i ~ 1 / sigma_i^2 $
-
-Diese Gewichtung entspricht ebenfalls einer Maximum-Likelihood-Schätzung unter heteroskedastischem, gaussverteiltem Rauschen #cite(<zackay2017coadd2>).
-
-Lineare Verfahren sind statistisch effizient, jedoch empfindlich gegenüber Ausreißern.
-
-In realen Datensätzen treten häufig Ausreißer auf, etwa durch kosmische Strahlung oder sporadische Störungen. Das Median-Stacking definiert das kombinierte Bild als
-
-$ I_"median"(x,y) = "median"(I_1, ..., I_N) $
-
-Der Median ist gegenüber Ausreißern robust, da extreme Werte keinen linearen Einfluss auf das Ergebnis besitzen. Für rein gaussverteiltes Rauschen ist er jedoch weniger effizient als das arithmetische Mittel. Die asymptotische Effizienz beträgt etwa $2/pi$ relativ zum Mittelwert #cite(<zackay2017coadd2>).
-
-Ein häufig verwendetes Verfahren ist das sogenannte Sigma-Clipping. Hierbei wird iterativ der Mittelwert berechnet und Werte, die um mehr als $k * sigma$ vom Mittelwert abweichen, werden verworfen. Dieses Verfahren kombiniert die statistische Effizienz des Mittelwertes mit einer erhöhten Robustheit gegenüber Ausreißern #cite(<howell2006ccd>).
-
-Ist das System unterabgetastet, kann durch gezielte Subpixel-Verschiebungen eine effektiv höhere Abtastdichte erreicht werden. Der Drizzle-Algorithmus rekonstruiert aus mehreren leicht verschobenen Aufnahmen ein höher aufgelöstes Bildgitter #cite(<fruchter2002drizzle>).
-
-Dabei werden Pixelwerte nicht einfach gemittelt, sondern als gewichtete Flächenanteile auf ein feineres Raster projiziert. Mathematisch entspricht dies einer linearen Rekonstruktionsoperation, die die vorhandene Bandbreite des Signals besser ausnutzt, jedoch keine neue physikalische Information erzeugt.
-
-Drizzle ist insbesondere bei stark unterabgetasteten Weltraumteleskopen wie dem Hubble Space Telescope etabliert.
-
-Bei bodengebundener Beobachtung variiert die atmosphärische Verzerrung zeitlich. Lucky Imaging basiert auf der Selektion der schärfsten Einzelaufnahmen innerhalb einer Bildserie #cite(<roddier1999adaptive>) #cite(<law2006lucky>).
-
-Anstatt alle Frames zu mitteln, werden nur diejenigen mit besonders kleiner effektiver PSF kombiniert. Dadurch kann sich die effektive Auflösung der finalen Aufnahme der beugungsbegrenzten Grenze annähern, sofern kurzzeitig günstige Seeing-Bedingungen auftreten.
-
-Dieses Verfahren verbessert die Auflösung nicht durch Signalverarbeitung, sondern durch statistische Auswahl günstiger physikalischer Zustände der Atmosphäre.
-
-Die verschiedenen Stacking-Methoden unterscheiden sich hinsichtlich:
-
-- statistischer Effizienz
-- Robustheit gegenüber Ausreißern
-- Fähigkeit zur Rekonstruktion unterabgetasteter Daten
-- Empfindlichkeit gegenüber systematischen Fehlern
-
-Lineare Mittelungsverfahren maximieren das SNR unter idealisierten Annahmen. Robuste Verfahren reduzieren Artefakte. Rekonstruktive Verfahren wie Drizzle verbessern die effektive Abtastung. Selektive Verfahren wie Lucky Imaging nutzen atmosphärische Variabilität aus.
-
-Keine dieser Methoden kann jedoch die durch Beugung oder Seeing vorgegebene physikalische Bandbreite des Systems erweitern.
-
-== Auflösung im Stacking-Kontext
-
-Die vorangegangenen Kapitel haben gezeigt, dass die physikalische Auflösung eines optischen Systems durch Beugung und atmosphärische Turbulenz begrenzt ist #cite(<born1999principles>) #cite(<fried1966optical_resolution>). Gleichzeitig wurde dargestellt, dass Image Stacking das Signal-Rausch-Verhältnis proportional zu $sqrt(N)$ verbessert #cite(<janesick2007photon_transfer>) #cite(<zackay2017coadd2>). Im Folgenden wird untersucht, inwieweit sich durch Stacking auch die räumliche Auflösung beeinflussen lässt.
-
-Zunächst ist zwischen zwei Begriffen zu unterscheiden: dem Signal-Rausch-Verhältnis (SNR) und der Winkelauflösung. Während das SNR eine statistische Kenngröße ist, die das Verhältnis von Signalstärke zu Rauschamplitude beschreibt, bezeichnet die Winkelauflösung die minimale trennbare Strukturgröße im Bild. Diese wird durch die effektive Point Spread Function (PSF) bestimmt #cite(<goodman2005fourier>).
-
-Eine Einzelaufnahme kann modelliert werden als
-
-$ I_i(x,y) = (S * h)(x,y) + N_i(x,y) $
-
-wobei $S$ das ideale Objekt, $h$ die PSF des Systems und $N_i$ das Rauschen der $i$-ten Aufnahme darstellt. Beim arithmetischen Stacking von $N$ Aufnahmen ergibt sich
-
-$ I_"stack"(x,y) = (S * h)(x,y) + (1/N) * sum_(i=1)^N N_i(x,y) $
-
-Das deterministische Signal $(S * h)$ bleibt unverändert. Lediglich der Rauschterm wird statistisch reduziert. Die PSF, die die effektive Unschärfe beschreibt, wird durch die Mittelwertbildung nicht schmaler. Damit bleibt die Bandbreite der Optical Transfer Function (OTF) unverändert #cite(<goodman2005fourier>) #cite(<zackay2017coadd2>).
-
-Im Frequenzraum ergibt sich:
-
-$ G_i(u,v) = F(u,v) * H(u,v) + N_i(u,v) $
-
-Nach Mittelwertbildung:
-
-$ G_"stack"(u,v) = F(u,v) * H(u,v) + (1/N) * sum N_i(u,v) $
-
-Da $H(u,v)$ unverändert bleibt, ändert sich die maximale übertragbare räumliche Frequenz nicht #cite(<goodman2005fourier>). Feinstrukturen oberhalb der Grenzfrequenz werden weiterhin nicht übertragen. Stacking kann somit keine Information rekonstruieren, die physikalisch nicht im Bild enthalten ist #cite(<born1999principles>).
-
-Allerdings beeinflusst die Rauschreduktion indirekt die praktische Detailerkennbarkeit. In einer verrauschten Einzelaufnahme können schwache, hochfrequente Signalanteile im Rauschen untergehen. Durch die Verbesserung des SNR werden solche Strukturen statistisch sichtbarer. Dies stellt jedoch keine Erweiterung der physikalischen Auflösung dar, sondern eine Verbesserung der Detektierbarkeit innerhalb der bestehenden Bandbreite #cite(<zackay2017coadd2>).
-
-Ein Sonderfall ergibt sich bei unterabgetasteten Systemen. Ist die Pixelgröße größer als die durch das Nyquist-Kriterium geforderte Abtastung der PSF, kann es zu Alias-Effekten kommen #cite(<nyquist1928telegraph_transmission>) #cite(<shannon1949presence_of_noise>). Werden mehrere leicht gegeneinander verschobene Aufnahmen kombiniert, kann eine effektiv feinere Abtastung des kontinuierlichen Signals erreicht werden. Verfahren wie der sogenannte Drizzle-Algorithmus nutzen gezielte Subpixel-Verschiebungen zur Rekonstruktion eines höher aufgelösten Rasters #cite(<fruchter2002drizzle>).
-
-Mathematisch basiert dies auf der Tatsache, dass mehrere diskret abgetastete Versionen eines bandbegrenzten Signals mit unterschiedlichen Phasenlagen kombiniert werden können, um die Abtastdichte zu erhöhen #cite(<shannon1949presence_of_noise>). Voraussetzung ist jedoch, dass die ursprüngliche PSF bereits genügend Bandbreite enthält. Es wird keine neue physikalische Information erzeugt, sondern lediglich eine bessere Rekonstruktion der bereits vorhandenen kontinuierlichen Information ermöglicht #cite(<fruchter2002drizzle>).
-
-Eine tatsächliche Auflösungssteigerung kann nur erfolgen, wenn sich die effektive PSF zwischen den Einzelaufnahmen ändert. Beim sogenannten Lucky Imaging werden beispielsweise gezielt Aufnahmen mit besonders geringer atmosphärischer Verzerrung ausgewählt #cite(<roddier1999adaptive>). In diesem Fall wird nicht die PSF künstlich verbessert, sondern statistisch die günstigste reale PSF selektiert. Die erreichbare Auflösung bleibt jedoch durch die momentane Beugungs- oder Seeing-Grenze bestimmt #cite(<fried1966optical_resolution>).
-
-Zusammenfassend lässt sich festhalten, dass Image Stacking die räumliche Auflösung eines Systems nicht über die durch Beugung und Atmosphäre vorgegebene Grenze hinaus erhöhen kann. Es verbessert das Signal-Rausch-Verhältnis und damit die praktische Sichtbarkeit feiner Strukturen, verändert jedoch nicht die fundamentale Bandbreite des optischen Systems #cite(<goodman2005fourier>) #cite(<zackay2017coadd2>). Die effektive Auflösung bleibt somit gegeben durch
-
-$ theta_"eff" approx max(1.22 * lambda / D, lambda / r_0) $
-
-während das Stacking ausschließlich die statistische Qualität der Abbildung verbessert.
-
 
 = Methodik
 
