@@ -195,9 +195,9 @@ Für ein ausgedehntes Objekt mit gegebener Oberflächenhelligkeit (z. B. in Magn
 
 Der mittlere Photonenzufluss pro Pixel und Belichtungszeit t_exp ergibt sich näherungsweise zu
 
-$ N_"pix" approx Φ_{p,"SB"} · A_"eff" · Omega_"pix" · t_"exp" $
+$ N_"pix" approx Φ_(p,"SB") · A_"eff" · Omega_"pix" · t_"exp" $
 
-wobei $Φ_{p,"SB"}$ die Photonflussdichte pro Steradiant ist. @romanishin_ccd_2002 @bolte_sn_2004 Dieser Ausdruck verknüpft die physikalische Oberflächenhelligkeit des Objekts mit der registrierten Photonenzahl im Pixel und bildet eine wichtige Grundlage für die Diskussion von Sampling und Signal-Rausch-Verhältnis.
+wobei $Φ_(p,"SB")$ die Photonflussdichte pro Steradiant ist. @romanishin_ccd_2002 @bolte_sn_2004 Dieser Ausdruck verknüpft die physikalische Oberflächenhelligkeit des Objekts mit der registrierten Photonenzahl im Pixel und bildet eine wichtige Grundlage für die Diskussion von Sampling und Signal-Rausch-Verhältnis.
 
 Der Detektor wandelt eingehende Photonen mit der wellenlängenabhängigen Quanteneffizienz QE(λ) in Elektronen um. @howell_ccd_2006 @aavso_ccd_2013 Die mittlere Zahl der erzeugten Signal-Elektronen pro Pixel ist damit
 
@@ -209,13 +209,13 @@ wobei N_e die Anzahl der registrierten Elektronen und QE(λ) eine dimensionslose
 
 Die Erdatmosphäre beeinflusst den Weg der Photonen vom astronomischen Objekt bis zum Detektor und begrenzt damit sowohl die effektive Signalstärke als auch die erreichbare Auflösung in der Astrofotografie. Sie schwächt das Signal durch Extinktion und verändert die Bilder durch turbulente Brechungsindexfluktuationen. @massey_atmos_2000 @spiff_atmos_rit_2005
 
-Die durch die Atmosphäre laufende Strahlung wird abgeschwächt, weil Photonen absorbiert oder aus der Sichtlinie gestreut werden. @massey_atmos_2000 @airmass_wiki_2004 In der optischen Astronomie wird diese Abschwächung als atmosphärische Extinktion bezeichnet und hängt vor allem von der Luftmasse und von der Wellenlänge ab. @massey_atmos_2000
+Die durch die Atmosphäre laufende Strahlung wird abgeschwächt, weil Photonen absorbiert oder aus der Sichtlinie gestreut werden. @massey_atmos_2000 @airmass_wiki_2004 In der optischen Astronomie wird diese Abschwächung als atmosphärische Extinktion bezeichnet und hängt vor allem von der Luftmasse und von der Wellenlänge ab. Die sogenannte Transmission beschreibt die Lichtdurchlässigkeit von optischen Komponenten, darunter Linsen oder Filtern. @massey_atmos_2000
 
 
 Die wichtigsten Beiträge zur Extinktion sind: @airmass_wiki_2004
 
 - Rayleigh-Streuung an Luftmolekülen  
-  Rayleigh-Streuung tritt an Teilchen auf, die deutlich kleiner als die Wellenlänge sind, und führt zu einer starken Wellenlängenabhängigkeit der Extinktion ∝ 1/λ⁴. @massey_atmos_2000 @airmass_wiki_2004 Kurzwelliges (blaues, UV) Licht wird daher deutlich stärker gestreut als langwelliges (rotes) Licht, was u. a. zum Blau des Tageshimmels führt.
+  Rayleigh-Streuung tritt an Teilchen auf, die deutlich kleiner als die Wellenlänge sind, und führt zu einer starken Wellenlängenabhängigkeit der Extinktion $∝ 1/λ⁴$. @massey_atmos_2000 @airmass_wiki_2004 Kurzwelliges (blaues, UV) Licht wird daher deutlich stärker gestreut als langwelliges (rotes) Licht, was unter anderem zum Blau des Tageshimmels führt.
 
 - Mie-Streuung an Aerosolen  
   Mie-Streuung wird durch größere Partikel wie Staub, Tröpfchen und Aerosole verursacht und weist eine schwächere Wellenlängenabhängigkeit auf. @aerosol_bremen_2010 Sie trägt insbesondere im roten Spektralbereich und bei niedrigen Beobachtungshöhen zur Extinktion bei. @airmass_wiki_2004
@@ -225,40 +225,40 @@ Die wichtigsten Beiträge zur Extinktion sind: @airmass_wiki_2004
 
 Für die Astrofotografie bedeutet dies, dass die transmittierte Strahlung in einem Filterband durch alle drei Mechanismen gleichzeitig reduziert wird. Der Extinktionskoeffizient k(λ) fasst diese Effekte häufig effektiv pro Wellenlängenbereich zusammen (Einheit meist mag/Luftmasse). @massey_atmos_2000
 
-Die Luftmasse X beschreibt, um welchen Faktor der Strahlungsweg durch die Atmosphäre gegenüber dem Zenit vergrößert ist. @airmass_wiki_2004 Bei einem einfachen planparallelen Atmosphärenmodell erhält man für den Zenitwinkel z die Näherung
+Die Luftmasse X beschreibt, um welchen Faktor der Strahlungsweg durch die Atmosphäre gegenüber dem Zenit vergrößert ist. Der Zenit ist der Punkt, der senkrecht (90°) zum Beochbachtendem steht. @airmass_wiki_2004 Bei einem einfachen planparallelen Atmosphärenmodell erhält man für den Zenitwinkel z die Näherung
 
-$X approx sec(z) = 1 / cos(z)$
+$ X approx sec(z) = 1 / cos(z) $
 
 mit z als Winkel zwischen Beobachtungsrichtung und Zenit. @massey_atmos_2000 Für moderat große Zenitwinkel (typisch z ≲ 60°) liefert diese Beziehung hinreichend genaue Werte für photometrische Korrekturen. @massey_atmos_2000
 
 Bei größeren Zenitwinkeln (d. h. nahe am Horizont) ist die planparallele Näherung nicht mehr ausreichend, und es werden empirisch verbesserte Formeln verwendet, beispielsweise
 
-$X approx sec(z) · [1 - 0{,}0012 · (sec^2(z) - 1)]$
+$ X approx sec(z) · [1 - 0,0012 · (sec^2(z) - 1)] $
 
 die die Erdkrümmung und die vertikale Struktur der Atmosphäre besser berücksichtigen. @massey_atmos_2000
 
 Die beobachtete Helligkeit F eines Objekts in einem Filterband wird durch die Extinktion gemäß
 
-$F_"obs" = F_0 · 10^{-0{,}4 · k(lambda) · X}$
+$ F_"obs" = F_0 · 10^(-0,4 · k(lambda) · X) $
 
 abgeschwächt, wobei F₀ der extraterristrische Fluss (oberhalb der Atmosphäre), k(λ) der Extinktionskoeffizient in mag pro Luftmasse und X die Luftmasse ist. @massey_atmos_2000
 
-- F_obs: beobachteter Fluss am Teleskop  
+- $F_"obs"$: beobachteter Fluss am Teleskop  
 - F₀: Fluss ohne atmosphärische Dämpfung  
 - k(λ): Extinktionskoeffizient [mag/Luftmasse]  
 - X: Luftmasse (dimensionslos)
 
 Die Formel folgt aus der Definition, dass eine Extinktion k·X in Magnituden einer logarithmischen Abschwächung des Flusses entspricht, und aus der Beziehung zwischen Magnitudendifferenz und Flussverhältnis. @massey_atmos_2000  
 
-Typische Extinktionswerte in mittleren Breiten liegen beispielsweise bei etwa 0,4 mag/Luftmasse im B-Band (blau), 0,2 mag/Luftmasse im V-Band und 0,1 mag/Luftmasse im R-Band, während im nahen IR die Extinktion weiter abnimmt. @unittoolbox_airmass_2001 Dies verdeutlicht, dass kurze Wellenlängen deutlich stärker von der Atmosphäre gedämpft werden als lange. @massey_atmos_2000
+Typische Extinktionswerte in mittleren Breiten liegen beispielsweise bei etwa 0,4 mag/Luftmasse im niedrigeren Wellenlängenbereich (blau), 0,2 mag/Luftmasse im mittleren Wellenlängenbereich und 0,1 mag/Luftmasse im höheren Wellenlängenbereich, während im nahen IR die Extinktion weiter abnimmt. @unittoolbox_airmass_2001 Dies verdeutlicht, dass kurze Wellenlängen deutlich stärker von der Atmosphäre gedämpft werden als lange. @massey_atmos_2000
 
 Da der Photonfluss direkt proportional zum Fluss F ist, reduziert die atmosphärische Extinktion die am Teleskop verfügbare Photonenzahl um denselben Faktor wie die Strahlungsleistung. @massey_atmos_2000 @romanishin_ccd_2002 Für die effektive Photonflussdichte $Φ_(p,"obs")$ gilt damit analog
 
-$Φ_{p,"obs"} = Φ_{p,0} · 10^{-0{,}4 · k(lambda) · X}$
+$ Φ_(p,"obs") = Φ_(p,0) · 10^(-0,4 · k(lambda) · X) $
 
-wobei $Φ_(p,0)$ die Photonflussdichte ohne atmosphärische Abschwächung ist. Die Folge ist, dass bei hoher Luftmasse und in kurzwelligen Filtern deutlich weniger Photonen den Detektor erreichen und damit für ein gegebenes Signal-Rausch-Verhältnis längere Belichtungszeiten erforderlich werden. @massey_atmos_2000 @bolte_sn_2004 Dies verknüpft die Wahl der Beobachtungszeit (Objekt möglichst in der Nähe des Meridians) direkt mit der physikalischen Photonstatistik.
+wobei $Φ_(p,0)$ die Photonflussdichte ohne atmosphärische Abschwächung ist. Die Folge ist, dass bei hoher Luftmasse und in kurzwelligen Filtern deutlich weniger Photonen den Detektor erreichen und damit für ein gegebenes Signal-Rausch-Verhältnis längere Belichtungszeiten erforderlich werden. Das Signal-Rausch-Verhältnis beschreibt dabei die Qualität eines Nutzsignals und setzt das Signal mit dem Rauschen ins Verhältnis. @massey_atmos_2000 @bolte_sn_2004 Dies verknüpft die Wahl der Beobachtungszeit (Objekt möglichst in der Nähe des Meridians) direkt mit der physikalischen Photonstatistik.
 
-Neben der Extinktion verändert die Atmosphäre die räumliche Struktur des Lichts durch turbulente Fluktuationen des Brechungsindex. @spiff_atmos_rit_2005 @seeing_wiki_2003 Diese Turbulenz führt dazu, dass die Wellenfronten verformt werden und ein punktförmiger Stern nicht als Beugungsscheibchen der Optik, sondern als verwaschene Seeing-Scheibe erscheint. @seeing_wiki_2003
+Neben der Extinktion verändert die Atmosphäre die räumliche Struktur des Lichts durch turbulente Fluktuationen des Brechungsindex. Die einfallenden Photonen werden an der Atmosphäre dadurch unterschiedlich gebrochen. @spiff_atmos_rit_2005 @seeing_wiki_2003 Diese Turbulenz führt dazu, dass die Wellenfronten verformt werden und ein punktförmiger Stern nicht als Beugungsscheibchen der Optik, sondern als verwaschene Seeing-Scheibe erscheint. @seeing_wiki_2003
 
 
 Die Atmosphäre weist auf verschiedenen Höhen und Skalen Temperatur- und Dichteschwankungen auf, die den Brechungsindex lokal verändern. @seeing_wiki_2003 Luftzellen mit leicht unterschiedlichem Brechungsindex bewegen sich durch das Teleskopfeld und verzerren die ankommende Wellenfront. @spiff_atmos_rit_2005
@@ -276,7 +276,7 @@ Ist der Teleskopdurchmesser D deutlich kleiner als r₀, kann das System näheru
 
 Typische Werte an guten Standorten liegen bei r₀ ≈ 10 cm bei λ = 500 nm, was einem Seeing von etwa 1″ entspricht. @littlefair_ao_lecture_2018 Der Fried-Parameter skaliert mit der Wellenlänge ungefähr wie
 
-$r_0 ~ lambda^{6/5}$
+$ r_0 ~ lambda^(6/5) $
 
 sodass im nahen Infrarot deutlich größere r₀-Werte und damit kleinere Seeing-Scheiben möglich sind als im sichtbaren Bereich. @littlefair_ao_lecture_2018 @fried_param_wiki_2011
 
@@ -289,13 +289,13 @@ Für langbelichtete Bilder über viele t₀ hinweg ergibt sich ein gemitteltes S
 
 Der Einfluss der Atmosphäre auf die Abbildung eines punktförmigen Sterns lässt sich durch den FWHM-Durchmesser der Seeing-Scheibe in Bogensekunden charakterisieren. @seeing_wiki_2003 In der theoretischen Beschreibung der Kolmogorov-Turbulenz ergibt sich ein Zusammenhang zwischen Fried-Parameter r₀ und der FWHM des Seeing-Scheibchens (für langbelichtete Bilder) von näherungsweise
 
-$"FWHM"_"seeing" approx 0{,}98 · lambda / r_0$
+$ "FWHM"_"seeing" approx 0,98 · lambda / r_0 $
 
 wobei λ die Beobachtungswellenlänge und r₀ der Fried-Parameter ist (beide in gleichen Längeneinheiten). @caltech_coronograph_2004  
 
 Um den Wert in Bogensekunden auszudrücken, wird der Ausdruck mit dem Umrechnungsfaktor 206265 (Bogensekunden pro Radiant) multipliziert:
 
-$"FWHM"_"seeing"("arcsec") approx 0{,}98 · (lambda / r_0) · 206265$
+$ "FWHM"_"seeing"("arcsec") approx 0,98 · (lambda / r_0) · 206265 $
 
 - λ: Wellenlänge [m]  
 - r₀: Fried-Parameter [m]  
@@ -305,7 +305,7 @@ Die Formel zeigt, dass ein größerer Fried-Parameter (bessere atmosphärische B
 
 In der Praxis ergibt sich die beobachtete Punktspreizfunktion (PSF) eines Sterns aus der Faltung der optischen PSF des Teleskops mit der atmosphärischen PSF. @cfht_psf_1998
 
-$h_"eff" = h_"optik" * h_"atm"$
+$ h_"eff" = h_"optik" * h_"atm" $
 
 - h_eff: effektive PSF des Gesamtsystems  
 - h_optik: PSF der beugungsbegrenzten Optik  
