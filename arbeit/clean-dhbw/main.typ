@@ -101,7 +101,7 @@ Dieser Abschnitt beschreibt, wie astronomische Objekte elektromagnetische Strahl
 
 Die meisten Informationen über das Universum werden aus der Analyse der elektromagnetischen Strahlung gewonnen, die astronomische Objekte aussenden oder reflektieren. @smiljanic_em_2019 @smiljanic_obs_2019 @galyam_obs_2012 Diese Strahlung lässt sich als elektromagnetische Welle mit Wellenlänge λ und Frequenz ν beschreiben, die über die Beziehung λ · ν = c mit der Lichtgeschwindigkeit c verknüpft sind. @smiljanic_em_2019 Alternativ kann Licht im Teilchenbild als Strom masseloser Quanten (Photonen) aufgefasst werden, die diskrete Energiepakete transportieren. @smiljanic_em_2019 @galyam_obs_2012
 
-Für die Astrofotografie ist insbesondere die Teilchen-Sicht relevant, da elektronische Detektoren wie CCDs und CMOS-Sensoren letztlich einzelne Photonen registrieren und in elektrische Ladung umwandeln. @smiljanic_em_2019 @romanishin_ccd_2002 @bolte_sn_2004 Die Stärke des Bildsignals und das unvermeidliche Photonrauschen hängen direkt von der Anzahl der detektierten Photonen ab und lassen sich nur im Photonenbild adäquat beschreiben. @romanishin_ccd_2002 @bolte_sn_2004
+Für die Astrofotografie ist insbesondere die Teilchen-Sicht relevant, da elektronische Detektoren letztlich einzelne Photonen registrieren und in elektrische Ladung umwandeln. @smiljanic_em_2019 @romanishin_ccd_2002 @bolte_sn_2004 Die Stärke des Bildsignals und das unvermeidliche Photonrauschen hängen direkt von der Anzahl der detektierten Photonen ab und lassen sich nur im Photonenbild adäquat beschreiben. @romanishin_ccd_2002 @bolte_sn_2004
 
 Astronomische Objekte emittieren Strahlung über einen weiten Bereich des elektromagnetischen Spektrums, von Radiowellen bis Gammastrahlung. @esa_em_2002 @smiljanic_em_2019 Für die bodengebundene Astrofotografie ist vor allem das optische Fenster der Erdatmosphäre relevant, das grob den Bereich von etwa 300–900 nm umfasst und den sichtbaren Bereich (ca. 400–700 nm) sowie angrenzendes nahes Infrarot einschließt. @esa_em_2002 @smiljanic_em_2019
 
@@ -258,7 +258,8 @@ $ Φ_(p,"obs") = Φ_(p,0) · 10^(-0,4 · k(lambda) · X) $
 
 wobei $Φ_(p,0)$ die Photonflussdichte ohne atmosphärische Abschwächung ist. Die Folge ist, dass bei hoher Luftmasse und in kurzwelligen Filtern deutlich weniger Photonen den Detektor erreichen und damit für ein gegebenes Signal-Rausch-Verhältnis längere Belichtungszeiten erforderlich werden. Das Signal-Rausch-Verhältnis beschreibt dabei die Qualität eines Nutzsignals und setzt das Signal mit dem Rauschen ins Verhältnis. @massey_atmos_2000 @bolte_sn_2004 Dies verknüpft die Wahl der Beobachtungszeit (Objekt möglichst in der Nähe des Meridians) direkt mit der physikalischen Photonstatistik.
 
-Neben der Extinktion verändert die Atmosphäre die räumliche Struktur des Lichts durch turbulente Fluktuationen des Brechungsindex. Die einfallenden Photonen werden an der Atmosphäre dadurch unterschiedlich gebrochen. @spiff_atmos_rit_2005 @seeing_wiki_2003 Diese Turbulenz führt dazu, dass die Wellenfronten verformt werden und ein punktförmiger Stern nicht als Beugungsscheibchen der Optik, sondern als verwaschene Seeing-Scheibe erscheint. @seeing_wiki_2003
+Neben der Extinktion verändert die Atmosphäre die räumliche Struktur des Lichts durch turbulente Fluktuationen des Brechungsindex. Die einfallenden Photonen werden an der Atmosphäre dadurch unterschiedlich gebrochen. @spiff_atmos_rit_2005 @seeing_wiki_2003 Diese Turbulenz führt dazu, dass die Wellenfronten verformt werden und ein punktförmiger Stern nicht als Beugungsscheibchen der Optik, sondern als verwaschene Seeing-Scheibe erscheint.
+Unter astronomischem Seeing versteht man die durch die Atmosphäre verursachte zeitlich veränderliche Unschärfe und Verzerrung von Sternbildern. @seeing_wiki_2003
 
 
 Die Atmosphäre weist auf verschiedenen Höhen und Skalen Temperatur- und Dichteschwankungen auf, die den Brechungsindex lokal verändern. @seeing_wiki_2003 Luftzellen mit leicht unterschiedlichem Brechungsindex bewegen sich durch das Teleskopfeld und verzerren die ankommende Wellenfront. @spiff_atmos_rit_2005
@@ -316,7 +317,6 @@ Die Faltung beschreibt mathematisch, dass das Bild eines Punktes durch jeden Tei
 Die Betrachtung von Extinktion und Seeing vervollständigt den Weg der Photonen vom astronomischen Objekt über die Atmosphäre bis in das Teleskop. Die Luftmasse und die wellenlängenabhängige Extinktion bestimmen, wie viele Photonen überhaupt den Detektor erreichen und damit die erreichbare Signalstärke und das Signal-Rausch-Verhältnis. @massey_atmos_2000 @bolte_sn_2004  
 
 Gleichzeitig setzen turbulente Brechungsindexfluktuationen, beschrieben durch den Fried-Parameter r₀ und den Seeing-Scheibendurchmesser, eine reale Auflösungsgrenze, die häufig deutlich über der theoretischen Beugungsgrenze der Optik liegt. @seeing_wiki_2003 @fried_param_wiki_2011 Selbst ein perfektes, beugungsbegrenztes Teleskop kann diese Grenze ohne adaptive Optik nicht unterschreiten. Damit liefert die Atmosphäre eine zentrale physikalische Begründung dafür, warum die in der Optik ideal erreichbare Auflösung in der bodengebundenen Astrofotografie meist nicht ausgeschöpft werden kann. @littlefair_ao_lecture_2018
-text
 
 == Optische Systeme der Astrofotografie
 
