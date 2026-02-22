@@ -383,25 +383,114 @@ Zur Illustration der beugungsbedingten Auflösungsgrenzen eignet sich eine Abbil
 
 == Forschungsdesign
 
+Das Ziel der vorliegenden Studienarbeit besteht darin, die Grenzen der Astrofotografie systematisch zu untersuchen. Dabei wird ein besonderer Fokus auf das Stacking-Verfahren gelegt. Zur Erfüllung des vorangegangenen Ziels wurde ein Forschungsdesign gewählt, welches sowohl theoretische als auch praktische Aspekte miteinander kombiniert. Diese hybride Vorgehensweise erlaubt es, algorithmische und mathematische Konzepte nicht nur abstrakt zu analysieren, sondern auch deren Wirksamkeit und Grenzen unter realen Aufnahmebedingungen zu evaluieren.
+Das Forschungsdesign folgt dabei einem sequenziellen Ansatz: Zunächst werden die theoretischen Grundlagen der Astrofotografie und des Image Stackings erarbeitet und strukturiert dargestellt. Im Rahmen der praktischen Übung erfolgt die Anwendung ausgewählter Stacking-Techniken auf selbst aufgenommene oder bereitgestellte astronomische Bilddaten. Dieser Schritt gründet auf den zuvor erarbeiteten theoretischen Modellen. Die Ergebnisse dieser praktischen Experimente dienen anschließend als empirische Grundlage für die Analyse der Grenzen sowohl des eingesetzten Equipments als auch der verwendeten Algorithmen.
+Die methodische Trennung zwischen Theorie und Praxis erlaubt es, Annahmen aus der Literatur gezielt mit realen Beobachtungsdaten zu konfrontieren. Der Fokus der Untersuchung liegt auf der Ermittlung der praktischen Wirksamkeit der theoretisch prognostizierten Verbesserungen des Signal-Rausch-Verhältnisses durch Stacking. Es wird analysiert, inwiefern diese Verbesserungen durch physikalische und technische Einflussfaktoren limitiert werden.
+
+Der theoretische Teil des Forschungsdesigns basiert auf einer umfassenden Literaturrecherche zu den physikalischen Grundlagen der Astrofotografie, zu Rauschmodellen sowie zu mathematischen und algorithmischen Prinzipien des Image Stackings. Diese theoretischen Überlegungen bilden die konzeptionelle Grundlage für die Auswahl geeigneter Stacking-Strategien und Untersuchungsparameter im praktischen Teil der Arbeit.
+Im Rahmen der praktischen Übung erfolgt die Aufnahme astronomischer Bilddaten unter Verwendung eines Teleskopsystems oder die Nutzung bereits vorhandener Datensätze. Im Anschluss erfolgt die weitere Verarbeitung der gewonnenen Einzelaufnahmen unter Verwendung spezialisierter Software für die Astrofotografie und Bildbearbeitung. Im Rahmen der Untersuchung werden verschiedene Stacking-Methoden angewendet und variiert, um deren Einfluss auf die Bildqualität systematisch zu analysieren.
+Für das Forschungsdesign ist es von wesentlicher Bedeutung, dass die praktische Umsetzung nicht primär auf die Erzeugung ästhetisch optimierter Astrofotografien abzielt, sondern auf eine kontrollierte und nachvollziehbare Datengrundlage. Die dabei entstehenden Bilder dienen als Untersuchungsobjekte, anhand derer algorithmische Effekte, Qualitätsverbesserungen und deren Grenzen analysiert werden können.
+
+Ein zentrales Element des Forschungsdesigns stellt die bewusste Fokussierung auf den Stacking-Prozess als Kernmethode der Bildverbesserung dar. Andere Aspekte der Astrofotografie, wie etwa aufwendige Nachbearbeitungsschritte zur ästhetischen Optimierung, werden methodisch klar vom eigentlichen Stacking getrennt betrachtet oder bewusst nur in standardisierter Form eingesetzt.
+Diese Separation ist essenziell, um den Einfluss des Stackings isoliert analysieren zu können. Insbesondere sind Effekte, die durch Kontrastanpassungen, Farbkorrekturen oder nichtlineare Transformationen entstehen, von der Interpretation als Leistungssteigerungen des Stackings zu unterscheiden. Das Forschungsdesign sieht daher vor, dass vor und nach dem Stacking vergleichbare Bearbeitungsschritte angewendet werden oder diese in der Analyse explizit berücksichtigt werden.
+Darüber hinaus wird das eingesetzte Equipment – insbesondere Optik, Montierung und Sensor – nicht als austauschbare Variable betrachtet, sondern als integraler Bestandteil des methodischen Rahmens. Die Analyse der Leistungsfähigkeit und der Grenzen des Stackings erfolgt stets im Kontext der vorhandenen Hardware, da diese maßgeblich die Qualität der Rohdaten bestimmt.
+
+Ein wesentliches methodisches Ziel besteht darin, die durchgeführten Untersuchungen nachvollziehbar und reproduzierbar zu gestalten. Aus diesem Grund erfolgt eine lückenlose Dokumentation sämtlicher relevanter Parameter, Softwareeinstellungen und Verarbeitungsschritte. Das Forschungsdesign verzichtet bewusst auf den Einsatz experimenteller oder proprietärer Verfahren, deren Ergebnisse nur schwer reproduzierbar wären.
+Zudem erfolgt eine präzise Abgrenzung des Untersuchungsrahmens. Die vorliegende Arbeit beansprucht nicht, eine vollständige Abdeckung aller existierenden Stacking-Algorithmen oder Bildverarbeitungstechniken zu bieten. Stattdessen fokussiert sich das Forschungsdesign auf repräsentative Verfahren, die in der Praxis der Astrofotografie weit verbreitet sind und deren theoretische Grundlagen gut dokumentiert sind.
+
 == Versuchsplanung
 
-- Auswahl der Untersuchungparameter
+Die Versuchsplanung konkretisiert das zuvor beschriebene Forschungsdesign und legt fest, wie die praktischen Untersuchungen zur Analyse der Grenzen des Image Stackings durchgeführt werden. Dies umfasst die Auswahl geeigneter Untersuchungsparameter sowie die Festlegung der zu beobachtenden Himmelskörper als Versuchsobjekte.
+Gemäß der Versuchsplanung wird das Ziel verfolgt, eine strukturierte und vergleichbare Datengrundlage zu schaffen. Diese soll es ermöglichen, die Auswirkungen unterschiedlicher Stacking-Strategien systematisch zu analysieren. In diesem Kontext wird besonderer Wert auf eine kontrollierte Variation einzelner Parameter gelegt, um deren Einfluss isoliert bewerten zu können.
 
-- Versuchsobjekte / Himmelskörper
+Die Selektion der Untersuchungsparameter erfolgt unter Berücksichtigung der zentralen Einflussfaktoren, die sowohl in der wissenschaftlichen Literatur als auch in der praktischen Astrofotografie als signifikant für die Effektivität des Stackings identifiziert werden. Zu den maßgeblichen Parametern zählen insbesondere:
+
+- Anzahl der Einzelaufnahmen
+- Belichtungszeit pro Aufnahme
+- ISO- bzw. Gain-Einstellungen des Sensors
+- Qualität der Nachführung
+- Auswahl des Stacking-Verfahrens (z. B. Mittelwert, Median, gewichtete Verfahren)
+
+Es erfolgt keine willkürliche Variation dieser Parameter, sondern eine Begrenzung auf methodisch sinnvolle Bereiche, die den realistischen Einsatzbedingungen des verwendeten Equipments entsprechen. Das Ziel besteht darin, praxisnahe Aussagen über die Grenzen des Stackings zu treffen, anstatt sich auf theoretisch extreme, aber praktisch irrelevante Szenarien zu konzentrieren.
+Die Variation der Parameter erfolgt sukzessive, sodass die Auswirkungen einzelner Änderungen nachvollzogen werden können. Der Fokus der Untersuchung liegt auf der Ermittlung des Punktes, ab dem eine Steigerung der Bildanzahl lediglich marginale oder keine signifikanten Verbesserungen der Bildqualität mehr bewirkt. Diese Vorgehensweise gestattet eine kritische Überprüfung des theoretisch postulierten Zusammenhangs zwischen Bildanzahl und Signal-Rausch-Verhältnis.
+
+Die Selektion der Versuchsobjekte erfolgt nach Kriterien, die sowohl methodische als auch praktische Aspekte berücksichtigen. Die Auswahl geeigneter Himmelskörper erfolgt unter Berücksichtigung zweier Aspekte: Einerseits müssen die Objekte eine ausreichende Helligkeit aufweisen, um mit dem verfügbaren Equipment zuverlässig erfasst werden zu können, andererseits jedoch genügend feine Strukturen oder schwache Signalanteile aufweisen, um die Grenzen des Stackings sichtbar zu machen.
+Typische Versuchsobjekte sind daher großflächige Nebel, Galaxien oder Sternhaufen, bei denen sowohl punktförmige als auch diffuse Strukturen vorhanden sind. Diese Objektarten eignen sich in besonderer Weise, um die Wirkung des Stackings auf unterschiedliche Signaltypen zu analysieren. Punktquellen, wie Sterne, zeigen eine andere Reaktion auf das Stacking-Verfahren als ausgedehnte, flächige Strukturen, was eine differenzierte Betrachtung ermöglicht.
+
+Darüber hinaus erfolgt die Aufnahme der ausgewählten Himmelskörper unter vergleichbaren Beobachtungsbedingungen, um externe Einflüsse, wie unterschiedliche atmosphärische Bedingungen, möglichst gering zu halten. Gemäß der Versuchsplanung werden für ein Objekt mehrere Aufnahmeserien mit identischen Einstellungen durchgeführt, um statistische Schwankungen zu reduzieren.
+Die Himmelskörper fungieren dabei nicht primär als Objekte astronomischer Forschung, sondern als strukturierte Testdaten für die Untersuchung der Stacking-Methodik. Die Selektion erfolgt demnach unter Berücksichtigung ihrer Eignung zur Analyse algorithmischer Effekte und nicht auf Grundlage ihrer astrophysikalischen Besonderheit.
 
 == Datenerhebung
 
-- Equipment
+Die Datenerhebung bildet die empirische Grundlage der vorliegenden Untersuchung. Das Ziel besteht darin, eine qualitativ konsistente und reproduzierbare Datenbasis zu schaffen, die eine differenzierte Analyse der Leistungsfähigkeit und Grenzen von Stacking-Verfahren ermöglicht. In diesem Kontext wird besonderer Wert auf die systematische Dokumentation aller relevanten Einflussfaktoren gelegt, um die Nachvollziehbarkeit und Vergleichbarkeit von späteren Bewertungen zu gewährleisten.
 
-- Aufnahmebedingungen
+Die Datenerhebung ist in drei zentrale Bereiche untergliedert: das eingesetzte Equipment, die Aufnahmebedingungen sowie die Erfassung von Kalibrierungsdaten. Es sei darauf hingewiesen, dass eine enge methodische Verknüpfung zwischen den betreffenden Komponenten besteht. Diese Tatsache ist dadurch bedingt, dass sie in ihrer Gesamtheit die Qualität und Aussagekraft der Rohdaten determinieren.
 
-- Kalibrierungsdaten
+Das verwendete Equipment stellt einen wesentlichen methodischen Rahmenfaktor dar, da es sowohl die erreichbare Auflösung als auch das Rauschverhalten und die Lichtausbeute bestimmt. In diesem Arbeitskontext wird das Equipment nicht lediglich als technisches Hilfsmittel betrachtet, sondern als integraler Bestandteil der Untersuchungsbedingungen.
+Zum Einsatz kommt ein astronomisches Teleskopsystem, das aus folgenden Komponenten besteht:
+
+- einer optischen Einheit (z. B. Refraktor oder Reflektor)
+- einer äquatorialen oder azimutalen Montierung mit Nachführfunktion
+- einer digitalen Kamera (DSLR, spiegellose Systemkamera oder spezielle Astrokamera)
+- optionalem Zubehör wie Guiding-System, Filter oder Korrektoren
+
+Die Qualität der Optik des Teleskops ist dabei von entscheidender Bedeutung für die Abbildungsleistung, insbesondere in Bezug auf Auflösung, Kontrast und Abbildungsfehler. Faktoren wie das Öffnungsverhältnis, die Brennweite und die Apertur beeinflussen direkt die Lichtstärke und somit auch die erforderliche Belichtungszeit. Gleichzeitig determinieren sie das Bildfeld und die Abbildungsmaßstäbe, was wiederum Einfluss auf die Wahl geeigneter Himmelsobjekte hat.
+Die Aufgabe der Montierung besteht in der Kompensation der Erdrotation. Die mechanische Präzision des Instruments wirkt sich unmittelbar auf die Sternabbildung in längeren Belichtungen aus. Ungenauigkeiten in der Nachführung können zu Verzerrungen oder elongierten Sternabbildungen führen, die durch das Stacking nicht vollständig kompensiert werden können. Aus diesem Grund wird die Nachführleistung als wesentlicher Parameter dokumentiert.
+
+Die Kamera fungiert als Schnittstelle zwischen optischem Signal und digitaler Datenverarbeitung. Die Qualität der Rohdaten wird insbesondere durch die Quanteneffizienz, das Ausleserauschen, den Dunkelstrom und den Dynamikumfang der Sensoreigenschaften bestimmt. Darüber hinaus sind ISO- oder Gain-Einstellungen, Sensortemperatur sowie die interne Signalverarbeitung zu berücksichtigen. Für die Zwecke der vorliegenden Untersuchung werden möglichst verlustfreie Rohdatenformate (RAW) verwendet, um eine unverfälschte algorithmische Analyse zu gewährleisten.
+Die vollständige Konfiguration des Equipments wird in tabellarischer Form dokumentiert (siehe Anhang der Arbeit), um Transparenz und Reproduzierbarkeit sicherzustellen.
+
+HIER TABELLE EINFÜGEN MIT EQUIPMENT
+
+Neben dem Equipment beeinflussen die Aufnahmebedingungen die Qualität der erhobenen Daten in erheblichem Maße. Zu den wichtigsten externen Faktoren zählen atmosphärische Bedingungen, Lichtverschmutzung, Temperatur sowie die Stabilität der Aufstellung.
+
+Atmosphärische Turbulenzen (Seeing) führen zu zeitlich variierenden Verzerrungen des einfallenden Lichts. Diese Effekte manifestieren sich in Form von schwankender Sternschärfe und begrenzen damit die effektiv erreichbare Auflösung, und dies unabhängig von der theoretischen Leistungsfähigkeit der Optik. Im Rahmen der Aufnahmesitzungen erfolgt eine qualitative Dokumentation der Qualität des Sehens.
+Die Lichtverschmutzung stellt insbesondere bei der fotografischen Dokumentation städtischer oder stadtnaher Gebiete einen signifikanten Störfaktor dar. Die vorliegende Funktion dient der Erhöhung des Hintergrundpegels des Bildes sowie der Reduktion des Kontrastes schwacher Objekte. Die Himmelsqualität wird daher ebenfalls protokolliert, beispielsweise durch subjektive Einschätzung oder bekannte Klassifikationssysteme (z. B. Bortle-Skala).
+Die Temperatur wirkt sich dabei insbesondere auf das thermische Rauschen des Sensors aus. Insbesondere bei längeren Belichtungszeiten kann ein erhöhter Dunkelstrom signifikante Artefakte verursachen. Sofern dies realisierbar ist, werden die Sensortemperaturen erfasst oder zumindest die Umgebungstemperatur dokumentiert.
+
+Um vergleichbare Bedingungen sicherzustellen, sollten die Aufnahmen eines Versuchsobjekts möglichst innerhalb einer zusammenhängenden Beobachtungssitzung durchgeführt werden. Diese Vorgehensweise gewährleistet, dass externe Einflussgrößen während einer Serie nur minimal variieren.
+
+Ein zentraler Bestandteil des Erhebungsprozesses stellt die Erfassung von Kalibrierungsdaten dar. Diese dienen der Korrektur systematischer Fehler und sind notwendig, um die eigentliche Leistungsfähigkeit der Stacking-Algorithmen untersuchen zu können.
+
+In der vorliegenden Untersuchung werden die folgenden Arten von Kalibrierungsbildern berücksichtigt:
+
+- Dark Frames sind Aufnahmen, die unter identischen Belichtungszeit und Sensoreinstellung wie die Lichtbilder angefertigt werden, jedoch bei abgedeckter Optik. Ihre Funktion besteht in der Erfassung des thermischen Rauschens sowie fester Sensormuster.
+- Flat Frames sind Aufnahmen einer homogenen Lichtquelle, die zur Korrektur von Vignettierung und Staubartefakten eingesetzt werden.
+- Bias Frames sind eine spezielle Art der fotografischen Aufnahme, bei der die Belichtung für einen sehr kurzen Zeitraum erfolgt, um das sogenannte Ausleserauschen zu erfassen.
+
+Die Erstellung der Kalibrierungsdaten erfolgt unter möglichst identischen technischen Bedingungen wie die eigentlichen Lichtaufnahmen. Ihre Verwendung ist aus methodischer Sicht von entscheidender Bedeutung, da nicht korrigierte systematische Fehler die Analyse der Stacking-Effekte verfälschen würden. Das Ziel besteht darin, zufälliges Rauschen und systematische Artefakte klar voneinander zu differenzieren.
 
 == Datenverarbeitung
 
-- Stacking-Prozess
+Nach Abschluss der Datenerhebung erfolgt die strukturierte Datenverarbeitung. In diesem Kapitel werden die algorithmischen und softwaretechnischen Schritte erörtert, die von den Rohdaten bis zum analysierbaren Ergebnisbild durchgeführt werden. Die vorliegende Verarbeitung ist in zwei Phasen unterteilt: den eigentlichen Stacking-Prozess sowie die anschließende Nachbearbeitung.
 
-- Nachbearbeitung
+Der Stacking-Prozess bildet den methodischen Kern der praktischen Untersuchung. Das Ziel besteht darin, mehrere Einzelaufnahmen desselben Himmelsobjekts so zu kombinieren, dass das Nutzsignal verstärkt und zufälliges Rauschen reduziert wird.
+Der Prozess umfasst in der Regel folgende Schritte:
+
++ Kalibrierung der Rohdaten: Anwendung von Dark-, Flat- und Bias-Korrekturen zur Reduktion systematischer Fehler.
++ Registrierung (Alignment): Präzise Ausrichtung der Einzelbilder anhand identifizierter Sternpositionen. Hierbei werden Transformationsmodelle verwendet, die Translation, Rotation und gegebenenfalls Skalierung berücksichtigen.
++ Qualitätsbewertung der Frames: Optional erfolgt eine Selektion oder Gewichtung einzelner Aufnahmen basierend auf Kriterien wie Sternschärfe oder Hintergrundrauschen.
++ Kombination der Bilder: Anwendung eines definierten Stacking-Algorithmus, beispielsweise:
+  - arithmetisches Mittel
+  - Median
+  - Sigma-Clipping
+  - gewichtete Mittelwertverfahren
+
+Die Selektion des spezifischen Verfahrens erfolgt im Rahmen der Versuchsplanung. Ziel ist es, die Unterschiede zwischen den Methoden hinsichtlich Rauschreduktion, Detailerhalt und Artefaktunterdrückung zu verdeutlichen.
+Die Verwendung von Softwarewerkzeugen und Parametern wird lückenlos dokumentiert, um die Nachvollziehbarkeit des Prozesses zu gewährleisten. Im Rahmen des Stacking-Prozesses werden die Algorithmen unter Verwendung variierender Parameter mehrfach ausgeführt. Ziel dieser Vorgehensweise ist die Analyse der Sensitivitäten und der Stabilität der Algorithmen.
+
+Die Nachbearbeitung erfolgt nach Abschluss des Stackings und dient primär der Sichtbarmachung der im gestackten Bild enthaltenen Informationen. In Bezug auf die Methodik wird eine Differenzierung zwischen analytischer und ästhetischer Nachbearbeitung vorgenommen.
+Die analytische Nachbearbeitung umfasst lineare Transformationen wie:
+
+- Hintergrundnormalisierung
+- Histogramm-Stretching
+- Kontrastanpassung
+- lineare Farbkalibrierung
+
+Diese Schritte sind notwendig, um die durch das Stacking verbesserte Signalqualität sowohl visuell als auch numerisch bewerten zu können.
+Nichtlineare oder stark ästhetisch orientierte Bearbeitungsschritte – wie beispielsweise aggressive Schärfung, selektive Farbmanipulation oder lokale Kontrastverstärkung – werden entweder standardisiert angewendet oder explizit von der quantitativen Analyse getrennt. Subjektive Bildoptimierungen werden so verhindert, dass sie die Bewertung der algorithmischen Leistungsfähigkeit nicht verfälschen.
+
+Die finale Bildversion dient sowohl der qualitativen visuellen Beurteilung als auch der quantitativen Analyse, beispielsweise durch Messung von Signal-Rausch-Verhältnissen oder Hintergrundstatistiken.
 
 == Evaluationsmethoden
 
