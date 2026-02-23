@@ -371,9 +371,149 @@ Zur Illustration der beugungsbedingten Auflösungsgrenzen eignet sich eine Abbil
 
 == Abbildung, Sampling und digitale Erfassung
 
+Die in den vorherigen Abschnitten beschriebenen optischen Systeme bestimmen, wie Photonen im Teleskop gesammelt und beugungsbegrenzt abgebildet werden. In der praktischen Astrofotografie ist jedoch entscheidend, wie diese kontinuierliche optische Abbildung durch einen diskreten, digitalen Sensor abgetastet wird und welche physikalischen Eigenschaften des Sensors die resultierenden Bilddaten prägen. Dieses Kapitel verbindet daher die geometrische Abbildung mit dem Sampling auf dem Detektor und mit der Sensorphysik, um das beobachtete Bild formal als Faltung der Szene mit der Systemantwort plus Rauschen zu beschreiben.
+
+Der Abbildungsmaßstab eines Teleskop-Kamera-Systems beschreibt, welcher Himmelswinkel auf ein einzelnes Sensel (Pixel) abgebildet wird. Er verknüpft die physikalische Brennweite des Systems mit der Pixelgröße des Detektors und wird in der Astrofotografie üblicherweise in Bogensekunden pro Pixel angegeben. @romanishin_ccd_2002
+
+Die Brennweite f des Teleskops bestimmt die lineare Vergrößerung: Eine größere Brennweite projiziert einen gegebenen Himmelswinkel auf eine größere Strecke in der Fokalebene. @galyam_obs_2012 Die Pixelgröße p des Sensors (z. B. in Mikrometern) legt fest, wie fein diese Strecke digital abgetastet wird. @romanishin_ccd_2002 Aus der Kleinwinkelnäherung ergibt sich für den Bildmaßstab (Pixel Scale) die Beziehung
+
+$ "Skala" ["arcsec"/"pixel"] approx 206,265 · (p[mu"m"]/ f["mm"]) $
+
+wobei 206 265 die Anzahl der Bogensekunden pro Radiant ist. @unittoolbox_pixel_2021 @aavso_pixel_2021
+
+Dieser Abbildungsmaßstab verknüpft die Winkelauflösung mit der digitalen Abtastung: Ist die effektive PSF des Systems (Optik + Atmosphäre) beispielsweise durch ein Seeing von etwa 2″ FWHM bestimmt, so sollte der Pixelmaßstab so gewählt werden, dass diese 2″-Struktur hinreichend fein über mehrere Pixel abgebildet wird. @aavso_pixel_2021 Bei sehr kleinen Skalen (z. B. 0,3″/Pixel) wird das Bild „überabgetastet“, bei sehr großen Skalen (z. B. 4″/Pixel) geht feine Struktur in einem einzigen Pixel verloren.
+
+Zur Illustration findet man in der Literatur Beispiele, in denen CCD-Systeme mit Pixelgrößen von wenigen Mikrometern an Teleskopen mit Brennweiten im Bereich einiger Meter eingesetzt werden, was Skalen von etwa 0,1–1,0″/Pixel ergibt. @romanishin_ccd_2002 @keel_imaging_2007 Solche Skalen sind typisch für Deep-Sky-Astrofotografie, da sie einen Kompromiss zwischen Detailauflösung und Feldgröße darstellen.
+
+Die digitale Erfassung eines optischen Bildes durch den Sensor ist ein Abtastvorgang: Ein kontinuierliches Helligkeitsfeld auf dem Himmel wird über die Optik auf die Fokalebene projiziert und dort mit einem regelmäßigen Gitter von Pixeln diskretisiert. @keel_imaging_2007 Die Theorie der Signalabtastung, insbesondere das Nyquist-Shannon-Abtasttheorem, liefert here eine Leitlinie, wie fein ein Signal abgetastet werden muss, um die enthaltenen räumlichen Frequenzen rekonstruieren zu können. @astrobasics_nyquist_2025
+
+Überträgt man das Nyquist-Kriterium auf die Astrofotografie, entspricht die relevante „Frequenz“ der kleinsten auflösbaren Struktur im Bild, die durch das System begrenzt wird – typischerweise durch das Seeing oder durch die Beugungsgrenze des Teleskops. @starizona_nyquist_2020 @seeing_wiki_2003 Das Nyquist-Theorem fordert, dass die Abtastfrequenz mindestens doppelt so hoch sein muss wie die maximale zu rekonstruierende Frequenz. Im Bildraum bedeutet das, dass die charakteristische Breite der PSF (z. B. die FWHM in Bogensekunden) auf mindestens zwei Pixel verteilt sein sollte. @starizona_nyquist_2020
+
+Praktisch wird häufig ein etwas strengeres Kriterium von etwa 2–3 Pixeln pro FWHM verwendet, um eine robuste Rekonstruktion und saubere PSF-Photometrie zu ermöglichen. @unittoolbox_pixel_2021 @aavso_pixel_2021 Man unterscheidet:
+
+- *Untersampling*: Die PSF erstreckt sich über weniger als etwa 2 Pixel. Feine Strukturen können nicht mehr korrekt rekonstruiert werden, Sterne erscheinen „blockig“, und die Form der PSF wird stark vom Pixelraster dominiert. @astrobasics_nyquist_2025  
+- *Nyquist-konformes Sampling*: Die PSF ist über etwa 2–3 Pixel FWHM verteilt. Details, die physikalisch im System vorhanden sind, können im Prinzip rekonstruiert werden, ohne zusätzliche Information zu verlieren. @starizona_nyquist_2020  
+- *Oversampling*: Die PSF erstreckt sich über viele Pixel (z. B. 5–10 Pixel FWHM). Die Bildinformation steigt dabei nicht, aber das Rauschen pro aufgelöstem Flächenelement nimmt zu, und die Datenmengen wachsen, ohne dass die theoretische Auflösung besser wird. @astroworld_oversampling_2024
+
+Im Kontext der Grenzen der Astrofotografie bedeutet dies, dass die Auswahl der Kombination aus Brennweite und Pixelgröße sorgfältig an die typische Seeing-Scheibengröße und die gewünschte Auflösung angepasst werden muss. Ein zu grober Abbildungsmaßstab kann nicht durch nachträgliche digitale Verarbeitung kompensiert werden, da die fehlenden Details nie erfasst wurden; ein zu feiner Maßstab erhöht die Anforderungen an Nachführung, Stabilität und Datenverarbeitung, ohne die physikalische Auflösung zu verbessern. @keel_imaging_2007
+
+Die kontinuierliche optische Intensitätsverteilung wird durch den Bildsensor (CCD oder CMOS) in diskrete elektrische Signale umgesetzt. Dabei werden Photonen in photoaktive Volumina (Pixel) eingekoppelt und in Elektronenladung konvertiert, die anschließend ausgelesen und digitalisiert wird. @howell_ccd_2006
+
+Historisch dominierte in der Astronomie die CCD-Technologie (Charge-Coupled Device). @howell_ccd_2006 CCDs sammeln die Ladung in integrierten Potentialtöpfen und übertragen sie zeilenweise zu einem Ausleseverstärker. Diese Architektur ermöglicht sehr niedriges Ausleserauschen und eine homogene Pixelantwort, ist aber in der parallelen Auslesegeschwindigkeit begrenzt. @howell_ccd_2006 Moderne CMOS-Sensoren (Complementary Metal-Oxide-Semiconductor) integrieren Verstärker und Ausleselogik direkt in jedem Pixel oder in Pixelblöcken, was hohe Bildraten und flexible Auslesemodi erlaubt. @buil_cmos_2016 Allerdings war das Ausleserauschen früher höher und die Kalibrierung komplexer; neuere wissenschaftliche CMOS-Sensoren haben diesen Abstand in vielen Anwendungsbereichen deutlich reduziert. @buil_cmos_2016
+
+Zentrale Kenngrößen beider Sensortypen sind:
+
+- *Quanteneffizienz (QE)*: Die Quanteneffizienz gibt an, welcher Anteil der einfallenden Photonen im Mittel in Elektronen umgewandelt wird und ist wellenlängenabhängig. @howell_ccd_2006 Werte von 50–90 % sind für moderne CCD- und sCMOS-Sensoren im sichtbaren Bereich üblich. Eine hohe QE erhöht bei vorgegebenem Photonfluss die Zahl der Signal-Elektronen und damit das erreichbare Signal-Rausch-Verhältnis. @howell_ccd_2006
+
+- *Full-Well-Kapazität*: Die Full-Well-Kapazität beschreibt die maximale Anzahl von Elektronen, die ein Pixel speichern kann, bevor es in die Sättigung geht und keine höheren Signale mehr differenziert werden können. @hamamatsu_dynrange_2010 Typische Full-Well-Werte liegen je nach Pixelgröße im Bereich von einigen 10 000 bis über 100 000 Elektronen pro Pixel. @hamamatsu_dynrange_2010
+
+- *Dynamikumfang*: Der Dynamikumfang eines Sensors wird häufig als Verhältnis zwischen maximalem Signal (Full-Well-Kapazität) und dem effektiven Rauschpegel (Summe aus Dunkelstrom- und Ausleserauschen) angegeben. @hamamatsu_dynrange_2010 Ein hoher Dynamikumfang ist wichtig, um gleichzeitig sehr helle und sehr schwache Strukturen im selben Bild darstellen zu können, ohne dass helle Bereiche saturieren oder schwache Strukturen im Rauschen untergehen. @hamamatsu_dynrange_2010
+
+Diese Parameter bestimmen zusammen mit der Optik, wie viele Photonen tatsächlich als nutzbare Elektronen im Pixel landen und mit welcher Präzision Helligkeitsunterschiede messbar sind.
+
+Das resultierende digitale Bild wird nicht nur durch die deterministische Abbildung der Szene geprägt, sondern auch durch verschiedene Rauschquellen. @bolte_sn_2004 Diese Rauschquellen sind teilweise unvermeidbar und setzen fundamentale Grenzen für das erreichbare Signal-Rausch-Verhältnis, selbst wenn Optik, Nachführung und Kalibrierung ideal wären.
+
+Wichtige Rauschquellen sind:
+
+- *Photonenrauschen (Photon Noise)*  
+  Photonen treffen diskret und zufällig ein, und selbst bei einer konstanten mittleren Photonenzahl pro Pixel unterliegt diese Zahl statistischen Schwankungen. @bolte_sn_2004 Dieses Photonrauschen folgt einer Poisson-Verteilung mit Varianz gleich dem Erwartungswert, sodass die Standardabweichung $sigma_"ph" approx sqrt(N_"Signal")$ ist. @bolte_sn_2004 Damit wächst das Signal-Rausch-Verhältnis im photonendominierten Regime wie $"SNR" approx sqrt(N_"Signal")$. @bolte_sn_2004
+
+- *Ausleserauschen (Read Noise)*  
+  Beim Auslesen des Sensors wird elektronisches Rauschen eingeführt, etwa durch den Verstärker und die A/D-Wandlung. @howell_ccd_2006 Dieses Ausleserauschen wird oft als annähernd normalverteilt (gaussförmig) mit fester Standardabweichung in Elektronen modelliert. @bolte_sn_2004 Insbesondere bei kurzen Belichtungen und schwachen Signalen kann das Read Noise die dominante Rauschquelle sein.
+
+- *Dunkelstrom (Dark Current)*  
+  Auch ohne Licht werden in den Pixeln thermisch Elektronen generiert, die sich als Dunkelstrom manifestieren. @howell_ccd_2006 Der Dunkelstrom steigt stark mit der Sensortemperatur und der Belichtungszeit und erzeugt sowohl einen zusätzlichen Signaloffset als auch ein zugehöriges Rauschen (Shot-Noise des Dunkelstroms). @howell_ccd_2006 Eine Kühlung des Sensors reduziert daher die Dunkelstromkomponente und erhöht den nutzbaren Dynamikumfang.
+
+- *Quantisierungsrauschen (Quantization Noise)*  
+  Bei der Analog-Digital-Wandlung werden die kontinuierlichen Signalpegel auf diskrete ADU-Stufen (Analog-Digital Units) gerundet. @howell_ccd_2006 Diese Rundung erzeugt ein Quantisierungsrauschen, das sich insbesondere bei sehr niedrigen Signalen bemerkbar macht, wenn die ADU-Auflösung grob ist. @hamamatsu_dynrange_2010 In modernen wissenschaftlichen Kameras wird der Verstärkungsfaktor (Gain) so gewählt, dass das Quantisierungsrauschen im Vergleich zu anderen Rauschquellen meist vernachlässigbar ist.
+
+Diese Effekte lassen sich in einem vereinfachten Bildentstehungsmodell zusammenfassen. Die beobachtete Intensität I(x,y) im Pixel (x,y) kann als Ergebnis einer Faltung des wahren Helligkeitsverteilungsfeldes S(x,y) mit der effektiven Punktspreizfunktion h(x,y) des Systems plus eines Rauschterms N(x,y) geschrieben werden: @keel_imaging_2007 @starck_inverse_2002
+
+$ I(x,y) = (S * h)(x,y) + N(x,y) $
+
+Hier beschreibt S(x,y) die wahre Szene (z. B. Helligkeit eines Nebels oder Sternfeldes), h(x,y) die kombinierte Antwort von Optik, Atmosphäre und Sensor (PSF, inklusive Beugung, Seeing, Abtastung und ggf. weiterer Unschärfen), und N(x,y) fasst die oben beschriebenen stochastischen Rauschkomponenten zusammen. @keel_imaging_2007 In Fourier-Darstellung geht diese Faltung in eine Multiplikation über, was für viele Bildrekonstruktions- und Deconvolution-Verfahren ausgenutzt wird. @starck_inverse_2002
+
 == Signal-Rausch-Verhältnis und Belichtungszeit
 
+Die bisher betrachteten Abschnitte haben beschrieben, wie viele Photonen ein Teleskop-Sensor-System von einem astronomischen Objekt sammelt und wie diese Photonen in digitale Signale umgewandelt werden. Für die Bildqualität ist jedoch nicht nur die absolute Signalmenge entscheidend, sondern das Verhältnis zwischen Nutzsignal und unvermeidbarem Rauschen. Dieses Signal-Rausch-Verhältnis (Signal-to-Noise Ratio, SNR) bestimmt, ob feine Strukturen und schwache Objekte im Bild erkennbar sind oder im Rauschen untergehen. @bolte_sn_2004 @keel_imaging_2007
+
+Das Signal-Rausch-Verhältnis lässt sich allgemein als Quotient aus einem mittleren Signalanteil μ_S und der Standardabweichung σ_N der Rauschkomponenten definieren:
+
+$ "SNR" = (mu_S)/(sigma_N) $
+
+Dabei beschreibt μ_S typischerweise die mittlere Anzahl von Signal-Elektronen in einem Pixel oder in einer Messapertur, während σ_N die Gesamtstandardabweichung aller Rauschquellen ist, die auf diese Messung wirken. @bolte_sn_2004 @snratio_wiki_2002 Je größer das SNR, desto „stabiler“ ist das Signal gegenüber zufälligen Schwankungen und desto zuverlässiger lassen sich Helligkeitsunterschiede und Strukturen aus dem Bild herausarbeiten.
+
+In der optischen Astronomie kann die Varianz des Gesamtrauschens oft als Summe der Varianzen unabhängiger Rauschbeiträge geschrieben werden. Für ein einzelnes Pixel (oder eine Messapertur) ergibt sich schematisch:
+
+$ sigma_N^2 = sigma_"ph"^2 + sigma_"sky"^2 + sigma_"dark"^2 + sigma_"read"^2 $
+
+wobei σ_ph für das Photonrauschen des Objekts, σ_sky für das Photonrauschen des Himmelshintergrunds, σ_dark für das Rauschen des Dunkelstroms und σ_read für das Ausleserauschen des Detektors steht. @bolte_sn_2004 @eso_sn_2004 Diese Aufspaltung macht sichtbar, dass das SNR durch mehrere physikalische Prozesse begrenzt wird, die jeweils ihre eigene statistische Charakteristik besitzen.
+
+Die Abhängigkeit des SNR von der Belichtungszeit ergibt sich aus der unterschiedlichen Skalierung von Signal und Rauschen mit der Zeit. Der Signalanteil von Objekt und Himmelshintergrund wächst proportional zur Belichtungszeit t, da länger belichtete Pixel mehr Photonen sammeln. @bolte_sn_2004 Wenn $R_*$ die mittlere Rate der erzeugten Signal-Elektronen vom Objekt pro Pixel (z. B. in Elektronen pro Sekunde) ist, dann gilt für das mittlere Signal:
+
+$ mu_S = R_* · t $
+
+Das Photonrauschen von Objekt und Himmel folgt einer Poisson-Statistik, bei der die Varianz gleich dem Erwartungswert ist. @bolte_sn_2004 @smiljanic_data_2019 Für den Objektanteil ergibt sich
+
+$ sigma_"ph"^2 approx mu_S = R_* · t $
+
+und analog für den Himmelshintergrund mit einer Rate R_sky. Damit wächst das photonendominierte Rauschen mit der Wurzel der Belichtungszeit:
+
+$ sigma_"ph" ~ sqrt(t) $
+
+Während das Nutzsignal linear mit t steigt, wächst das zugehörige Photonrauschen nur mit $sqrt(t)$. @bolte_sn_2004 Daraus folgt im photonendominierten Regime (bei vernachlässigbarem Auslese- und Dunkelstromrauschen) für das SNR näherungsweise:
+
+$ "SNR" approx (R_* · t)/(sqrt(R_* · t)) = sqrt(R_* · t) $
+
+Das bedeutet, dass sich das SNR bei Verdopplung der Belichtungszeit nicht verdoppelt, sondern nur um den Faktor $sqrt(2)$ verbessert. @bolte_sn_2004 Für die Praxis ist dies ein wichtiger Hinweis: sehr lange Einzelbelichtungen liefern zwar ein besseres SNR, aber mit abnehmendem Grenznutzen.
+
+In einer realistischeren Beschreibung wird zusätzlich der Beitrag des Himmelshintergrunds und des Detektorrauschens berücksichtigt. Die in der astronomischen Literatur häufig verwendete SNR-Gleichung (für eine Messapertur mit n_pix Pixeln) lautet: @bolte_sn_2004 @eso_sn_2004
+
+$ "SNR" = (R_* · t)/(sqrt(R_* · t + R_"sky" · t · n_"pix" + D · t · n_"pix" + "RN"^2 · n_"pix")) $
+
+Hierbei sind  
+- $R_*$: Signalrate des Objekts [Elektronen/s],  
+- R_sky: Rate der Himmelshintergrund-Elektronen pro Pixel [Elektronen/s],  
+- D: Dunkelstromrate pro Pixel [Elektronen/s],  
+- RN: Ausleserauschen pro Pixel [Elektronen],  
+- n_pix: Anzahl der Pixel in der Messapertur,  
+- t: Belichtungszeit [s].
+
+Diese Formel zeigt, wie das SNR von Belichtungszeit, Himmelshelligkeit, Detektoreigenschaften und Aperturgröße abhängt. @bolte_sn_2004
+
+Man unterscheidet in der Praxis zwei wichtige Regime:
+
+- *Read-noise-limited Regime*: Bei sehr kurzen Belichtungen oder sehr dunklem Himmel dominiert das Ausleserauschen RN die Rauschsumme. @bolte_sn_2004 @smiljanic_data_2019 In diesem Fall wird der Term $"RN"^2 · n_"pix"$ im Nenner vergleichbar oder größer als die photonischen Terme. Längere Einzelbelichtungen sind dann besonders effizient, weil sie das photonische Signal erhöhen, ohne das Ausleserauschen pro Bild zu steigern.
+
+- *Sky-limited Regime*: Bei längeren Belichtungen unter typischen Himmelshintergrundbedingungen dominiert das Photonrauschen des Himmels (Term $R_"sky" · t · n_"pix"$) den Rauschbeitrag. @eso_sn_2004 @astrobasics_noise_2024 In diesem Fall wächst das Gesamtrauschen im Wesentlichen mit $sqrt(t)$, und das Ausleserauschen wird relativ unbedeutend. Zusätzliche Verlängerung der Einzelbelichtungszeit bringt dann nur noch den erwarteten $sqrt(t)$-Gewinn, aber kein „Bonus“ durch das Ausblenden des RN.
+
+In der Deep-Sky-Astrofotografie wird typischerweise angestrebt, im sky-limited Regime zu arbeiten, also die Einzelbelichtungszeit so zu wählen, dass der Rauschbeitrag des Auslesens gegenüber dem Himmelrauschen vernachlässigbar ist. @astrobasics_noise_2024
+
+Die Wahl einer „optimalen“ Sub-Exposure-Zeit (Einzelbelichtungszeit) ist ein zentrales praktisches Problem der Astrofotografie. Einerseits steigt das SNR eines Einzelbildes mit der Belichtungszeit, andererseits setzen mehrere Effekte Grenzen:
+
+Erstens muss Sättigung vermieden werden. Die Full-Well-Kapazität des Sensors begrenzt die maximale Elektronenzahl pro Pixel; wird dieser Wert überschritten, geht Information verloren, und helle Sterne oder Kernbereiche von Galaxien „brennen aus“. @howell_ccd_2006 @hamamatsu_dynrange_2010 Da das Signal mit t wächst, existiert für helle Objekte eine obere Grenze der Einzelbelichtungszeit, bevor Sättigung eintritt. Zweitens steigt mit wachsender Belichtungszeit die Wahrscheinlichkeit, dass Satellitenspuren, Nachführfehler, Wind und Seeing-Fluktuationen ein Bild unbrauchbar machen; lange Sub-Exposures sind in diesem Sinne risikoreicher.
+
+Auf der anderen Seite sollte die Einzelbelichtungszeit lang genug sein, damit das Himmelrauschen den Beitrag des Ausleserauschens dominiert. In der Praxis wird häufig ein Kriterium verwendet, nach dem die Varianz des Himmelrauschens mindestens einige Male größer sein sollte als die des Ausleserauschens (z. B. „sky noise ≈ 3× read noise“). @eso_sn_2004 @astrobasics_noise_2024 Ist dies erfüllt, spricht man von „sky-limited exposures“, bei denen weitere Verlängerung der Einzelbelichtungszeit im Wesentlichen nur noch den $sqrt(t)$-typischen SNR-Gewinn bringt. @eso_sn_2004
+
+Für die Deep-Sky-Fotografie wird daher in der Literatur empfohlen, die Sub-Exposure-Zeit so zu wählen, dass: @bolte_sn_2004 @astrobasics_noise_2024  
+
+- die hellsten interessierenden Bildteile (z. B. Sterne, Kerne von Galaxien) knapp unterhalb der Sättigung bleiben,  
+- das Himmelrauschen pro Pixel den Ausleserauschenterm deutlich übersteigt,  
+- gleichzeitig praktische Randbedingungen wie Nachführgenauigkeit, Seeing-Stabilität und verfügbare Gesamtzeit berücksichtigt werden.
+
+Die Gesamtbildqualität wird nicht nur durch die Länge eines einzelnen Frames, sondern durch die gesamte Integrationszeit $T = N · t$ bestimmt, wobei N die Anzahl der Sub-Exposures ist. @bolte_sn_2004 Im regime des dominanten Photonrauschens wächst das SNR eines gestackten Bildes näherungsweise mit $sqrt(T)$, unabhängig davon, wie T zwischen vielen kurzen oder wenigen langen Belichtungen aufgeteilt wird, solange jede Einzelbelichtung hinreichend sky-limited ist. @eso_sn_2004 In der Praxis wird daher oft eine Familie geeigneter Sub-Exposure-Zeiten gewählt, die sich in einem Bereich bewegen, in dem der RN-Beitrag klein ist, aber Sättigung und praktische Risiken begrenzt bleiben.
+
 == Begrenzende Faktoren der Bildqualität
+
+Die bisher eingeführten Konzepte – Beugungsgrenze, atmosphärisches Seeing, Extinktion, Abbildungsmaßstab, Sampling, Sensorphysik und Rauschquellen – greifen in der Praxis ineinander und bestimmen gemeinsam die erreichbare Bildqualität in der Astrofotografie. Bildqualität ist dabei nicht eindimensional: Zum einen ist die Winkelauflösung relevant, also wie fein strukturierte Details aufgelöst werden können; zum anderen das Signal-Rausch-Verhältnis (SNR), das entscheidet, ob schwache Strukturen statistisch zuverlässig von Hintergrund und Rauschen unterscheidbar sind. @howell_ccd_2006 @keel_imaging_2007
+
+Die Winkelauflösung wird durch die effektive Punktspreizfunktion (PSF) des Gesamtsystems begrenzt. Wie in den vorangegangenen Kapiteln beschrieben, setzt die Fraunhofer-Beugung an der Teleskopapertur eine theoretische Untergrenze für die PSF-Breite. Für ein beugungsbegrenztes System mit Apertur D und Wellenlänge λ ergibt sich der charakteristische Winkelmaßstab der Airy-Scheibe zu $theta_"Airy" approx 1,22 · (lambda / D)$. @airy_disk_wiki_2004 @telescope_psf_2009 In der bodengebundenen Astrofotografie wird diese Grenze jedoch fast immer von atmosphärischem Seeing übertroffen: Turbulente Brechungsindexfluktuationen vergrößern die PSF effektiv auf typische FWHM-Werte von etwa 1–2 Bogensekunden, selbst für große Teleskope. @seeing_wiki_2003 @littlefair_ao_lecture_2018 In diesen Fällen ist die Winkelauflösung primär seeing-begrenzt und nicht mehr durch die nominale Apertur des Teleskops. Das Sampling des Sensors wirkt als weiterer „Flaschenhals“: Ist der Pixelmaßstab deutlich gröber als die Seeing-Scheibe (Untersampling), wird die PSF durch das Pixelraster unterabgetastet, sodass selbst vorhandene Details nicht korrekt rekonstruiert werden können. @astrobasics_nyquist_2025 @starizona_nyquist_2020
+
+Parallel dazu bestimmen Photonstatistik und Detektorrauschen, wie gut das tatsächlich abgebildete Signal von zufälligen Schwankungen unterscheidbar ist. Das Signal-Rausch-Verhältnis wurde in Abschnitt 2.5 als $"SNR" = (mu_S / sigma_N)$ definiert, wobei μ_S den mittleren Signalanteil (z. B. Elektronen aus dem Objekt) und σ_N die Gesamtstandardabweichung des Rauschens beschreibt. @bolte_sn_2004 Im photonendominierten Bereich wächst das SNR mit der Wurzel der gesammelten Signal-Elektronen (bzw. der Belichtungszeit), während es durch Beiträge von Himmelshintergrund, Dunkelstrom und Ausleserauschen begrenzt wird. @bolte_sn_2004 @eso_sn_2004 Eine hohe Winkelauflösung allein genügt daher nicht: Ein feines Detail ist nur dann sichtbar, wenn es auch mit ausreichendem SNR erfasst wird. Umgekehrt kann bei sehr hohem SNR eine grobe, seeing-dominierte PSF die Trennung enger Strukturen verhindern – die Information ist dann zwar rauscharm, aber räumlich verwaschen. @gerwe_psf_snr_2014
+
+Die Extinktion der Atmosphäre reduziert den am Teleskop verfügbaren Photonfluss wellenlängen- und luftmassenabhängig und verschlechtert damit sowohl die erreichbare SNR als auch indirekt die effektive Auflösung. @massey_atmos_2000 Eine stärkere Extinktion verringert das Signal pro Pixel, erhöht die relative Bedeutung des Rauschens und limitiert die Tiefe, bis zu der schwache Objekte detektiert werden können. Gleichzeitig führt schlechteres Seeing, das häufig mit atmosphärisch instabilen Bedingungen einhergeht, zu breiteren PSFs. @seeing_wiki_2003 Die Optik und ihre Transmission wirken in ähnlicher Weise: Verluste durch unvergütete Flächen oder verschmutzte Komponenten reduzieren das Signal, ohne das Rauschen im Sensor im gleichen Maße zu senken, und führen daher zu einem schlechteren SNR bei gleichbleibender geometrischer Auflösung. @howell_ccd_2006
+
+Eine klare begriffliche Trennung ist hilfreich: Die Winkelauflösung beschreibt die kleinste trennbare Struktur im Bild und wird im Wesentlichen durch die Breite der effektiven PSF bestimmt – also durch Beugung, Seeing, optische Abbildungsfehler und das gewählte Sampling. @telescope_psf_2009 @astrojolo_pixelscale_2020 Das Signal-Rausch-Verhältnis hingegen beschreibt die statistische Detektierbarkeit von Strukturen: Es quantifiziert, ob eine Helligkeitsvariation über dem Hintergrund groß genug ist, um nicht im Rauschen zu verschwinden. @bolte_sn_2004 Beide Größen sind notwendig, um Bildqualität zu beurteilen: Ein System mit sehr hoher Auflösung (kleiner PSF) aber schlechtem SNR zeigt zwar feine, aber verrauschte Strukturen, während ein System mit hohem SNR, aber großer PSF zwar glatte, aber detailarme Bilder erzeugt. In der Praxis muss die Astrofotografie daher immer einen Kompromiss aus Auflösungsfähigkeit und SNR finden, der an die Beobachtungsziele angepasst ist. @keel_imaging_2007
 
 == Lösungsansätze in der Astrofotografie
 
