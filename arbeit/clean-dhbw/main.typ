@@ -100,9 +100,12 @@ Auf der theoretischen Ebene sind die Risiken oft weniger sichtbar, aber nicht mi
 Dieser Abschnitt beschreibt, wie astronomische Objekte elektromagnetische Strahlung erzeugen und wie sich diese Strahlung im Photonenbild als Photonfluss am Teleskop und am Sensor ausdrücken lässt. Diese Begriffe bilden die physikalische Grundlage für die weitere Betrachtung der Grenzen der Astrofotografie. @smiljanic_em_2019 @smiljanic_obs_2019 @galyam_obs_2012 Die meisten Informationen über das Universum werden aus der Analyse der elektromagnetischen Strahlung gewonnen, die astronomische Objekte aussenden oder reflektieren. Diese Strahlung lässt sich als elektromagnetische Welle mit Wellenlänge λ und Frequenz ν beschreiben, die über die Beziehung λ · ν = c mit der Lichtgeschwindigkeit c verknüpft sind. Alternativ kann Licht im Teilchenbild als Strom masseloser Quanten (Photonen) aufgefasst werden, die diskrete Energiepakete transportieren. @smiljanic_em_2019 @smiljanic_obs_2019 @galyam_obs_2012
 Für die Astrofotografie ist insbesondere die Teilchen-Sicht relevant, da elektronische Detektoren letztlich einzelne Photonen registrieren und in elektrische Ladung umwandeln. Die Stärke des Bildsignals und das unvermeidliche Photonrauschen hängen direkt von der Anzahl der detektierten Photonen ab und lassen sich nur im Photonenbild adäquat beschreiben. @smiljanic_em_2019 @romanishin_ccd_2002 @bolte_sn_2004
 
-Astronomische Objekte emittieren Strahlung über einen weiten Bereich des elektromagnetischen Spektrums, von Radiowellen bis Gammastrahlung. Für die bodengebundene Astrofotografie ist vor allem das optische Fenster der Erdatmosphäre relevant, das grob den Bereich von etwa 300–900 nm umfasst und den sichtbaren Bereich (ca. 400–700 nm) sowie angrenzendes nahes Infrarot einschließt. @esa_em_2002 @smiljanic_em_2019
+Astronomische Objekte emittieren Strahlung über einen weiten Bereich des elektromagnetischen Spektrums, von Radiowellen bis Gammastrahlung. Für die bodengebundene Astrofotografie ist vor allem das optische Fenster der Erdatmosphäre relevant, das grob den Bereich von etwa 300–900 nm umfasst und den sichtbaren Bereich (ca. 400–700 nm) sowie angrenzendes nahes Infrarot einschließt. @esa_em_2002 @smiljanic_em_2019 @wellenlaengenAtmosFenster zeigt nochmals anschaulich dieses Spektrum sowie das sogenannte atmosphärische Fenster.
 
-ABBILDUNG mit Darstellung des elektromagnetischen Spektrums und der atmosphärischen Transmissionsfenster (z.B. von ESA)
+#figure(
+  image("assets/wavelengths.PNG", width: 80%),
+  caption: [Abbildung der Wellenlängen und des atmosphärischen Fensters. Quelle: NOAA NWS]
+) <wellenlaengenAtmosFenster>
 
 Ein Photon mit der Frequenz ν besitzt die Energie
 
@@ -117,32 +120,32 @@ wobei h die Planck-Konstante und c die Lichtgeschwindigkeit im Vakuum ist. @smil
 - c: Lichtgeschwindigkeit ≈ 3,0 · 10^8 m/s  
 
 Diese Gleichung folgt aus der Quantisierung der elektromagnetischen Strahlung in Energiequanten E = hν sowie der wellenoptischen Beziehung c = λν. Kürzere Wellenlängen (blaues und ultraviolettes Licht) tragen somit mehr Energie pro Photon als längere Wellenlängen (rotes und infrarotes Licht). @smiljanic_em_2019 @libretexts_photon_2021 @galyam_obs_2012
-Für die Astrofotografie bedeutet dies, dass bei gleicher Strahlungsleistung im optischen Bereich langwelliges Licht mehr Photonen pro Sekunde liefert als kurzwelligeres Licht, da die Energie pro Photon kleiner ist. Da elektronische Detektoren Photonen zählen, wirkt sich dies direkt auf die erreichbare Signalstärke und das Signal-Rausch-Verhältnis in unterschiedlichen Filterbändern aus. @romanishin_ccd_2002 @bolte_sn_2004 @libretexts_photon_2021
+Für die Astrofotografie bedeutet dies, dass bei gleicher Strahlungsleistung im optischen Bereich langwelliges Licht mehr Photonen pro Sekunde liefert als kurzwelligeres Licht, da die Energie pro Photon kleiner ist. Da elektronische Detektoren Photonen zählen, wirkt sich dies direkt auf die erreichbare Bildqualität und die mögliche Bildauflösung aus. @romanishin_ccd_2002 @bolte_sn_2004 @libretexts_photon_2021
 
 Zur quantitativen Beschreibung der Strahlung werden in der Radiometrie Leistungsgrößen verwendet, die sich mit Hilfe der Photonenergie in photonische Größen übersetzen lassen. Wichtige radiometrische Größen sind:
 
-- Strahlungsleistung (radiant power) Φ_e [W]  
+- Strahlungsleistung (radiant power) $Φ_e$ [W]  
   Gesamtenergie pro Zeit, die in Form elektromagnetischer Strahlung transportiert wird.
 
-- Bestrahlungsstärke (irradiance) E_e [W/m²]  
+- Bestrahlungsstärke (irradiance) $E_e$ [W/m²]  
   Strahlungsleistung pro Fläche, die auf eine Detektorfläche fällt.
 
-- Strahlungsflussdichte (flux density) f_ν oder f_λ [z. B. W/m²/Hz, W/m²/nm]  
+- Strahlungsflussdichte (flux density) $f_ν$ oder $f_λ$ [z. B. W/m²/Hz, W/m²/nm]  
   Strahlungsleistung pro Fläche und Frequenz- oder Wellenlängenintervall.
 
 Diese Größen sind in der astronomischen und optischen Literatur formal definiert und bilden die Basis für photometrische Messungen. @wilson_era_2013 @pbrt_radiometry_2022 Im Photonenbild sind die folgenden Größen zentral @libretexts_photon_2021 @photonics_flux_2023:
 
 - Photonenzahl N: Anzahl der Photonen (dimensionslos).  
-- Photonfluss Φ_p = dN/dt [Photons/s]: Anzahl der Photonen pro Zeit, die durch eine betrachtete Fläche oder ein System treten.  
-- Photonflussdichte (Photonen-Bestrahlungsstärke) $Φ_{p,A} = d"N"/(d"t" · d"A")$[Photons $s^{-1} m^{-2}$]: Anzahl der Photonen pro Zeit und Fläche.
+- Photonfluss $Φ_p = (d"N")/(d"t")$ [Photons/s]: Anzahl der Photonen pro Zeit, die durch eine betrachtete Fläche oder ein System treten.  
+- Photonflussdichte (Photonen-Bestrahlungsstärke) $Φ_{p,A} = (d"N")/(d"t" · d"A")$[Photons $s^(-1) m^(-2)$]: Anzahl der Photonen pro Zeit und Fläche.
 
-Für (annähernd) monochromatische Strahlung oder Strahlung in einem schmalen spektralen Band mit Bestrahlungsstärke $E_e$ [$W/m²$] bei Wellenlänge λ ergibt sich der Zusammenhang: @libretexts_photon_2021
+Für monochromatische Strahlung oder Strahlung in einem schmalen spektralen Band mit Bestrahlungsstärke $E_e$ [$W/m²$] bei Wellenlänge λ ergibt sich der Zusammenhang: @libretexts_photon_2021
 
 $ Φ_(p,A) = E_e/E = E_e/(h · c / lambda) = (E_e · lambda)/(h · c) $
 
-mit $Φ_{p,A}$ als Photonflussdichte [Photons $s^(-1) m^(-2)$] und $E_e$ als Bestrahlungsstärke [$W/m²$]. Die Konstante h·c ist das Produkt aus Planck-Konstante und Lichtgeschwindigkeit. Die Formel ergibt sich daraus, dass Bestrahlungsstärke Energie pro Zeit und Fläche beschreibt und die Zahl der Photonen pro Zeit und Fläche gerade der Strahlungsleistung dividiert durch die Energie pro Photon entspricht. Diese Beziehung verbindet radiometrische Messgrößen mit der tatsächlich detektierten Photonenzahl und ist damit eine fundamentale Grundlage für die Berechnung erwarteter Photonenzahlen in der Astrofotografie. @romanishin_ccd_2002 @libretexts_photon_2021 In der optischen Astronomie wird die beobachtete Helligkeit eines Objekts über das Magnitudensystem beschrieben. @romanishin_ccd_2002 @smiljanic_meas_2019 Die Differenz der scheinbaren Magnituden zweier Objekte m₁ und m₂ ist über deren Flussdichten f₁ und f₂ durch
+mit $Φ_(p,A)$ als Photonflussdichte [Photons $s^(-1) m^(-2)$] und $E_e$ als Bestrahlungsstärke [$W/m²$]. Die Konstante h·c ist das Produkt aus Planck-Konstante und Lichtgeschwindigkeit. Die Formel ergibt sich daraus, dass die Bestrahlungsstärke die Energie pro Zeit und Fläche beschreibt und die Zahl der Photonen pro Zeit und Fläche entsprechend der Strahlungsleistung dividiert durch die Energie pro Photon entspricht. Diese Beziehung verbindet radiometrische Messgrößen mit der tatsächlich detektierten Photonenzahl und ist damit eine fundamentale Grundlage für die Berechnung erwarteter Photonenzahlen in der Astrofotografie. @romanishin_ccd_2002 @libretexts_photon_2021 In der optischen Astronomie wird die beobachtete Helligkeit eines Objekts über das Magnitudensystem beschrieben. @romanishin_ccd_2002 @smiljanic_meas_2019 Die Differenz der scheinbaren Magnituden zweier Objekte m₁ und m₂ ist über deren Flussdichten f₁ und f₂ durch
 
-$ m_1 - m_2 = -2,5 · log_{10} ( f_1 / f_2 ) $
+$ m_1 - m_2 = -2,5 · log_(10) ( f_1 / f_2 ) $
 
 definiert. Hier bezeichnet f typischerweise den Strahlungsfluss (oder die Strahlungsflussdichte) eines Objekts in einem bestimmten photometrischen Band. Durch Umstellen erhält man das Flussverhältnis in Abhängigkeit von der Magnitudendifferenz:
 
@@ -150,15 +153,15 @@ $ f_1 / f_2 = 10^(-0,4(m_1 - m_2)) $
 
 Ein Unterschied von 1 mag entspricht einem Flussverhältnis von etwa 2,512, ein Unterschied von 5 mag einem Faktor 100. @romanishin_ccd_2002 Da der Photonfluss im jeweiligen Band proportional zum Strahlungsfluss ist, gilt dieses Verhältnis auch für Photonflussdichten. 
 
-Photometrische Systeme werden über Referenzsterne (z. B. Vega) kalibriert, deren Fluss oder Photonfluss in den jeweiligen Bändern als Nullpunkt dient. @romanishin_ccd_2002 Kennt man den Fluss f_ref oder die Photonflussdichte $Φ_{p,"ref"}$ eines Sterns mit Magnitude m = 0 in einem Filterband, so lässt sich der Fluss eines Sterns der Magnitude m durch
+Photometrische Systeme werden über Referenzsterne (z. B. der Stern Wega mit mag 0,0) kalibriert, deren Fluss oder Photonfluss in den jeweiligen Bändern als Nullpunkt dient. @romanishin_ccd_2002 Kennt man den Fluss $f_"ref"$ oder die Photonflussdichte $Φ_(p,"ref")$ eines Sterns mit Magnitude m = 0 in einem Filterband, so lässt sich der Fluss eines Sterns der Magnitude m durch
 
 $ f / f_"ref" = 10^(-0,4m) $
 
-bestimmen. Entsprechend skaliert die Photonflussdichte mit demselben Faktor $10^(-0,4 m)$. In der Literatur zur CCD-Photometrie finden sich konkrete Nullpunktflüsse, aus denen typische Photonflussdichten für 0-mag-Sterne im V-Band am oberen Atmosphärenrand berechnet werden können. Diese Werte ermöglichen praxisnahe Abschätzungen erwarteter Photonenzahlen am Teleskop und dienen damit der Planung von Belichtungszeiten. @romanishin_ccd_2002 Die von einem Objekt empfangene Photonenzahl hängt linear von der effektiven Sammelfläche des optischen Systems ab. Für ein Teleskop mit Aperturdurchmesser D ergibt sich zunächst die geometrische Öffnungsfläche
+bestimmen. Entsprechend skaliert die Photonflussdichte mit demselben Faktor $10^(-0,4 m)$. In der Literatur finden sich konkrete Nullpunktflüsse, aus denen typische Photonflussdichten für 0-mag-Sterne im V-Band (mittleren, gelblichen Wellenlängenbereich des sichtbaren Spektrums) am oberen Atmosphärenrand berechnet werden können. Diese Werte ermöglichen praxisnahe Abschätzungen erwarteter Photonenzahlen am Teleskop und dienen damit der Planung von Belichtungszeiten. @romanishin_ccd_2002 Die von einem Objekt empfangene Photonenzahl hängt linear von der effektiven Sammelfläche des optischen Systems ab. Für ein Teleskop mit Aperturdurchmesser D ergibt sich zunächst die geometrische Öffnungsfläche
 
-$ A_"geo" = \pi · D^2 / 4 $
+$ A_"geo" = pi · D^2 / 4 $
 
-mit D in Metern und A_geo in Quadratmetern. Aufgrund von Reflexionsverlusten an Spiegeln, Absorption in Linsen und Filtern sowie Obstruktionen durch Sekundärspiegel steht jedoch nur ein Teil dieser Fläche effektiv zur Verfügung. @howell_ccd_2006 @wilson_era_2013 
+mit D in Metern und $A_"geo"$ in Quadratmetern. Dabei bezeichnet die Apertur die Öffnungsfläche des Teleskops. Aufgrund von Reflexionsverlusten an Spiegeln, Absorption in Linsen und Filtern sowie Obstruktionen durch Sekundärspiegel steht jedoch nur ein Teil dieser Fläche effektiv zur Verfügung. @howell_ccd_2006 @wilson_era_2013 
 
 Die effektive Sammelfläche kann durch
 
@@ -169,13 +172,13 @@ Sei $Φ_p$ die Photonflussdichte des astronomischen Objekts am Ort des Teleskops
 
 $ N_"obj" = Φ_p · A_"eff" $
 
-mit $N_"obj"$ in $"Photons"/s$. @romanishin_ccd_2002 @wilson_era_2013 Berücksichtigt man zusätzlich die atmosphärische Transmission T_atm(λ) zwischen 0 und 1, ergibt sich am Boden
+mit $N_"obj"$ in $"Photons"/s$. @romanishin_ccd_2002 @wilson_era_2013 Berücksichtigt man zusätzlich die atmosphärische Transmission $T_"atm"(λ)$ zwischen 0 und 1, ergibt sich am Boden
 
 $ N_("obj","ground") = Φ_p · A_"eff" · T_"atm"(lambda) $
 
 Die atmosphärische Transmission ist stark wellenlängenabhängig und reduziert insbesondere im blauen und ultravioletten Bereich den Photonfluss, während das optische Fenster eine vergleichsweise hohe Transmission aufweist. @esa_em_2002 @smiljanic_em_2019 Für ein ausgedehntes Objekt mit gegebener Oberflächenhelligkeit (z. B. in Magnituden pro Quadratbogensekunde) ist neben der Sammelfläche auch die Winkelskalierung des Systems entscheidend. Ein Pixel mit Winkelmaßstab $θ_"pix"$ [$"Bogensekunden"/"Pixel"$] deckt am Himmel einen soliden Winkel $Ω_"pix"$ ab (nach Umrechnung der Winkeleinheiten in Steradiant). @romanishin_ccd_2002 @bolte_sn_2004
 
-Der mittlere Photonenzufluss pro Pixel und Belichtungszeit t_exp ergibt sich näherungsweise zu
+Der mittlere Photonenzufluss pro Pixel und Belichtungszeit $t_exp$ ergibt sich näherungsweise zu
 
 $ N_"pix" approx Φ_(p,"SB") · A_"eff" · Omega_"pix" · t_"exp" $
 
@@ -188,18 +191,18 @@ wobei $N_e$ die Anzahl der registrierten Elektronen und QE(λ) eine dimensionslo
 
 == Atmosphäre und Transmission
 
-Die Erdatmosphäre beeinflusst den Weg der Photonen vom astronomischen Objekt bis zum Detektor und begrenzt damit sowohl die effektive Signalstärke als auch die erreichbare Auflösung in der Astrofotografie. Sie schwächt das Signal durch Extinktion und verändert die Bilder durch turbulente Brechungsindexfluktuationen. Die durch die Atmosphäre laufende Strahlung wird abgeschwächt, weil Photonen absorbiert oder aus der Sichtlinie gestreut werden. In der optischen Astronomie wird diese Abschwächung als atmosphärische Extinktion bezeichnet und hängt vor allem von der Luftmasse und von der Wellenlänge ab. Die sogenannte Transmission beschreibt die Lichtdurchlässigkeit von optischen Komponenten, darunter Linsen oder Filtern. @massey_atmos_2000 @spiff_atmos_rit_2005
+Die Erdatmosphäre beeinflusst den Weg der Photonen vom astronomischen Objekt bis zum Detektor und begrenzt damit sowohl die effektive Signalstärke als auch die erreichbare Auflösung in der Astrofotografie. Sie schwächt das Signal und verändert die Bilder durch turbulente Brechungsindexfluktuationen. Die durch die Atmosphäre laufende Strahlung wird abgeschwächt, weil Photonen absorbiert oder aus der Sichtlinie gestreut werden. In der optischen Astronomie wird diese Abschwächung als atmosphärische Extinktion bezeichnet und hängt vor allem von der Luftmasse und von der Wellenlänge ab. Die sogenannte Transmission beschreibt die Lichtdurchlässigkeit von optischen Komponenten, darunter Linsen oder Filtern. @massey_atmos_2000 @spiff_atmos_rit_2005
 
 
 Die wichtigsten Beiträge zur Extinktion sind:
 
-- Rayleigh-Streuung an Luftmolekülen  
+- Rayleigh-Streuung an Luftmolekülen:  
   Rayleigh-Streuung tritt an Teilchen auf, die deutlich kleiner als die Wellenlänge sind, und führt zu einer starken Wellenlängenabhängigkeit der Extinktion $∝ 1/λ⁴$. Kurzwelliges (blaues, UV) Licht wird daher deutlich stärker gestreut als langwelliges (rotes) Licht, was unter anderem zum Blau des Tageshimmels führt. @massey_atmos_2000
 
-- Mie-Streuung an Aerosolen  
+- Mie-Streuung an Aerosolen: 
   Mie-Streuung wird durch größere Partikel wie Staub, Tröpfchen und Aerosole verursacht und weist eine schwächere Wellenlängenabhängigkeit auf. Sie trägt insbesondere im roten Spektralbereich und bei niedrigen Beobachtungshöhen zur Extinktion bei.  @aerosol_bremen_2010
 
-- Molekulare Absorption  
+- Molekulare Absorption:  
   Moleküle wie Ozon (O₃), Wasserdampf (H₂O) und Sauerstoff (O₂) absor­bieren Photonen in bestimmten Spektralbändern. Dies führt zu charakteristischen Absorptionsbändern (z. B. Ozon im UV, Wasserbänder im nahen IR), in denen die Transmission stark reduziert ist. @esa_em_2002
 
 Für die Astrofotografie bedeutet dies, dass die transmittierte Strahlung in einem Filterband durch alle drei Mechanismen gleichzeitig reduziert wird. Der Extinktionskoeffizient k(λ) fasst diese Effekte häufig effektiv pro Wellenlängenbereich zusammen (Einheit meist mag/Luftmasse). @massey_atmos_2000
@@ -232,7 +235,7 @@ $ Φ_(p,"obs") = Φ_(p,0) · 10^(-0,4 · k(lambda) · X) $
 wobei $Φ_(p,0)$ die Photonflussdichte ohne atmosphärische Abschwächung ist. Die Folge ist, dass bei hoher Luftmasse und in kurzwelligen Filtern deutlich weniger Photonen den Detektor erreichen und damit für ein gegebenes Signal-Rausch-Verhältnis längere Belichtungszeiten erforderlich werden. Das Signal-Rausch-Verhältnis beschreibt dabei die Qualität eines Nutzsignals und setzt das Signal mit dem Rauschen ins Verhältnis. Dies verknüpft die Wahl der Beobachtungszeit (Objekt möglichst in der Nähe des Meridians) direkt mit der physikalischen Photonstatistik. @massey_atmos_2000 @bolte_sn_2004
 
 Neben der Extinktion verändert die Atmosphäre die räumliche Struktur des Lichts durch turbulente Fluktuationen des Brechungsindex. Die einfallenden Photonen werden an der Atmosphäre dadurch unterschiedlich gebrochen. Diese Turbulenz führt dazu, dass die Wellenfronten verformt werden und ein punktförmiger Stern nicht als Beugungsscheibchen der Optik, sondern als verwaschene Seeing-Scheibe erscheint.
-Unter astronomischem Seeing versteht man die durch die Atmosphäre verursachte zeitlich veränderliche Unschärfe und Verzerrung von Sternbildern. Die Atmosphäre weist auf verschiedenen Höhen und Skalen Temperatur- und Dichteschwankungen auf, die den Brechungsindex lokal verändern. Luftzellen mit leicht unterschiedlichem Brechungsindex bewegen sich durch das Teleskopfeld und verzerren die ankommende Wellenfront. Integriert man diese Schwankungen entlang der Sichtlinie, erhält man ein stochastisches Wellenfrontfehlerfeld, das sich zeitlich ändert. Je nach Stärke der Turbulenz werden unterschiedliche räumliche Skalen dominieren, was durch das sogenannte C_N²-Profil (Strukturkonstante des Brechungsindex) beschrieben wird. @spiff_atmos_rit_2005 
+Unter astronomischem Seeing versteht man die durch die Atmosphäre verursachte zeitlich veränderliche Unschärfe und Verzerrung von Sternbildern. Die Atmosphäre weist auf verschiedenen Höhen und Skalen Temperatur- und Dichteschwankungen auf, die den Brechungsindex lokal verändern. Luftzellen mit leicht unterschiedlichem Brechungsindex bewegen sich durch das Teleskopfeld und verzerren die ankommende Wellenfront. Integriert man diese Schwankungen entlang der Sichtlinie, erhält man ein stochastisches Wellenfrontfehlerfeld, das sich zeitlich ändert. Je nach Stärke der Turbulenz werden unterschiedliche räumliche Skalen dominieren, was durch das sogenannte $C_(N²)$-Profil (Strukturkonstante des Brechungsindex) beschrieben wird. @spiff_atmos_rit_2005 
 
 Für praktische Anwendungen fasst man die Wirkung der Turbulenz im Fried-Parameter r₀ zusammen. Der Fried-Parameter r₀ (Fried’s coherence length) ist ein Maß für die Qualität der atmosphärischen Übertragung. Er ist definiert als der Durchmesser einer Kreisöffnung, für die der durch die Atmosphäre verursachte rms-Wellenfrontfehler etwa 1 radian (≈ λ/6) beträgt. @seeing_tutorial_2024
 
@@ -249,7 +252,7 @@ sodass im nahen Infrarot deutlich größere r₀-Werte und damit kleinere Seeing
 - t₀: atmosphärische Kohärenzzeit [s]  
   Zeit, nach der sich das Turbulenzmuster signifikant verändert.
 
-Für langbelichtete Bilder über viele t₀ hinweg ergibt sich ein gemitteltes Seeing-Bild, während kurzbelichtete Aufnahmen („Lucky Imaging“) Momente mit besonders geringem Wellenfrontfehler nutzen können. Dies erklärt, warum sehr kurze Einzelbelichtungen zu deutlich schärferen Einzelbildern führen können, obwohl die mittlere Seeing-Bedingung unverändert ist. @spiff_atmos_rit_2005 Der Einfluss der Atmosphäre auf die Abbildung eines punktförmigen Sterns lässt sich durch den FWHM-Durchmesser der Seeing-Scheibe in Bogensekunden charakterisieren. In der theoretischen Beschreibung der Kolmogorov-Turbulenz ergibt sich ein Zusammenhang zwischen Fried-Parameter r₀ und der FWHM des Seeing-Scheibchens (für langbelichtete Bilder) von näherungsweise
+Für langbelichtete Bilder über viele t₀ hinweg ergibt sich ein gemitteltes Seeing-Bild, während kurzbelichtete Aufnahmen („Lucky Imaging“) Momente mit besonders geringem Wellenfrontfehler nutzen können. Dies erklärt, warum sehr kurze Einzelbelichtungen zu deutlich schärferen Einzelbildern führen können, obwohl die mittlere Seeing-Bedingung unverändert ist. @spiff_atmos_rit_2005 Der Einfluss der Atmosphäre auf die Abbildung eines punktförmigen Sterns lässt sich durch den Full-Width-at-Half-Maximum-Durchmesser der Seeing-Scheibe in Bogensekunden charakterisieren. In der theoretischen Beschreibung der Kolmogorov-Turbulenz, welche den Transport von kinetischer Energie in einer turbulenten Strömung beschreibt, ergibt sich ein Zusammenhang zwischen Fried-Parameter r₀ und der FWHM des Seeing-Scheibchens (für langbelichtete Bilder) von näherungsweise
 
 $ "FWHM"_"seeing" approx 0,98 · lambda / r_0 $
 
@@ -261,15 +264,15 @@ $ "FWHM"_"seeing"("arcsec") approx 0,98 · (lambda / r_0) · 206265 $
 
 - λ: Wellenlänge [m]  
 - r₀: Fried-Parameter [m]  
-- FWHM_seeing: charakteristischer Seeing-Durchmesser [arcsec]
+- $"FWHM"_"seeing"$: charakteristischer Seeing-Durchmesser [arcsec]
 
 Die Formel zeigt, dass ein größerer Fried-Parameter (bessere atmosphärische Bedingungen) zu einem kleineren Seeing-Durchmesser führt und dass Seeing bei längeren Wellenlängen etwas günstiger ist. @littlefair_ao_lecture_2018 In der Praxis ergibt sich die beobachtete Punktspreizfunktion (PSF) eines Sterns aus der Faltung der optischen PSF des Teleskops mit der atmosphärischen PSF. @cfht_psf_1998
 
 $ h_"eff" = h_"optik" * h_"atm" $
 
-- h_eff: effektive PSF des Gesamtsystems  
-- h_optik: PSF der beugungsbegrenzten Optik  
-- h_atm: PSF der Atmosphäre (Seeing)
+- $h_"eff"$: effektive PSF des Gesamtsystems  
+- $h_"optik"$: PSF der beugungsbegrenzten Optik  
+- $h_"atm"$: PSF der Atmosphäre (Seeing)
 
 Die Faltung beschreibt mathematisch, dass das Bild eines Punktes durch jeden Teil des Systems „verschmiert“ wird. Ist die atmosphärische PSF deutlich breiter als die optische Beugungsscheibe, dominiert h_atm, und das System ist seeing-begrenzt; ist hingegen die Optik der limitierende Faktor (z. B. bei Raumteleskopen oder mit leistungsfähiger Adaptiver Optik), bestimmt h_optik die effektive Auflösung. @cfht_psf_1998 @littlefair_ao_lecture_2018 Die Betrachtung von Extinktion und Seeing vervollständigt den Weg der Photonen vom astronomischen Objekt über die Atmosphäre bis in das Teleskop. Die Luftmasse und die wellenlängenabhängige Extinktion bestimmen, wie viele Photonen überhaupt den Detektor erreichen und damit die erreichbare Signalstärke und das Signal-Rausch-Verhältnis. @massey_atmos_2000 @bolte_sn_2004  
 Gleichzeitig setzen turbulente Brechungsindexfluktuationen, beschrieben durch den Fried-Parameter r₀ und den Seeing-Scheibendurchmesser, eine reale Auflösungsgrenze, die häufig deutlich über der theoretischen Beugungsgrenze der Optik liegt. Selbst ein perfektes, beugungsbegrenztes Teleskop kann diese Grenze ohne adaptive Optik nicht unterschreiten. Damit liefert die Atmosphäre eine zentrale physikalische Begründung dafür, warum die in der Optik ideal erreichbare Auflösung in der bodengebundenen Astrofotografie meist nicht ausgeschöpft werden kann. @littlefair_ao_lecture_2018
@@ -290,7 +293,12 @@ Astrographen sind speziell für fotografische Anwendungen optimierte Teleskope. 
 
 Eine zentrale Kenngröße zur Charakterisierung optischer Systeme ist das Öffnungsverhältnis, auch f/Ratio genannt. Es ist definiert als das Verhältnis von Brennweite f zur Öffnung D des Teleskops, also $"Öffnungsverhältnis" = f/D$. @howell_ccd_2006 Das Öffnungsverhältnis beschreibt, wie „lichtstark“ ein System ist: Bei gegebener Objekthelligkeit ist die Beleuchtungsstärke in der Bildebene näherungsweise umgekehrt proportional zum Quadrat des f/Ratio. @howell_ccd_2006 Ein kleines f/Ratio (etwa f/3 bis f/5) kennzeichnet ein lichtstarkes System, das bei gleicher Belichtungszeit mehr Photonen pro Flächeneinheit auf den Sensor bringt und damit insbesondere für ausgedehnte Deep-Sky-Objekte vorteilhaft ist. @howell_ccd_2006 Ein großes f/Ratio (etwa f/10) reduziert die Photonendichte pro Flächeneinheit, vergrößert aber die Abbildungsskala, was etwa bei Detailaufnahmen von Planeten und kleinen Objekten hilfreich sein kann. @howell_ccd_2006
 
-Zur Veranschaulichung bietet sich eine schematische Abbildung der grundlegenden Teleskoptypen (Refraktor, Newton-Reflektor, Schmidt-Cassegrain und Astrograph) an, welche jeweils den Strahlengang und die Position der optischen Elemente zeigt. Eine solche Darstellung findet sich in einführenden Werken zur Beobachtungsastronomie und erleichtert das Verständnis der unterschiedlichen Konzepte. @galyam_obs_2012
+Zur Veranschaulichung bietet sich eine schematische Abbildung der grundlegenden Teleskoptypen (Refraktor, Newton-Reflektor, Schmidt-Cassegrain und Astrograph) an, welche jeweils den Strahlengang und die Position der optischen Elemente zeigt. Eine solche Darstellung findet sich @teleskoptypen und erleichtert das Verständnis der unterschiedlichen Konzepte. @galyam_obs_2012
+
+#figure(
+  image("assets/teleskoptypen.jpg", width: 60%),
+  caption: [Abbildung der Strahlungsverläufe bei Refraktor., Newton-Reflektor- und Schmidt-Cassegrain-Teleskopen. Quellen: @pic_newton @pic_refraktor @pic_schmidt]
+) <teleskoptypen>
 
 Neben der geometrischen Auslegung des optischen Systems spielt die Transmission eine entscheidende Rolle. Jede optische Oberfläche verursacht Reflexionen und Absorption, sodass ohne geeignete Beschichtungen nur ein Teil des einfallenden Lichts den Detektor erreicht. An einer unbehandelten Glas–Luft-Grenzfläche treten je nach Brechungsindex Reflexionsverluste von mehreren Prozent pro Fläche auf; in einem mehrlinsigen System summiert sich dies zu erheblichen Verlusten. @pbrt_radiometry_2022 Auch Spiegel weisen nur endliche Reflexionsgrade auf, typischerweise im Bereich von 85 bis 95 Prozent, sodass sich bei mehreren reflektierenden Flächen die effektive Durchlässigkeit des Systems spürbar verringert. @howell_ccd_2006
 
@@ -322,7 +330,12 @@ $ theta_D approx (116 / D_"mm") $
 
 an, wobei $D_"mm"$ der Teleskopdurchmesser in Millimetern ist. Für typische Beobachtungsbedingungen im sichtbaren Spektralbereich liefert diese Beziehung praxisnahe Werte, die etwas unterhalb der Rayleigh-Grenze liegen, aber denselben funktionalen Zusammenhang – bessere Auflösung bei größerer Apertur – widerspiegeln. @galyam_obs_2012
 
-Zur Illustration der beugungsbedingten Auflösungsgrenzen eignet sich eine Abbildung des Airy-Musters, bei der links das zweidimensionale Intensitätsbild einer Airy-Scheibe mit ihren konzentrischen Ringen und rechts das zugehörige radiale Intensitätsprofil dargestellt ist. Solche Darstellungen finden sich in Optik-Lehrmaterialien zur Beugung und in Online-Ressourcen zu Airy-Scheibe und Rayleigh-Kriterium. @edmund_airy_2022
+Zur Illustration der beugungsbedingten Auflösungsgrenzen eignet sich eine Abbildung des Airy-Musters. Eine solche Darstellung findet sich in @airy. @edmund_airy_2022
+
+#figure(
+  image("assets/Airydisks_rayleigh_sqrt.png", width: 80%),
+  caption: [Abbildung der Auflösungsgrenze gemäß dem Rayleigh-Kriteriums mit Intensität der Einzelpunkte. Quelle: @pic_airy]
+) <airy>
 
 
 == Abbildung, Sampling und digitale Erfassung
@@ -347,9 +360,9 @@ Die digitale Erfassung eines optischen Bildes durch den Sensor ist ein Abtastvor
 
 Praktisch wird häufig ein etwas strengeres Kriterium von etwa 2–3 Pixeln pro FWHM verwendet, um eine robuste Rekonstruktion und saubere PSF-Photometrie zu ermöglichen. @unittoolbox_pixel_2021 @aavso_pixel_2021 Man unterscheidet:
 
-- *Untersampling*: Die PSF erstreckt sich über weniger als etwa 2 Pixel. Feine Strukturen können nicht mehr korrekt rekonstruiert werden, Sterne erscheinen „blockig“, und die Form der PSF wird stark vom Pixelraster dominiert. @astrobasics_nyquist_2025  
-- *Nyquist-konformes Sampling*: Die PSF ist über etwa 2–3 Pixel FWHM verteilt. Details, die physikalisch im System vorhanden sind, können im Prinzip rekonstruiert werden, ohne zusätzliche Information zu verlieren. @starizona_nyquist_2020  
-- *Oversampling*: Die PSF erstreckt sich über viele Pixel (z. B. 5–10 Pixel FWHM). Die Bildinformation steigt dabei nicht, aber das Rauschen pro aufgelöstem Flächenelement nimmt zu, und die Datenmengen wachsen, ohne dass die theoretische Auflösung besser wird. @astroworld_oversampling_2024
+- Untersampling: Die PSF erstreckt sich über weniger als etwa 2 Pixel. Feine Strukturen können nicht mehr korrekt rekonstruiert werden, Sterne erscheinen „blockig“, und die Form der PSF wird stark vom Pixelraster dominiert. @astrobasics_nyquist_2025  
+- Nyquist-konformes Sampling: Die PSF ist über etwa 2–3 Pixel FWHM verteilt. Details, die physikalisch im System vorhanden sind, können im Prinzip rekonstruiert werden, ohne zusätzliche Information zu verlieren. @starizona_nyquist_2020  
+- Oversampling: Die PSF erstreckt sich über viele Pixel (z. B. 5–10 Pixel FWHM). Die Bildinformation steigt dabei nicht, aber das Rauschen pro aufgelöstem Flächenelement nimmt zu, und die Datenmengen wachsen, ohne dass die theoretische Auflösung besser wird. @astroworld_oversampling_2024
 
 Im Kontext der Grenzen der Astrofotografie bedeutet dies, dass die Auswahl der Kombination aus Brennweite und Pixelgröße sorgfältig an die typische Seeing-Scheibengröße und die gewünschte Auflösung angepasst werden muss. Ein zu grober Abbildungsmaßstab kann nicht durch nachträgliche digitale Verarbeitung kompensiert werden, da die fehlenden Details nie erfasst wurden; ein zu feiner Maßstab erhöht die Anforderungen an Nachführung, Stabilität und Datenverarbeitung, ohne die physikalische Auflösung zu verbessern. @keel_imaging_2007
 
@@ -359,11 +372,11 @@ Historisch dominierte in der Astronomie die CCD-Technologie (Charge-Coupled Devi
 
 Zentrale Kenngrößen beider Sensortypen sind:
 
-- *Quanteneffizienz (QE)*: Die Quanteneffizienz gibt an, welcher Anteil der einfallenden Photonen im Mittel in Elektronen umgewandelt wird und ist wellenlängenabhängig. @howell_ccd_2006 Werte von 50–90 % sind für moderne CCD- und sCMOS-Sensoren im sichtbaren Bereich üblich. Eine hohe QE erhöht bei vorgegebenem Photonfluss die Zahl der Signal-Elektronen und damit das erreichbare Signal-Rausch-Verhältnis. @howell_ccd_2006
+- Quanteneffizienz (QE): Die Quanteneffizienz gibt an, welcher Anteil der einfallenden Photonen im Mittel in Elektronen umgewandelt wird und ist wellenlängenabhängig. @howell_ccd_2006 Werte von 50–90 % sind für moderne CCD- und sCMOS-Sensoren im sichtbaren Bereich üblich. Eine hohe QE erhöht bei vorgegebenem Photonfluss die Zahl der Signal-Elektronen und damit das erreichbare Signal-Rausch-Verhältnis. @howell_ccd_2006
 
-- *Full-Well-Kapazität*: Die Full-Well-Kapazität beschreibt die maximale Anzahl von Elektronen, die ein Pixel speichern kann, bevor es in die Sättigung geht und keine höheren Signale mehr differenziert werden können. @hamamatsu_dynrange_2010 Typische Full-Well-Werte liegen je nach Pixelgröße im Bereich von einigen 10 000 bis über 100 000 Elektronen pro Pixel. @hamamatsu_dynrange_2010
+- Full-Well-Kapazität: Die Full-Well-Kapazität beschreibt die maximale Anzahl von Elektronen, die ein Pixel speichern kann, bevor es in die Sättigung geht und keine höheren Signale mehr differenziert werden können. @hamamatsu_dynrange_2010 Typische Full-Well-Werte liegen je nach Pixelgröße im Bereich von einigen 10 000 bis über 100 000 Elektronen pro Pixel. @hamamatsu_dynrange_2010
 
-- *Dynamikumfang*: Der Dynamikumfang eines Sensors wird häufig als Verhältnis zwischen maximalem Signal (Full-Well-Kapazität) und dem effektiven Rauschpegel (Summe aus Dunkelstrom- und Ausleserauschen) angegeben. @hamamatsu_dynrange_2010 Ein hoher Dynamikumfang ist wichtig, um gleichzeitig sehr helle und sehr schwache Strukturen im selben Bild darstellen zu können, ohne dass helle Bereiche saturieren oder schwache Strukturen im Rauschen untergehen. @hamamatsu_dynrange_2010
+- Dynamikumfang: Der Dynamikumfang eines Sensors wird häufig als Verhältnis zwischen maximalem Signal (Full-Well-Kapazität) und dem effektiven Rauschpegel (Summe aus Dunkelstrom- und Ausleserauschen) angegeben. @hamamatsu_dynrange_2010 Ein hoher Dynamikumfang ist wichtig, um gleichzeitig sehr helle und sehr schwache Strukturen im selben Bild darstellen zu können, ohne dass helle Bereiche saturieren oder schwache Strukturen im Rauschen untergehen. @hamamatsu_dynrange_2010
 
 Diese Parameter bestimmen zusammen mit der Optik, wie viele Photonen tatsächlich als nutzbare Elektronen im Pixel landen und mit welcher Präzision Helligkeitsunterschiede messbar sind.
 
@@ -371,16 +384,16 @@ Das resultierende digitale Bild wird nicht nur durch die deterministische Abbild
 
 Wichtige Rauschquellen sind:
 
-- *Photonenrauschen (Photon Noise)*  
+- Photonenrauschen (Photon Noise): 
   Photonen treffen diskret und zufällig ein, und selbst bei einer konstanten mittleren Photonenzahl pro Pixel unterliegt diese Zahl statistischen Schwankungen. @bolte_sn_2004 Dieses Photonrauschen folgt einer Poisson-Verteilung mit Varianz gleich dem Erwartungswert, sodass die Standardabweichung $sigma_"ph" approx sqrt(N_"Signal")$ ist. @bolte_sn_2004 Damit wächst das Signal-Rausch-Verhältnis im photonendominierten Regime wie $"SNR" approx sqrt(N_"Signal")$. @bolte_sn_2004
 
-- *Ausleserauschen (Read Noise)*  
+- Ausleserauschen (Read Noise): 
   Beim Auslesen des Sensors wird elektronisches Rauschen eingeführt, etwa durch den Verstärker und die A/D-Wandlung. @howell_ccd_2006 Dieses Ausleserauschen wird oft als annähernd normalverteilt (gaussförmig) mit fester Standardabweichung in Elektronen modelliert. @bolte_sn_2004 Insbesondere bei kurzen Belichtungen und schwachen Signalen kann das Read Noise die dominante Rauschquelle sein.
 
-- *Dunkelstrom (Dark Current)*  
+- Dunkelstrom (Dark Current):  
   Auch ohne Licht werden in den Pixeln thermisch Elektronen generiert, die sich als Dunkelstrom manifestieren. @howell_ccd_2006 Der Dunkelstrom steigt stark mit der Sensortemperatur und der Belichtungszeit und erzeugt sowohl einen zusätzlichen Signaloffset als auch ein zugehöriges Rauschen (Shot-Noise des Dunkelstroms). @howell_ccd_2006 Eine Kühlung des Sensors reduziert daher die Dunkelstromkomponente und erhöht den nutzbaren Dynamikumfang.
 
-- *Quantisierungsrauschen (Quantization Noise)*  
+- Quantisierungsrauschen (Quantization Noise):  
   Bei der Analog-Digital-Wandlung werden die kontinuierlichen Signalpegel auf diskrete ADU-Stufen (Analog-Digital Units) gerundet. @howell_ccd_2006 Diese Rundung erzeugt ein Quantisierungsrauschen, das sich insbesondere bei sehr niedrigen Signalen bemerkbar macht, wenn die ADU-Auflösung grob ist. @hamamatsu_dynrange_2010 In modernen wissenschaftlichen Kameras wird der Verstärkungsfaktor (Gain) so gewählt, dass das Quantisierungsrauschen im Vergleich zu anderen Rauschquellen meist vernachlässigbar ist.
 
 Diese Effekte lassen sich in einem vereinfachten Bildentstehungsmodell zusammenfassen. Die beobachtete Intensität I(x,y) im Pixel (x,y) kann als Ergebnis einer Faltung des wahren Helligkeitsverteilungsfeldes S(x,y) mit der effektiven Punktspreizfunktion h(x,y) des Systems plus eines Rauschterms N(x,y) geschrieben werden: @keel_imaging_2007 @starck_inverse_2002
@@ -511,7 +524,12 @@ Eine besondere Rolle spielt das Stacking im Lucky Imaging, das bereits in Abschn
 
 Ein weiterer Spezialfall ist das sogenannte Drizzle-Verfahren (Variable-Pixel Linear Reconstruction), das ursprünglich für das Hubble Space Telescope entwickelt wurde. @fruchter_drizzle_2002 Die Grundidee ist, dass mehrere leicht gegeneinander verschobene Aufnahmen eines unterabgetasteten Systems genutzt werden, um ein höheraufgelöstes Rekonstruktionsraster zu füllen. Jeder Eingangspixel wird als kleines „Tröpfchen“ auf ein feineres Raster projiziert; durch die unterschiedlichen Subpixel-Offsets können fehlende Informationen teilweise rekonstruiert werden und das effektive Sampling verbessert werden, ohne neues physikalisches Auflösungsvermögen zu schaffen. @fruchter_drizzle_2002 @dss_drizzle_forum_2021 In der Amateur-Astrofotografie wird Drizzling gelegentlich eingesetzt, um bei leicht untersampelten Systemen eine bessere Darstellung der PSF und feinere Strukturwiedergabe zu erzielen, vorausgesetzt es liegen genügend ditherte Aufnahmen vor. @dss_drizzle_forum_2021
 
-In der Praxis umfasst ein Stacking-Workflow typischerweise mehrere Schritte: zunächst die Kalibrierung aller Rohaufnahmen (Bias/Dark/Flat), dann die astrometrische Registrierung, optional die Qualitätsselektion (z. B. nach FWHM oder Hintergrundrauschen), und schließlich die Wahl eines Integrationsverfahrens (Average, Median, Sigma-Clipping etc.). @smiljanic_data_2019 @dss_technical_2008 Eine schematische Abbildung dieser Pipeline – vom Rohbild über die Kalibrierung und Registrierung bis zum integrierten Bild – eignet sich zur Verdeutlichung, dass Stacking kein einzelner Algorithmus ist, sondern eine Kette von Verarbeitungsschritten, in denen physikalisch motivierte Modelle (PSF, Rauschen) mit informatischen Methoden (Registrierung, Ausreißererkennung, statistische Integration) verknüpft werden. @starck_inverse_2002
+In der Praxis umfasst ein Stacking-Workflow typischerweise mehrere Schritte: zunächst die Kalibrierung aller Rohaufnahmen (Bias/Dark/Flat), dann die astrometrische Registrierung, optional die Qualitätsselektion (z. B. nach FWHM oder Hintergrundrauschen), und schließlich die Wahl eines Integrationsverfahrens (Average, Median, Sigma-Clipping etc.). @smiljanic_data_2019 @dss_technical_2008 @starck_inverse_2002 Eine schematische Abbildung dieser Pipeline ergibt sich in @pipeline.
+
+#figure(
+  image("assets/PhotometricPipeline1.png", width: 80%),
+  caption: [Abbildung eines beispielhaften Stacking-Workflows. Quelle: @pic_stackingWorkflow]
+) <pipeline>
 
 = Methodik
 
