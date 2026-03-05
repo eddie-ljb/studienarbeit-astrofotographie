@@ -647,6 +647,79 @@ Die finale Bildversion dient sowohl der qualitativen visuellen Beurteilung als a
 
 = Konzeption
 
+== Konzeptioneller Gesamtansatz
+
+Die in Kapitel 1 formulierte Zielsetzung dieser Studienarbeit besteht darin, die Grenzen
+der Astrofotografie aus einer interdisziplinären Perspektive zu analysieren und dabei
+insbesondere die Leistungsfähigkeit von Stacking-Verfahren kritisch zu bewerten. Aus informatischer Sicht steht dabei die Frage im Vordergrund,
+unter welchen Bedingungen sich der theoretisch erwartete Gewinn im Signal-Rausch-
+Verhältnis durch das Kombinieren vieler Einzelaufnahmen tatsächlich realisieren lässt
+und ab welchem Punkt zusätzliche Aufnahmen nur noch einen marginalen Beitrag zur
+Bildqualität leisten. @howell_ccd_2006
+
+Die in Kapitel 2 entwickelten theoretischen Grundlagen definieren den physikalischen
+und mathematischen Rahmen, in dem diese Fragestellung zu beantworten ist. In
+Abschnitt 2.1 wurde der Photonfluss astronomischer Strahlungsquellen beschrieben und
+in Beziehung zu den registrierten Signal-Elektronen auf dem Detektor gesetzt
+. Darauf aufbauend wurden in Abschnitt 2.2 die atmosphärische
+Transmission und das Seeing als wesentliche limitierende Faktoren eingeführt
+. Die optischen Eigenschaften des Teleskops
+(Abschnitt 2.3) sowie das Zusammenspiel von Abbildung, Sampling und digitaler
+Erfassung (Abschnitt 2.4) verknüpfen diese Einflüsse mit der konkreten
+Bildentstehungskette. Das resultierende Signal-Rausch-Verhältnis und seine Abhängigkeit
+von Belichtungszeit, Photonstatistik und Detektoreigenschaften wurden in
+Abschnitt 2.5 formalisiert. Diese Modelle bilden die
+theoretische Referenz, an der die im Folgenden entwickelte Konzeption zu messen ist. @howell_ccd_2006 @smiljanic_obs_2019 @romanishin_photometry_2014
+
+Ein zentrales Ergebnis der theoretischen Betrachtung ist die Aussage, dass sich das
+Signal-Rausch-Verhältnis idealisierter Aufnahmen bei dominierendem Photonrauschen
+theoretisch ungefähr mit der Wurzel der Gesamtzahl der integrierten Photonen verbessert,
+was bei identischen Einzelbelichtungen einer Skalierung mit $sqrt(N)$ entspricht,
+wobei $N$ die Anzahl der gestackten Aufnahmen bezeichnet. @howell_ccd_2006 Gleichzeitig wurde in Abschnitt 2.6 gezeigt, dass zusätzliche Störgrößen wie
+Hintergrundhelligkeit, inhomogene Kalibrierung, Seeing-Schwankungen oder
+Systematikfehler der Nachführung dazu führen können, dass diese ideale Skalierung in
+der Praxis nicht erreicht wird. Die in Abschnitt 2.8
+diskutierten Stacking-Verfahren – etwa einfache Mittelwert- und Median-Verfahren,
+gewichtete Kombinationen oder sigma-basierte Rejektion – stellen Reaktionsmöglichkeiten
+auf diese Störungen dar, bringen jedoch ihrerseits Annahmen und Grenzen mit sich
+. @fruchter_drizzle_2002 @law_lucky_2009
+
+Kapitel 3 hat auf dieser Grundlage das methodische Vorgehen der Arbeit beschrieben.
+Im Forschungsdesign (Abschnitt 3.1) wurde ein experimenteller Ansatz gewählt, in dem
+reale Bilddaten mit variierender Bildanzahl, unterschiedlichen Stacking-Verfahren und
+definierten Aufnahmeparametern erzeugt und ausgewertet werden. Die Versuchsplanung
+(Abschnitt 3.2) spezifiziert die Auswahl der Himmelsobjekte, der verwendeten
+Instrumentierung sowie der relevanten Parameterbereiche, während die Abschnitte 3.3
+und 3.4 die Datenerhebung und Datenverarbeitung auf einer allgemeinen Ebene
+strukturieren. Kapitel 4 knüpft direkt an diese methodische Grundlage an und konkretisiert
+sie zu einem konsistenten Untersuchungs- und Softwarekonzept, in dem die in
+Kapitel 2 hergeleiteten Modelle auf konkrete Pixelwerte realer Aufnahmen angewandt
+werden.
+
+Der konzeptionelle Gesamtansatz dieses Kapitels besteht darin, die theoretischen
+Größen $"Signal"$, $"Rauschen"$ und $"SNR"$ aus Kapitel 2 in messbare
+Bildmetriken zu überführen, die sich an realen Einzelbildern und Stacks bestimmen lassen.
+Dazu werden definierte Bildbereiche (Regionen von Interesse) verwendet, um
+Objektsignal, Hintergrund und Rauschanteile empirisch zu approximieren und mit den
+modellhaften Erwartungen zu vergleichen. Die Grenzen
+des Stackings werden anschließend über systematische Variationen der Bildanzahl
+$N$, der verwendeten Stacking-Verfahren sowie ausgewählter Aufnahmeparameter
+(z. B. Belichtungszeit, Verstärkung) untersucht. Das Ziel ist es, jene Parameterbereiche
+zu identifizieren, in denen der Zuwachs im $"SNR"$ und in der wahrgenommenen
+Detailzeichnung messbar abnimmt und damit eine praktische Obergrenze des sinnvollen
+Stackings erreicht ist. @howell_ccd_2006
+
+Gleichzeitig grenzt der konzeptionelle Ansatz den Betrachtungsraum bewusst ein.
+Im Fokus stehen etablierte, in Abschnitt 2.8 eingeführte Stacking-Verfahren, die in der
+astronomischen Praxis weit verbreitet sind. Komplexe,
+nichtlineare Nachbearbeitungsschritte, die primär der ästhetischen Optimierung dienen
+(z. B. aggressive Kontrastdehnung, lokale Schärfung oder KI-basierte Entrauschung),
+werden nur in kontrollierter Form eingesetzt oder explizit ausgeblendet, um den Einfluss
+des Stackings auf messbare Qualitätsmetriken möglichst isoliert zu betrachten
+Auf diese Weise bleibt die Konzeption eng an die
+in dieser Arbeit entwickelte theoretische Grundlage angebunden und vermeidet, dass
+ästhetische Präferenzen die Bewertung der Grenzen des Stackings dominieren. @fruchter_drizzle_2002 @law_lucky_2009
+
 = Praktische Umsetzung
 
 = Analyse und Evaluation
@@ -656,9 +729,3 @@ Die finale Bildversion dient sowohl der qualitativen visuellen Beurteilung als a
 = Fazit
 
 = Ausblick
-
-#lorem(50)
-
-#lorem(120)
-
-#lorem(80)
