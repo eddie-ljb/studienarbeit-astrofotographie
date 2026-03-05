@@ -720,6 +720,15 @@ Auf diese Weise bleibt die Konzeption eng an die
 in dieser Arbeit entwickelte theoretische Grundlage angebunden und vermeidet, dass
 ästhetische Präferenzen die Bewertung der Grenzen des Stackings dominieren. @fruchter_drizzle_2002 @law_lucky_2009
 
+== Untersuchungs- und Versuchskonzept
+.
+
+== Konzeption der Verarbeitungs- und Softwarepipeline
+.
+
+== Evaluationsstrategie, Annahmen und Grenzen
+.
+
 = Praktische Umsetzung
 
 = Analyse und Evaluation
