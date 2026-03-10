@@ -301,6 +301,14 @@ Zur Veranschaulichung bietet sich eine schematische Abbildung der grundlegenden 
   caption: [Abbildung der Strahlungsverläufe bei Refraktor., Newton-Reflektor- und Schmidt-Cassegrain-Teleskopen. Quellen: @pic_newton @pic_refraktor @pic_schmidt]
 ) <teleskoptypen>
 
+Die in diesem Abschnitt beschriebenen optischen Systeme lassen sich unabhängig von konkreten Gerätekonfigurationen durch wenige grundlegende Kenngrößen charakterisieren: Apertur, Brennweite, Öffnungsverhältnis, effektive Sammelfläche und beugungsbegrenzte Auflösung. Diese Größen bestimmen, wie viele Photonen pro Zeiteinheit gesammelt werden können und welche minimale Winkelauflösung ein Teleskop im beugungsbegrenzten Idealfall erreicht. @schroeder_astrooptics_2000 @wilson_reflecting_2007
+
+Refraktoren, Newton-Reflektoren und Schmidt-Cassegrain-Teleskope (SC) stellen in der Praxis drei prototypische Bauformen dar, die in Lehrbüchern und Skripten zur Beobachtungsastronomie als repräsentativ für unterschiedliche Kompromisse zwischen Abbildungsqualität, Bildfeld, mechanischem Aufwand und Kosten diskutiert werden. Refraktoren bieten hohen Kontrast und ein weitgehend artefaktarmes Beugungsmuster, sind in größeren Aperturen jedoch optisch und mechanisch aufwendig. Newton-Reflektoren erlauben bei gegebener Öffnung eine große Sammelfläche bei vergleichsweise geringem Aufwand, weisen aber durch zentrale Obstruktion und Fangspiegelstreben ein modifiziertes Beugungsmuster auf. Kompakte Schmidt-Cassegrain-Systeme kombinieren eine gefaltete Strahlführung mit langer effektiver Brennweite und sind dadurch für hochauflösende Anwendungen attraktiv, erfordern jedoch häufig zusätzliche Korrektoren für große, gut korrigierte Bildfelder. @schroeder_astrooptics_2000 @wilson_reflecting_2007 @gal_yam_obs_2012
+
+Die beugungsbedingte Auflösungsgrenze lässt sich für alle genannten Systeme durch die Airy-Scheibe und das Rayleigh-Kriterium beschreiben. Sie skaliert invers mit der Apertur und direkt mit der Wellenlänge und definiert damit die minimale Winkeltrennung zweier Punktquellen, die in einem beugungsbegrenzten System noch getrennt abgebildet werden können. In der bodengebundenen Astrofotografie wird diese theoretische Grenze jedoch in der Regel durch das atmosphärische Seeing überlagert, das eine deutlich größere effektive Punktspreizfunktion erzeugt und so die erreichbare Auflösung praktisch dominiert. @spiff_atmos_rit_2005 @martinez_seeing_2010
+
+Für die weiteren Betrachtungen dieser Arbeit ist es ausreichend, ein Teleskopsystem durch typische Parameterbereiche zu modellieren, wie sie im Amateur- und Semiprofibereich verbreitet sind. Systeme mit Aperturen im Bereich von etwa 150–200 mm und Brennweiten zwischen ungefähr 700 und 1000 mm liefern in Verbindung mit modernen Sensoren Bildmaßstäbe von der Größenordnung einer Bogensekunde pro Pixel und erlauben damit eine praxisnahe Diskussion der Kopplung von Optik, atmosphärischem Seeing und Sampling, wie sie in Abschnitt 2.4 vertieft wird. @astrojolo_pixelscale_2020 @astrobasics_nyquist_2025 @unittoolbox_pixel_2021
+
 Neben der geometrischen Auslegung des optischen Systems spielt die Transmission eine entscheidende Rolle. Jede optische Oberfläche verursacht Reflexionen und Absorption, sodass ohne geeignete Beschichtungen nur ein Teil des einfallenden Lichts den Detektor erreicht. An einer unbehandelten Glas–Luft-Grenzfläche treten je nach Brechungsindex Reflexionsverluste von mehreren Prozent pro Fläche auf; in einem mehrlinsigen System summiert sich dies zu erheblichen Verlusten. @pbrt_radiometry_2022 Auch Spiegel weisen nur endliche Reflexionsgrade auf, typischerweise im Bereich von 85 bis 95 Prozent, sodass sich bei mehreren reflektierenden Flächen die effektive Durchlässigkeit des Systems spürbar verringert. @howell_ccd_2006
 
 Antireflexbeschichtungen werden eingesetzt, um Reflexionsverluste an Glas–Luft-Grenzflächen zu minimieren. Durch dünne Schichten mit geeignetem Brechungsindex und definierter Schichtdicke lässt sich destruktive Interferenz der reflektierten Wellen erreichen, sodass der effektive Reflexionsgrad für bestimmte Wellenlängen deutlich reduziert wird. Mehrschichtvergütungen erweitern diesen Effekt auf einen größeren Spektralbereich. In der Astrofotografie erhöhen solche Vergütungen die Transmission der Optik und reduzieren interne Reflexionen und Geisterbilder, was unmittelbar den Kontrast und die nutzbare Signalstärke verbessert. @howell_ccd_2006 @pbrt_radiometry_2022
@@ -402,6 +410,14 @@ Diese Effekte lassen sich in einem vereinfachten Bildentstehungsmodell zusammenf
 $ I(x,y) = (S * h)(x,y) + N(x,y) $
 
 Hier beschreibt S(x,y) die wahre Szene (z. B. Helligkeit eines Nebels oder Sternfeldes), h(x,y) die kombinierte Antwort von Optik, Atmosphäre und Sensor (PSF, inklusive Beugung, Seeing, Abtastung und ggf. weiterer Unschärfen), und N(x,y) fasst die oben beschriebenen stochastischen Rauschkomponenten zusammen. @keel_imaging_2007 In Fourier-Darstellung geht diese Faltung in eine Multiplikation über, was für viele Bildrekonstruktions- und Deconvolution-Verfahren ausgenutzt wird. @starck_inverse_2002
+
+Digitale Kamerasysteme lassen sich im theoretischen Rahmen durch wenige zentrale Parameter beschreiben: Pixelgröße und -anzahl, Quanteneffizienz, Full-Well-Kapazität, Ausleserauschen und Dynamikumfang. Diese Größen bestimmen, wie der durch Teleskop und Atmosphäre geformte Photonfluss in ein diskretes elektrisches Signal überführt wird und mit welcher Genauigkeit photometrische und strukturelle Informationen im aufgenommenen Bild enthalten sind. @romanishin_ccd_2002 @aavso_ccd_2013 @howell_ccd_2006
+
+In der astronomischen Praxis kommen sowohl CCD- als auch CMOS-Sensoren zum Einsatz, deren physikalische und elektronische Eigenschaften in der Fachliteratur detailliert diskutiert werden. CCD-Systeme zeichnen sich durch eine homogene Auslesearchitektur und gut verstandenes Rauschverhalten aus, während moderne CMOS-Sensoren insbesondere durch hohe Auslesegeschwindigkeiten, geringes Ausleserauschen und integrierte Verstärkerstrukturen auffallen.  Die Quanteneffizienz verknüpft – wie in Abschnitt 2.1 eingeführt – die astrophysikalische Photonstatistik mit dem elektrischen Signal, indem sie angibt, welcher Anteil der einfallenden Photonen tatsächlich in Elektronen umgesetzt wird. Full-Well-Kapazität und Auflösung des Analog-Digital-Wandlers begrenzen den Dynamikumfang und definieren den Bereich, in dem das Signal ohne Sättigung und mit hinreichender Auflösung abgebildet werden kann. @hamamatsu_dynrange_2010 @howell_ccd_2006 @buil_cmos_2016 @aavso_ccd_2013 
+
+Das gesamte Rauschbudget einer Aufnahme setzt sich aus Photonrauschen des Objekts, Himmelshintergrund, Dunkelstrom und Ausleserauschen zusammen. Standarddarstellungen zur CCD-Photometrie und zu Signal-Rausch-Überlegungen in der Beobachtungsastronomie führen konsistente Formeln ein, in denen diese Beiträge quadratisch addiert werden und das resultierende Signal-Rausch-Verhältnis als zentrale Gütegröße der Messung erscheint. Die in Abschnitt 2.5 verwendeten Modelle greifen auf diese Formulierungen zurück und bilden die Grundlage, um die Wirkung des Stackings auf das Signal-Rausch-Verhältnis im weiteren Verlauf der Arbeit quantitativ zu analysieren. Die Kopplung von Kamera und Teleskop erfolgt über den Bildmaßstab, der sich aus Brennweite und Pixelgröße ergibt und in Abschnitt 2.4 bereits hergeleitet wurde. Die Wahl dieses Maßstabs steht in direktem Zusammenhang mit dem Nyquist-Shannon-Abtasttheorem: Um die effektive Punktspreizfunktion des Gesamtsystems angemessen zu erfassen, sollten typischerweise zwei bis drei Pixel die FWHM dieser Funktion abdecken. Eine zu grobe Abtastung (Undersampling) führt zu Informationsverlust und Artefakten, während starkes Oversampling hauptsächlich Datenraten und Rauschen pro Bildstruktur erhöht, ohne eine entsprechende Zunahme an nutzbarer Information zu liefern. @astrobasics_nyquist_2025 @bolte_sn_2004 @dacosta_photometry_1992 @romanishin_ccd_2002
+
+Aus informatischer Perspektive ist die Kamera stets Teil einer vollständigen Aufnahmekette, die mindestens einen Steuerrechner, eine Datenschnittstelle und spezialisierte Aufnahmesoftware umfasst. Skripte und Lehrmaterialien zur Beobachtungsastronomie und Datenverarbeitung betonen, dass Datendurchsatz, Speicherbandbreite und Rechenleistung die praktikable Anzahl und Größe von Einzelaufnahmen begrenzen und damit unmittelbar auf die Gestaltung von Stacking-Experimenten einwirken. Diese theoretische Sicht auf das Kamerasystem und die Aufnahmetechnik definiert den Rahmen, innerhalb dessen die in den Kapiteln 3 bis 5 beschriebenen konkreten Vorgehensweisen und Implementierungen einzuordnen sind. @smiljanic_obs_2019 @smiljanic_data_2019 @keel_imaging_2007
 
 == Signal-Rausch-Verhältnis und Belichtungszeit
 
@@ -649,6 +665,8 @@ Die finale Bildversion dient sowohl der qualitativen visuellen Beurteilung als a
 
 == Konzeptioneller Gesamtansatz
 
+ERFAHRUNGSBERICHT ZU TELESKOPEN HIER EINFÜGEN
+
 Die in Kapitel 1 formulierte Zielsetzung dieser Studienarbeit besteht darin, die Grenzen
 der Astrofotografie aus einer interdisziplinären Perspektive zu analysieren und dabei
 insbesondere die Leistungsfähigkeit von Stacking-Verfahren kritisch zu bewerten. Aus informatischer Sicht steht dabei die Frage im Vordergrund,
@@ -721,7 +739,14 @@ in dieser Arbeit entwickelte theoretische Grundlage angebunden und vermeidet, da
 ästhetische Präferenzen die Bewertung der Grenzen des Stackings dominieren. @fruchter_drizzle_2002 @law_lucky_2009
 
 == Untersuchungs- und Versuchskonzept
-.
+
+- Equipment-Beschaffung & -Transport
+- Versuchsaufbau & Equipment-Aufbau
+- Grenzen des Equipment -> Was hätten wir anders zusammengestellt
+- Vergleich von Teleskopen, Filtern, und unserem Equipments -> Welcher Aufbau ist für uns am sinnvollsten
+- Welches Himmelsobjekt untersuchen wir, warum, wie, Grobdaten, zu erwartende Daten
+- wie können negative Einflüsse bereits im Versuch minimiert werden; wie kann Auflösung bereits im Versuch maximiert werden
+- Abspeicherung der Daten 
 
 == Konzeption der Verarbeitungs- und Softwarepipeline
 .
