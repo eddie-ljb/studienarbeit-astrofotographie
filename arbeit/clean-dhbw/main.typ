@@ -748,6 +748,20 @@ in dieser Arbeit entwickelte theoretische Grundlage angebunden und vermeidet, da
 - wie können negative Einflüsse bereits im Versuch minimiert werden; wie kann Auflösung bereits im Versuch maximiert werden
 - Abspeicherung der Daten 
 
+In Abschnitt 3.2 wurden das grundsätzliche Versuchsdesign und die eingesetzten Instrumente dieser Studienarbeit beschrieben. Aufbauend darauf konkretisiert dieses Kapitel, wie das vorhandene Equipment zu einem Untersuchungs- und Versuchskonzept kombiniert wird, das die in Kapitel 1 formulierte Fragestellung nach den Grenzen des Stackings unter realistischen Beobachtungsbedingungen adressiert.
+
+Die Beschaffung des Equipments erfolgte in enger Abstimmung mit dem verfügbaren Bestand an der DHBW, dem zur Verfügung stehenden Budget sowie des Expertenrates des akademischen Betreuers Herr Prof. Dr. Ralph Lausen. 
+
+[[MARKER: kurze Beschreibung, z.B. Was konkret Beschafft wurde und was bereits vorhanden war]]
+
+Dabei wurde bewusst auf Komponenten zurückgegriffen, die den typischen Rahmen ambitionierter Amateur‑ oder Semiprofi‑Astrofotografie widerspiegeln und keine exotischen Hochleistungsinstrumente darstellen. Der Transport zum Beobachtungsstandort 
+
+[[MARKER: Standort, z.B. ländliche Umgebung bei Karlsruhe]] 
+
+erfolgt modular in separaten Komponenten (Montierung, Teleskop, Gegengewichte, Kamera, Zubehör), um Beschädigungen zu vermeiden und einen reproduzierbaren Aufbau vor Ort zu gewährleisten. Aspekte wie Stromversorgung, Kabelmanagement und mechanische Stabilität werden bereits auf dieser Ebene berücksichtigt, da sie späteren systematischen Fehlerquellen – etwa Nachführfehlern oder Vibrationen – vorbeugen sollen. @smiljanic_data_2019 @aavso_ccd_2013 @keel_imaging_2007
+
+TBC
+
 == Konzeption der Verarbeitungs- und Softwarepipeline
 .
 
