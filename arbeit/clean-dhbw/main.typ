@@ -766,19 +766,129 @@ in dieser Arbeit entwickelte theoretische Grundlage angebunden und vermeidet, da
 - wie können negative Einflüsse bereits im Versuch minimiert werden; wie kann Auflösung bereits im Versuch maximiert werden
 - Abspeicherung der Daten 
 
-In Abschnitt 3.2 wurden das grundsätzliche Versuchsdesign und die eingesetzten Instrumente dieser Studienarbeit beschrieben. Aufbauend darauf konkretisiert dieses Kapitel, wie das vorhandene Equipment zu einem Untersuchungs- und Versuchskonzept kombiniert wird, das die in Kapitel 1 formulierte Fragestellung nach den Grenzen des Stackings unter realistischen Beobachtungsbedingungen adressiert.
+In Abschnitt 3.2 wurde das grundlegende Versuchsdesign dieser Studienarbeit skizziert
+und das verwendete Equipment beschrieben. Aufbauend darauf konkretisiert das
+vorliegende Kapitel das Untersuchungs- und Versuchskonzept, mit dem die in Kapitel 1
+formulierte Fragestellung nach den Grenzen von Stacking-Verfahren unter realen
+Beobachtungsbedingungen adressiert wird. Im Mittelpunkt steht ein typischer
+Deep-Sky-Aufbau im Amateur- und Semiprofi-Bereich, bestehend aus einem
+150-mm-Newton-Teleskop auf parallaktischer Montierung, einer gekühlten
+CMOS-Farbkamera und einem autogeführten Nachführsystem. @aavso_ccd_2013 @keel_imaging_2007
+Ziel ist es, den Weg von der Wahl des Himmelsobjekts bis zur strukturierten
+Abspeicherung der Rohdaten so zu spezifizieren, dass das resultierende Datenmaterial
+für eine quantitative Analyse der Stacking-Grenzen geeignet ist.
 
-Die Beschaffung des Equipments erfolgte in enger Abstimmung mit dem verfügbaren Bestand an der DHBW, dem zur Verfügung stehenden Budget sowie des Expertenrates des akademischen Betreuers Herr Prof. Dr. Ralph Lausen. 
+Der optische Hauptstrang des Versuchsaufbaus basiert auf einem Newton-Teleskop
+Sky-Watcher Explorer 150PDS mit einem Spiegeldurchmesser von
+$D = 150, "mm"$ und einer Brennweite von $f = 750, "mm"$
+(Öffnungsverhältnis $f/D = 5$). @schroeder_astrooptics_2000
+Dieses System verbindet eine noch transportable Baugröße mit einer für
+Deep-Sky-Beobachtungen hinreichenden Lichtsammelleistung. Die von einem
+astronomischen Objekt einfallende Strahlung wird durch den parabolischen
+Hauptspiegel gesammelt, über den Sekundärspiegel in den 2''-Okularauszug gelenkt
+und dort durch einen Baader MPCC Mark III Coma-Korrektor geführt, der die für
+schnelle Newton-Systeme charakteristische Bildfeldkoma kompensiert, ohne die
+effektive Brennweite wesentlich zu verändern. An den korrigierten Strahlengang schließt ein motorisiertes Filterrad vom Typ
+ZWO EFW mini (5 × 1,25'') an, das unter anderem einen Optolong L-Pro-Filter
+(breitbandiger Lichtverschmutzungsfilter) sowie einen Optolong L-eNhance-Filter
+(Duo-Schmalbandfilter für Hα und OIII) aufnimmt. @schroeder_astrooptics_2000
 
-[[MARKER: kurze Beschreibung, z.B. Was konkret Beschafft wurde und was bereits vorhanden war]]
+Als Hauptdetektor dient eine gekühlte CMOS-Farbkamera ZWO ASI533MC Pro mit einem
+quadratischen 1''-Sensor (3008 × 3008 Pixel, Pixelgröße
+$p = 3,76 mu"m"$).[howell_ccd_2006][web:44]
+Aus Brennweite und Pixelgröße ergibt sich ein Winkelmaßstab von
+$ "Skala" approx 206,265 * 3,76(mu"m") / 750"mm"
+approx 1,03''/ "Pixel" $.
+Typische Seeing-Werte in mitteleuropäischen Nächten von etwa $2,5''$
+führen damit zu einem Sampling von rund 2,4 Pixeln pro FWHM der Seeing-Scheibe.
+Dieses Verhältnis liegt nahe der in Abschnitt 2.4 diskutierten optimalen
+Nyquist-Abtastung von zwei bis drei Pixeln pro Auflösungs­element und stellt sicher,
+dass Punktquellen wie Sterne und feinere Strukturen der Whirlpool-Galaxie
+hinreichend differenziert erfasst werden. Die Kamera wird auf eine Sensortemperatur von etwa $-10°C$ gekühlt und
+bei einem Gain im Bereich des Unity-Gain-Punkts betrieben, um das Zusammenspiel
+von Dynamikbereich und Ausleserauschen im Sinne eines hohen
+Signal-Rausch-Verhältnisses zu optimieren. @bolte_sn_2004 @hamamatsu_dynrange_2010 @astrobasics_nyquist_2025 @astrojolo_pixelscale_2020 @unittoolbox_pixel_2021
 
-Dabei wurde bewusst auf Komponenten zurückgegriffen, die den typischen Rahmen ambitionierter Amateur‑ oder Semiprofi‑Astrofotografie widerspiegeln und keine exotischen Hochleistungsinstrumente darstellen. Der Transport zum Beobachtungsstandort 
+Mechanisch ist der Tubus auf einer Sky-Watcher EQ5 Pro SynScan-Montierung
+installiert, die als deutsche parallaktische GoTo-Montierung ausgeführt ist und eine
+hinreichende Tragfähigkeit für Teleskop, Korrektor, Filterrad, Kamera und
+Guiding-Einheit bereitstellt.
+Bei korrekter Polausrichtung und justierter Mechanik erlaubt die EQ5 laut Handbuch
+eine Nachführgenauigkeit, die durch Autoguiding in einen RMS-Bereich von etwa
+$1''$ überführt werden kann und damit mit dem gewählten Sampling kompatibel ist.
+Die Polausrichtung erfolgt über den integrierten Polsucher und kann bei Bedarf durch
+driftbasierte Verfahren verfeinert werden. Zur Unterdrückung von Nachführfehlern
+wird ein 50-mm-Guidescope von Omegon in Kombination mit der monochromen
+Kamera ZWO ASI120MM-S eingesetzt; das Guiding wird über die Steuerhardware
+ZWO ASIAIR Plus realisiert.
+Auf diese Weise wird eine weitgehend konstante Punktspreizfunktion der Sterne in
+den Einzelaufnahmen angestrebt, die sich im Rahmen der theoretischen Seeing-Grenze
+bewegt. @fried_r0_1966 @martinez_seeing_2010
 
-[[MARKER: Standort, z.B. ländliche Umgebung bei Karlsruhe]] 
+Als Hauptobjekt der Untersuchung dient die Whirlpool-Galaxie Messier 51 (M51),
+ein Galaxienpaar vom Typ Sbc in den Jagdhunden (Canes Venatici) mit einer
+scheinbaren Gesamthelligkeit von etwa $m_"tot" approx 8,4 "mag"$ und
+einer Winkelausdehnung von rund $11' × 7'$.
+M51 erreicht in Frühlingsnächten von Karlsruhe aus Höhen von deutlich über
+$45°$, wodurch die Luftmasse über längere Zeiträume auf Werte
+$X ≲ 1,4$ begrenzt werden kann.
+Die ausgeprägte Spiralstruktur und der interagierende Begleiter NGC 5195 bilden ein
+komplexes, aber gut dokumentiertes Testfeld, in dem der Zuwachs an detektierbaren
+Details mit wachsender Integrationszeit systematisch analysiert werden kann.
+Zugleich sind zahlreiche Feldsterne vorhanden, die eine quantitative Bestimmung
+von FWHM und Signal-Rausch-Verhältnis für Punktquellen in den verschiedenen
+Stacking-Varianten erlauben. @romanishin_photometry_2014 @dacosta_photometry_1992 @massey_atmos_2000 @gal_yam_obs_2012 @bessell_ubvri_1990
 
-erfolgt modular in separaten Komponenten (Montierung, Teleskop, Gegengewichte, Kamera, Zubehör), um Beschädigungen zu vermeiden und einen reproduzierbaren Aufbau vor Ort zu gewährleisten. Aspekte wie Stromversorgung, Kabelmanagement und mechanische Stabilität werden bereits auf dieser Ebene berücksichtigt, da sie späteren systematischen Fehlerquellen – etwa Nachführfehlern oder Vibrationen – vorbeugen sollen. @smiljanic_data_2019 @aavso_ccd_2013 @keel_imaging_2007
+Die Belichtungsstrategie orientiert sich an praxisüblichen Parametern für einen
+Vorstadthimmel der Bortle-Klasse 5–6 und an den in Abschnitt 2.5 diskutierten
+Zusammenhängen zwischen Belichtungszeit, Hintergrundniveau und
+Signal-Rausch-Verhältnis.
+Für die breitbandige M51-Serie wird der L-Pro-Filter in Kombination mit der
+ASI533MC Pro verwendet. Die Einzelbelichtungszeit beträgt
+$t_"exp" = 180 s$ pro Aufnahme. Unter den gegebenen
+Lichtverschmutzungsbedingungen ist damit gewährleistet, dass der Beitrag des
+Himmelsrauschens das Ausleserauschen dominiert, ohne dass helle Sterne flächig
+saturieren.@eso_sn_2004 @starizona_optimum_2020 @bolte_sn_2004
+Zur Untersuchung der Grenzen des Stackings werden vier Stacks mit
+unterschiedlicher Bildanzahl $N = 10, 20, 40$ und $80$ gebildet, die
+Gesamtintegrationszeiten von 30, 60, 120 und 240 Minuten entsprechen.
+Ausgehend von den theoretischen Überlegungen in Abschnitt 2.5 ist für idealisierte
+Verhältnisse eine Verbesserung des Signal-Rausch-Verhältnisses proportional zu $sqrt(N)$ zu erwarten; die praktische Umsetzung mit realen Daten erlaubt es
+jedoch, Abweichungen von dieser Idealisierung und deren Ursachen zu identifizieren. @howell_ccd_2006
 
-TBC
+Die Nachführung erfolgt über Mehrstern-Guiding mit dem 50-mm-Leitrohr und der
+ASI120MM-S, wobei ein RMS-Trackingfehler von $≲ 1''$ angestrebt wird.
+Zwischen jeweils fünf Einzelaufnahmen wird ein Dither-Versatz der Montierung um
+wenige Pixel durchgeführt. Dieses Dithering trägt dazu bei, feste Sensorstrukturen,
+Hotpixel und periodische Muster zu randomisieren und verbessert damit die
+statistischen Eigenschaften des Rauschens im resultierenden Stack. Gleichzeitig wird
+die Voraussetzung geschaffen, bei Bedarf rekonstruktive Verfahren wie Drizzle
+einzusetzen, wie sie in Abschnitt 2.8 näher diskutiert wurden. @fruchter_drizzle_2002 @smiljanic_data_2019 @keel_imaging_2007
+
+Zur Minimierung weiterer Störeinflüsse werden Beobachtungsnächte mit guter
+Transparenz und ruhiger Atmosphäre bevorzugt, die Beobachtungszeiten werden in
+die Umgebung der Kulmination von M51 gelegt.
+Vor jeder Session wird der Newton-Tubus kollimiert und die Ausrichtung über einen
+Sternetest kontrolliert, da Kollimationsfehler direkt zu systematischen
+Abbildungsfehlern führen, die auch durch Stackings nur begrenzt kompensiert werden
+können. @schroeder_astrooptics_2000 @massey_atmos_2000
+Eine Taukappe reduziert Streulicht und schützt vor Taubeschlag, was insbesondere
+für die Stabilität der Flatfield-Korrektur relevant ist.
+
+Die Sicherung der Rohdaten folgt einer klar definierten Struktur. Für jede
+Beobachtungsnacht wird ein Verzeichnis der Form `/M51/2026-03-XX/` angelegt, das
+in Unterordner für Lights, Darks, Flats und Bias gegliedert ist; innerhalb der
+Lights- und Flats-Ordner erfolgt eine weitere Trennung nach verwendeten Filtern.
+Die Dateinamen folgen einem konsistenten Schema wie
+`M51_LPro_180s_G100_YYYYMMDD_NNN.fit`, das Objekt, Filter, Belichtungszeit,
+Gain, Datum und laufende Nummer kodiert. @smiljanic_meas_2019 @keel_imaging_2007
+Parallel dazu wird ein Beobachtungsprotokoll geführt, in dem für jede Sequenz
+Parameter wie Datum, Uhrzeit, geschätztes Seeing, Transparenz, Guiding-RMS und
+besondere Ereignisse vermerkt werden.
+Diese strukturierte Dokumentation bildet die Grundlage für die in Abschnitt 4.3
+beschriebene Verarbeitungs- und Softwarepipeline und ermöglicht es, in Kapitel 6
+auffällige Messergebnisse mit konkreten Beobachtungsbedingungen zu korrelieren. @clark_stacking_2022 @dss_technical_2008 @siril_stacking_2021
+
 
 == Konzeption der Verarbeitungs- und Softwarepipeline
 .
