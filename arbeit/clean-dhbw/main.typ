@@ -758,14 +758,6 @@ in dieser Arbeit entwickelte theoretische Grundlage angebunden und vermeidet, da
 
 == Untersuchungs- und Versuchskonzept
 
-- Equipment-Beschaffung & -Transport
-- Versuchsaufbau & Equipment-Aufbau
-- Grenzen des Equipment -> Was hätten wir anders zusammengestellt
-- Vergleich von Teleskopen, Filtern, und unserem Equipments -> Welcher Aufbau ist für uns am sinnvollsten
-- Welches Himmelsobjekt untersuchen wir, warum, wie, Grobdaten, zu erwartende Daten
-- wie können negative Einflüsse bereits im Versuch minimiert werden; wie kann Auflösung bereits im Versuch maximiert werden
-- Abspeicherung der Daten 
-
 In Abschnitt 3.2 wurde das grundlegende Versuchsdesign dieser Studienarbeit skizziert
 und das verwendete Equipment beschrieben. Aufbauend darauf konkretisiert das
 vorliegende Kapitel das Untersuchungs- und Versuchskonzept, mit dem die in Kapitel 1
@@ -781,7 +773,7 @@ für eine quantitative Analyse der Stacking-Grenzen geeignet ist.
 Der optische Hauptstrang des Versuchsaufbaus basiert auf einem Newton-Teleskop
 Sky-Watcher Explorer 150PDS mit einem Spiegeldurchmesser von
 $D = 150, "mm"$ und einer Brennweite von $f = 750, "mm"$
-(Öffnungsverhältnis $f/D = 5$). @schroeder_astrooptics_2000
+(Öffnungsverhältnis $f/D = 5$). @schroeder_astrooptics_2000 @skywatcher_150pds_spec_2012 @teleskopspez_150pds_2013
 Dieses System verbindet eine noch transportable Baugröße mit einer für
 Deep-Sky-Beobachtungen hinreichenden Lichtsammelleistung. Die von einem
 astronomischen Objekt einfallende Strahlung wird durch den parabolischen
@@ -791,7 +783,7 @@ schnelle Newton-Systeme charakteristische Bildfeldkoma kompensiert, ohne die
 effektive Brennweite wesentlich zu verändern. An den korrigierten Strahlengang schließt ein motorisiertes Filterrad vom Typ
 ZWO EFW mini (5 × 1,25'') an, das unter anderem einen Optolong L-Pro-Filter
 (breitbandiger Lichtverschmutzungsfilter) sowie einen Optolong L-eNhance-Filter
-(Duo-Schmalbandfilter für Hα und OIII) aufnimmt. @schroeder_astrooptics_2000
+(Duo-Schmalbandfilter für Hα und OIII) aufnimmt. @schroeder_astrooptics_2000 @baader_mpcc_mark3_2015 @optolong_lpro_2025 @optolong_lenhance_2025
 
 Als Hauptdetektor dient eine gekühlte CMOS-Farbkamera ZWO ASI533MC Pro mit einem
 quadratischen 1''-Sensor (3008 × 3008 Pixel, Pixelgröße
@@ -810,10 +802,7 @@ von Dynamikbereich und Ausleserauschen im Sinne eines hohen
 Signal-Rausch-Verhältnisses zu optimieren. @bolte_sn_2004 @hamamatsu_dynrange_2010 @astrobasics_nyquist_2025 @astrojolo_pixelscale_2020 @unittoolbox_pixel_2021
 
 Mechanisch ist der Tubus auf einer Sky-Watcher EQ5 Pro SynScan-Montierung
-installiert, die als deutsche parallaktische GoTo-Montierung ausgeführt ist und eine
-hinreichende Tragfähigkeit für Teleskop, Korrektor, Filterrad, Kamera und
-Guiding-Einheit bereitstellt.
-Bei korrekter Polausrichtung und justierter Mechanik erlaubt die EQ5 laut Handbuch
+installiert, die als deutsche parallaktische GoTo-Montierung ausgeführt ist und eine hinreichende Tragfähigkeit für Teleskop, Korrektor, Filterrad, Kamera und Guiding-Einheit bereitstellt. Bei korrekter Polausrichtung und justierter Mechanik erlaubt die EQ5 laut Handbuch
 eine Nachführgenauigkeit, die durch Autoguiding in einen RMS-Bereich von etwa
 $1''$ überführt werden kann und damit mit dem gewählten Sampling kompatibel ist.
 Die Polausrichtung erfolgt über den integrierten Polsucher und kann bei Bedarf durch
@@ -823,7 +812,7 @@ Kamera ZWO ASI120MM-S eingesetzt; das Guiding wird über die Steuerhardware
 ZWO ASIAIR Plus realisiert.
 Auf diese Weise wird eine weitgehend konstante Punktspreizfunktion der Sterne in
 den Einzelaufnahmen angestrebt, die sich im Rahmen der theoretischen Seeing-Grenze
-bewegt. @fried_r0_1966 @martinez_seeing_2010
+bewegt. @fried_r0_1966 @martinez_seeing_2010 @skywatcher_eq5_manual_2010 @zwo_asi533mcpro_spec_2025 @flo_asi533mcpro_2025 @zwo_asiairplus_2024
 
 Als Hauptobjekt der Untersuchung dient die Whirlpool-Galaxie Messier 51 (M51),
 ein Galaxienpaar vom Typ Sbc in den Jagdhunden (Canes Venatici) mit einer
@@ -854,7 +843,7 @@ unterschiedlicher Bildanzahl $N = 10, 20, 40$ und $80$ gebildet, die
 Gesamtintegrationszeiten von 30, 60, 120 und 240 Minuten entsprechen.
 Ausgehend von den theoretischen Überlegungen in Abschnitt 2.5 ist für idealisierte
 Verhältnisse eine Verbesserung des Signal-Rausch-Verhältnisses proportional zu $sqrt(N)$ zu erwarten; die praktische Umsetzung mit realen Daten erlaubt es
-jedoch, Abweichungen von dieser Idealisierung und deren Ursachen zu identifizieren. @howell_ccd_2006
+jedoch, Abweichungen von dieser Idealisierung und deren Ursachen zu identifizieren. @howell_ccd_2006 @fovcalc_x2r_2021
 
 Die Nachführung erfolgt über Mehrstern-Guiding mit dem 50-mm-Leitrohr und der
 ASI120MM-S, wobei ein RMS-Trackingfehler von $≲ 1''$ angestrebt wird.
@@ -863,7 +852,7 @@ wenige Pixel durchgeführt. Dieses Dithering trägt dazu bei, feste Sensorstrukt
 Hotpixel und periodische Muster zu randomisieren und verbessert damit die
 statistischen Eigenschaften des Rauschens im resultierenden Stack. Gleichzeitig wird
 die Voraussetzung geschaffen, bei Bedarf rekonstruktive Verfahren wie Drizzle
-einzusetzen, wie sie in Abschnitt 2.8 näher diskutiert wurden. @fruchter_drizzle_2002 @smiljanic_data_2019 @keel_imaging_2007
+einzusetzen, wie sie in Abschnitt 2.8 näher diskutiert wurden. @fruchter_drizzle_2002 @smiljanic_data_2019 @keel_imaging_2007 @zwo_asi120mms_spec_2022
 
 Zur Minimierung weiterer Störeinflüsse werden Beobachtungsnächte mit guter
 Transparenz und ruhiger Atmosphäre bevorzugt, die Beobachtungszeiten werden in
@@ -891,7 +880,132 @@ auffällige Messergebnisse mit konkreten Beobachtungsbedingungen zu korrelieren.
 
 
 == Konzeption der Verarbeitungs- und Softwarepipeline
-.
+
+Die in Abschnitt 4.3 beschriebene Datenorganisation und Versuchsplanung bildet die
+Voraussetzung für eine klar definierte Verarbeitungs- und Softwarepipeline, die von den
+Rohdaten der Kamera bis zu den für die Analyse verwendeten Stacks reicht. Ziel dieser Pipeline ist es, die in Kapitel 2 hergeleiteten theoretischen Zusammenhänge
+zwischen Photonenfluss, Signal-Rausch-Verhältnis und Bildauflösung unter kontrollierten
+Bedingungen praktisch umzusetzen und dabei systematische Störeinflüsse weitgehend von
+stochastischen Rauschkomponenten zu trennen.
+Im Folgenden wird die Verarbeitungsstrecke für die M51‑Aufnahmen konzeptionell
+beschrieben; die konkrete Umsetzung und Softwarewahl wird in Kapitel 5 aufgegriffen.
+
+Die Verarbeitungs- und Softwarepipeline ist modular aufgebaut und folgt in ihrer Struktur
+den in Abschnitt 2.8 skizzierten Stacking-Verfahren. @clark_stacking_2022 @siril_stacking_2021
+Sie lässt sich in die folgenden Hauptphasen gliedern:
+
+1. Organisation und Import der Rohdaten (Lights, Darks, Flats, Bias) aus der in 4.3
+   beschriebenen Verzeichnisstruktur. @aavso_ccd_2013
+2. Erstellung von Master-Kalibrierbildern (Master-Dark, Master-Flat, Master-Bias bzw.
+   Master-Flatdark) durch robustes Stacking der Kalibrierframes. @smiljanic_data_2019 @dss_technical_2008
+3. Kalibrierung der Lightframes (Bias- und Dark-Subtraktion, Flatfield-Korrektur).@howell_ccd_2006
+4. Qualitätsbewertung der kalibrierten Lights (FWHM, SNR, Hintergrund, Eccentricity) und
+   Selektion geeigneter Frames. @romanishin_ccd_2002 @keel_imaging_2007
+5. Astrometrische Registrierung (Alignment) der selektierten Frames auf Subpixelgenauigkeit.@smiljanic_data_2019 @cfht_psf_1998
+6. Stacking mit verschiedenen N‑Stufen und unterschiedlichen Kombinationregeln
+   (Mittelwert, Median, sigma‑Clipping). @clark_stacking_2022 @dss_technical_2008
+7. Export der Zwischenergebnisse und Stacks in ein formatkonformes Datenlayout für die in
+   Kapitel 6 beschriebenen Auswertungen (z. B. FITS-Dateien mit vollständigen Headern).@aavso_ccd_2013
+
+Die Konzeption orientiert sich an verbreiteten Workflows moderner Astrofotografie-Software
+wie DeepSkyStacker oder Siril, deren Dokumentation detaillierte Empfehlungen zu
+Kalibrierung, Registrierung und Stacking unter Amateurbedingungen enthält. @dss_technical_2008 @siril_stacking_2021
+
+Die erste zentrale Komponente der Pipeline ist die Erstellung konsistenter Master-Kalibrier-
+bilder. Aus den pro Filter aufgenommenen Bias‑Frames wird zunächst ein Master-Bias
+gebildet, typischerweise über ein Median-Stacking, um Ausreißer durch kosmische Strahlung
+oder sporadische Störungen zu unterdrücken. @howell_ccd_2006 @bolte_sn_2004
+Analog werden die Dunkelbilder gleicher Belichtungszeit und Temperatur zu einem
+Master-Dark kombiniert, der Dunkelstrommuster und Hotpixel modelliert.
+Für jedes Filter wird aus den Flatframes ein Master-Flat erzeugt, das Vignettierung und
+Pixel-zu-Pixel-Empfindlichkeitsvariationen charakterisiert; die Literatur empfiehlt hier
+ebenfalls robuste Kombinationen wie Median- oder sigma‑Clipping-Stacks, um punktförmige
+Störsignale zu unterdrücken. @smiljanic_data_2019 @dacosta_photometry_1992 @aavso_ccd_2013
+
+Die Rohaufnahmen von M51 werden anschließend durch Subtraktion des Master-Bias und
+Master-Darks sowie durch Division durch das passende Master-Flat kalibriert. @howell_ccd_2006
+Diese Schritte transformieren die Rohdaten in ein photometrisch konsistenteres Format,
+in dem verbleibende Varianz überwiegend auf Photonenrauschen, Ausleserauschen und
+atmosphärische Schwankungen zurückzuführen ist. @romanishin_photometry_2014 @eso_sn_2004
+Parallel dazu erfolgt eine automatisierte Qualitätsbewertung der kalibrierten Lights, in der
+für jedes Bild Kennzahlen wie FWHM der Stern-PSF, Hintergrundhelligkeit, SNR‑Schätzer
+und Eccentricity der Sternabbildungen bestimmt werden. 
+@keel_imaging_2007 @cfht_psf_1998
+Anhand dieser Metriken werden Frames mit stark erhöhtem Hintergrund (z. B. durch
+durchziehende Wolken), deutlich verschlechtertem Seeing oder Guiding-Aussetzern
+ausgeschlossen, um ihre dominante Rolle im späteren Stack zu verhindern. @smiljanic_data_2019 @gerwe_psf_snr_2014
+
+Im nächsten Schritt werden die verbleibenden Lightframes astrometrisch registriert.@cfht_psf_1998
+Da die Beobachtungen von M51 mit Dithering durchgeführt wurden und geringe Residuen
+aus Nachführung und Refraktion verbleiben, ist eine Subpixelgenauigkeit beim Alignment
+erforderlich, um die in Abschnitt 2.4 diskutierten Sampling-Eigenschaften nicht zu
+verschlechtern. @astrobasics_nyquist_2025 @astrojolo_pixelscale_2020
+Die Pipeline sieht hierfür ein zweistufiges Verfahren vor: Zunächst werden Sterne im Feld
+mittels Mustervergleich oder Hough-ähnlicher Verfahren identifiziert und eine lineare
+Transformation (Translation, Rotation, geringfügige Skalierung) bestimmt; anschließend
+werden die Frames mittels interpolationsbasierter Methoden (z. B. Lanczos oder bicubische
+Interpolation) auf eine gemeinsame Referenzebene projiziert. @smiljanic_data_2019 @starck_inverse_2002
+
+Die Konzeption orientiert sich an den in Stacking-Programmen wie DeepSkyStacker und
+Siril implementierten Algorithmen, die eine Kombination aus Sternmatching und
+Least-Squares-Anpassung für die Geradentransformation verwenden. @dss_technical_2008 @siril_stacking_2021
+Durch die Registrierung wird sichergestellt, dass das astronomische Signal in allen
+Einzelbildern auf dieselben Pixel projiziert wird, während das überwiegend unkorrelierte
+Rauschen statistisch verteilt bleibt – eine Voraussetzung für die in Kapitel 2.8 erläuterte
+Verbesserung des Signal-Rausch-Verhältnisses durch Stacking. @clark_stacking_2022 @howell_ccd_2006
+
+Auf Basis der registrierten und qualitätsgeprüften Frames werden für M51 mehrere Stacks
+mit unterschiedlichen Bildanzahlen erzeugt, um die theoretische $sqrt(N)$‑Skalierung der
+SNR zu prüfen. @bolte_sn_2004 @eso_sn_2004
+Für die L‑Pro-Serie werden vier Konfigurationen betrachtet: $N = 10, 20, 40$ und
+$80$, was Gesamtintegrationszeiten von 30, 60, 120 und 240 Minuten entspricht.
+Um robuste Ergebnisse zu erhalten, wird als primärer Stacking-Operator ein
+sigma‑Clipping-Mittel mit iterativem Ausreißer-Schnitt gewählt: Zunächst werden pro Pixel
+Mittelwert und Standardabweichung geschätzt, anschließend werden Werte außerhalb eines
+definierten $k$‑Sigma‑Intervalls verworfen und der Mittelwert aus den verbleibenden
+Beiträgen berechnet. @clark_stacking_2022 @dss_technical_2008
+Diese Strategie kombiniert die SNR‑Vorteile des arithmetischen Mittels mit einer effektiven
+Unterdrückung sporadischer Störungen wie Satellitenspuren, kosmischer Strahlen oder
+Fehlregistrierungen einzelner Frames. @smiljanic_data_2019 @improving_faint_2010
+
+Für Vergleichszwecke wird die Pipeline so ausgelegt, dass optional auch reine
+Mittelwert-Stacks sowie Median-Stacks erzeugt werden können.
+Median-Stacks besitzen eine robuste Unterdrückung von Ausreißern, bieten aber bei
+gaussförmigem Rauschen ein geringfügig schlechteres Signal-Rausch-Verhältnis als
+Mittelwertverfahren. @howell_ccd_2006 @bolte_sn_2004 @clark_stacking_2022
+Die parallele Generierung unterschiedlicher Kombinationsmethoden ermöglicht es in
+Kapitel 6, die Auswirkungen der gewählten Stacking-Strategie auf das resultierende
+Bildsignal und auf die messbaren Grenzen der Astrofotografie quantitativ zu vergleichen.
+
+Die aus Abschnitt 4.3 übernommene Dithering-Strategie ist dabei integraler Bestandteil der
+Konzeption. Durch die kleinräumigen Versätze zwischen den Einzelbelichtungen werden feste
+Sensorartefakte und Pixel-Defekte über das Feld verteilt, was ihr Gewicht im Stack reduziert
+und gleichzeitig rekonstruktive Verfahren wie Drizzle ermöglicht.
+Auch wenn Drizzle im Rahmen dieser Studienarbeit nur punktuell eingesetzt wird, wird die
+Pipeline so gestaltet, dass Drizzle‑Stacks für ausgewählte Teilbereiche der Galaxie (z. B.
+Spiralarmsegmente) generiert werden können, um die in Abschnitt 2.8 diskutierten
+Möglichkeiten der Rekonstruktion aus leicht undersampelten Daten exemplarisch zu
+illustrieren.@fruchter_drizzle_2002 @law_lucky_2009
+
+Abschließend definiert die Pipeline die verwendeten Datenformate und Metadaten,
+um Reproduzierbarkeit und Nachvollziehbarkeit der Verarbeitungsschritte zu
+gewährleisten. @aavso_ccd_2013 @smiljanic_data_2019
+Alle Zwischenergebnisse – kalibrierte Lights, Registrierungsparameter, Gewichtsmasken
+und finale Stacks – werden im FITS-Format mit aussagekräftigen Headern gespeichert, die
+unter anderem Objektname, Filter, Belichtungszeit, Datum, Gain, Sensortemperatur,
+guidingbezogene Größen und die wesentlichen Pipelineparameter enthalten.@romanishin_photometry_2014 @keel_imaging_2007
+Die in Abschnitt 4.3 eingeführte Dateibenennung wird beibehalten, sodass sich jeder Stack
+eindeutig auf seine zugrundeliegenden Einzelbilder zurückführen lässt.
+
+Zusätzlich wird eine Protokolldatei geführt, in der für jede Verarbeitungsstufe die verwendete
+Software (Version), die relevanten Parameter (z. B. sigma‑Clipping-Schwellen, Mindest‑SNR
+für die Frame-Selektion, Interpolationsmethode beim Alignment) sowie die Anzahl der
+eingegangenen und verworfenen Frames dokumentiert sind. @smiljanic_data_2019 @clark_stacking_2022
+Diese Metadaten bilden die Grundlage für die in Abschnitt 4.5 diskutierte
+Evaluationsstrategie und ermöglichen es, in Kapitel 6 beobachtete Abweichungen von den
+theoretischen Erwartungen mit konkreten Verarbeitungsentscheidungen zu verknüpfen.@dss_technical_2008 @siril_stacking_2021
+
+SCHAUBILD EINFÜGEN MIT PROZESS
 
 == Evaluationsstrategie, Annahmen und Grenzen
 .
