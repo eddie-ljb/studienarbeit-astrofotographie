@@ -657,8 +657,33 @@ Die finale Bildversion dient sowohl der qualitativen visuellen Beurteilung als a
 
 == Evaluationsmethoden
 
-- Quantitative Metriken und qualitative Bewertung
+Zur systematischen Bewertung der in dieser Arbeit angewandten Stacking-Verfahren werden sowohl quantitative Metriken als auch qualitative Bewertungsmethoden herangezogen. Diese zweigleisige Vorgehensweise ist notwendig, da die Qualität der Bildaufnahme in der Astrofotografie nicht ausschließlich durch numerische Kennzahlen beschrieben werden kann. Visuelle und strukturelle Aspekte spielen eine entscheidende Rolle. Das Ziel der Evaluationsmethoden besteht darin, eine möglichst objektive und gleichzeitig praxisnahe Beurteilung der Leistungsfähigkeit und Grenzen der eingesetzten Verfahren zu ermöglichen.
 
+Die quantitative Evaluation gründet auf messbaren Größen, die eine objektive Vergleichbarkeit unterschiedlicher Stacking-Ergebnisse ermöglichen. Im Fokus der Untersuchung steht insbesondere die Analyse des Signal-Rausch-Verhältnisses (Signal-to-Noise Ratio, SNR), da dieses eine zentrale Kenngröße für die Qualität der Bilddaten in der Astrofotografie darstellt.
+Das Signal-Rausch-Verhältnis beschreibt das Verhältnis zwischen dem mittleren Nutzsignal und der Standardabweichung des Hintergrundrauschens. Eine Erhöhung des SNR ist ein Indikator für eine verbesserte Bildqualität, da das astronomische Signal in diesem Fall deutlicher vom Rauschen differenziert werden kann. Im Kontext des Stackings wird die Erwartung gehegt, dass sich das SNR mit zunehmender Anzahl an Einzelaufnahmen verbessert, wobei dieser Zusammenhang in der Praxis durch verschiedene Einflussfaktoren eingeschränkt sein kann.
+
+Neben dem SNR werden weitere quantitative Kennzahlen berücksichtigt, um unterschiedliche Aspekte der Bildqualität zu erfassen:
+
+- Hintergrundrauschen: Analyse der Standardabweichung homogener Bildbereiche zur Bestimmung des verbleibenden Rauschanteils.
+- Signalstärke: Messung der Intensität ausgewählter Bildregionen, beispielsweise von Nebelstrukturen oder Galaxienarmen.
+- Kontrastverhältnisse: Bewertung des Unterschieds zwischen Objekt und Hintergrund zur Beurteilung der Sichtbarkeit feiner Strukturen.
+- Sternabbildung (FWHM – Full Width at Half Maximum): Untersuchung der Sternschärfe als Maß für die effektive Auflösung und die Qualität der Bildregistrierung.
+
+Die Erfassung der durch das Stacking erzielten Verbesserungen erfolgt durch die Berechnung der vorliegenden Metriken auf den gestackten Bildern sowie, sofern sinnvoll, auf einzelnen Rohaufnahmen. Die Messungen erfolgen unter vergleichbaren Bedingungen und mit einheitlichen Auswertungsmethoden, um eine konsistente Vergleichbarkeit sicherzustellen.
+Ein wesentlicher Aspekt der quantitativen Evaluation besteht darin, die theoretisch erwarteten Verbesserungen mit den tatsächlich gemessenen Werten zu vergleichen. Der Fokus der Untersuchung liegt auf der Ermittlung, ob die prognostizierte Reduktion des Rauschens mit zunehmender Anzahl an Bildern in der praktischen Anwendung erzielt wird oder ob Abweichungen auftreten, die auf systematische Fehler oder physikalische Grenzen zurückzuführen sind.
+
+Im Rahmen der vorliegenden Untersuchung erfolgt eine ergänzende qualitative Bewertung der erzeugten Bilder, die sich an der quantitativen Analyse orientiert. Diese ist notwendig, da bestimmte Eigenschaften der Bildqualität – insbesondere visuelle Wahrnehmbarkeit, Detailtreue und Artefaktfreiheit – nicht vollständig durch numerische Kennzahlen beschrieben werden können.
+
+Die qualitative Bewertung erfolgt auf Grundlage einer strukturierten visuellen Analyse der Bilder unter Berücksichtigung der folgenden Kriterien:
+
+- Detailerkennbarkeit: Beurteilung, inwieweit feine Strukturen wie Nebelstrukturen, Galaxienarme oder Sternhaufen sichtbar werden.
+- Sternform und -schärfe: Bewertung der geometrischen Form von Sternen (z. B. rund vs. verzerrt) als Indikator für Nachführgenauigkeit und Alignment-Qualität.
+- Artefakte: Identifikation unerwünschter Effekte wie Hotpixel-Reste, Gradienten, Stacking-Artefakte oder Überkorrekturen.
+- Homogenität des Hintergrunds: Einschätzung der Gleichmäßigkeit des Bildhintergrunds, insbesondere im Hinblick auf verbleibendes Rauschen oder Gradienten.
+- Subjektive Bildwirkung: Gesamtbewertung der visuellen Qualität und Klarheit des Bildes im Kontext der Astrofotografie.
+
+Um die Subjektivität der qualitativen Bewertung zu reduzieren, ist eine klare Definition der Kriterien sowie eine konsistente Anwendung auf alle untersuchten Bilder erforderlich. Darüber hinaus wird nach Möglichkeit eine Bewertung im Vergleich mehrerer Bilder mit unterschiedlichen Stacking-Parametern durchgeführt, um relative Unterschiede besser erkennen zu können.
+Die Kombination von quantitativen und qualitativen Evaluationsmethoden erlaubt eine umfassende Analyse der Stacking-Ergebnisse. Quantitative Metriken liefern objektive und reproduzierbare Aussagen, während die qualitative Bewertung eine praxisnahe Einschätzung der tatsächlichen Bildqualität erlaubt. Durch diese integrative Vorgehensweise können sowohl mathematisch messbare Verbesserungen als auch visuell relevante Effekte berücksichtigt und in den weiteren Kapiteln der Arbeit systematisch ausgewertet werden.
 
 
 = Konzeption
@@ -1008,7 +1033,30 @@ theoretischen Erwartungen mit konkreten Verarbeitungsentscheidungen zu verknüpf
 SCHAUBILD EINFÜGEN MIT PROZESS
 
 == Evaluationsstrategie, Annahmen und Grenzen
-.
+
+Die in dieser Arbeit verfolgte Evaluationsstrategie dient der systematischen Untersuchung der Leistungsfähigkeit und Grenzen von Stacking-Verfahren in der Astrofotografie. Aufbauend auf den zuvor definierten Evaluationsmethoden wird in diesem Kapitel dargelegt, nach welchen Prinzipien die Bewertung erfolgt, welche grundlegenden Annahmen getroffen werden und welche methodischen sowie praktischen Einschränkungen zu berücksichtigen sind. Das Ziel besteht darin, die spätere Analyse auf eine transparente und nachvollziehbare Grundlage zu stellen.
+
+Die Evaluationsstrategie basiert auf einer kombinierten Betrachtung von quantitativen und qualitativen Ergebnissen, die aus den im Rahmen der Datenerhebung und Datenverarbeitung gewonnenen Bilddaten abgeleitet werden. Der Fokus der Untersuchung liegt auf dem Vergleich von Bildserien, die unter kontrollierten Bedingungen aufgenommen und in der Folge mit variierenden Stacking-Parametern verarbeitet werden.
+Der Fokus der vorliegenden Analyse liegt auf der Untersuchung der Auswirkungen unterschiedlicher Einflussfaktoren auf die resultierende Bildqualität. Zu den maßgeblichen Einflussfaktoren zählen insbesondere die Anzahl der Einzelaufnahmen, die Wahl des Stacking-Algorithmus sowie die Qualität der Rohdaten. Zu diesem Zweck werden mehrere Datensätze systematisch verarbeitet, wobei jeweils einzelne Parameter gezielt variiert werden, während andere konstant gehalten werden. Diese Vorgehensweise erlaubt die Herausarbeitung von Ursache-Wirkungs-Beziehungen zwischen den gewählten Parametern und den beobachteten Ergebnissen.
+
+Ein weiterer Bestandteil der Evaluationsstrategie besteht in einem Vergleich zwischen den theoretisch erwarteten Effekten und den empirisch beobachteten Ergebnissen. Der Fokus der Untersuchung liegt auf der Evaluation der in der Literatur beschriebenen Optimierungen des Signal-Rausch-Verhältnisses durch den Prozess des Stacking in der praktischen Anwendung. Abweichungen zwischen Theorie und Praxis werden dabei nicht als Fehler, sondern als zentrale Erkenntnisquelle betrachtet.
+Die Evaluation erfolgt sowohl auf Basis einzelner Bilder als auch durch den Vergleich ganzer Bildserien. Dies ermöglicht nicht nur die Identifizierung von punktuellen Effekten, sondern auch die Ableitung genereller Trends und der Grenzen der Verfahren. Die Ergebnisse werden strukturiert dokumentiert und in späteren Kapiteln einer systematischen Auswertung unterzogen.
+
+Die Evaluationsstrategie gründet auf mehreren grundlegenden Annahmen, die erforderlich sind, um die Komplexität des Untersuchungsgegenstands handhabbar zu machen und eine strukturierte Analyse zu ermöglichen.
+Eine zentrale Annahme besteht darin, dass das Rauschen in den Einzelaufnahmen überwiegend zufälliger Natur ist und sich statistisch unabhängig zwischen den Bildern verhält. Diese Annahme bildet die Grundlage für die Wirksamkeit des Stackings, da nur unter dieser Voraussetzung eine Reduktion des Rauschens durch Mittelungseffekte erreicht werden kann.
+Darüber hinaus wird die Hypothese aufgestellt, dass das astronomische Signal über die aufgenommenen Bildserien hinweg weitgehend konstant bleibt. Dies ist insbesondere dann der Fall, wenn die Aufnahmen innerhalb eines begrenzten Zeitraums unter stabilen Bedingungen erfolgen. Veränderungen im Signal, die beispielsweise durch atmosphärische Effekte oder Tracking-Fehler verursacht werden, werden als Störfaktoren betrachtet und in der Analyse entsprechend berücksichtigt.
+
+Eine weitere Annahme betrifft die Funktionsweise der eingesetzten Softwarewerkzeuge. Die implementierten Stacking-Algorithmen werden als korrekt arbeitend angenommen, und es wird davon ausgegangen, dass sie den in der Literatur beschriebenen Verfahren entsprechen. Eventuelle softwarebedingte Abweichungen können jedoch nicht vollständig ausgeschlossen werden und werden daher als potenzielle Einflussgröße in Betracht gezogen.
+Schließlich wird angenommen, dass die gewählten Evaluationsmetriken geeignet sind, die relevanten Aspekte der Bildqualität adäquat abzubilden. Obwohl quantitative Kennzahlen wie das Signal-Rausch-Verhältnis eine wichtige Grundlage darstellen, wird anerkannt, dass sie nicht alle visuellen Eigenschaften eines Bildes vollständig erfassen können.
+
+Trotz der sorgfältigen Planung und Durchführung der Evaluation unterliegt die Untersuchung verschiedenen Einschränkungen, die bei der Interpretation der Ergebnisse zu berücksichtigen sind.
+Eine wesentliche Einschränkung ergibt sich aus dem verwendeten Equipment. Die Leistungsfähigkeit des Teleskops, der Kamera sowie der Montierung setzt bestimmte physikalische und technische Rahmenbedingungen, innerhalb derer die Untersuchung stattfindet. Die gewonnenen Ergebnisse sind daher nur eingeschränkt auf andere Systeme übertragbar, insbesondere wenn diese deutlich unterschiedliche Eigenschaften aufweisen.
+
+Ein weiterer limitierender Faktor sind die Aufnahmebedingungen. Wetterabhängige Einflüsse wie Bewölkung, atmosphärische Turbulenzen oder Lichtverschmutzung können nicht vollständig kontrolliert werden und resultieren in Schwankungen der Datenqualität. Diese Variabilität erschwert die vollständige Isolation einzelner Einflussgrößen.
+Zudem ist die Anzahl und Vielfalt der durchgeführten Versuche als limitierend zu betrachten. Aufgrund limitierter Zeit- und Ressourcenverfügbarkeit kann lediglich eine begrenzte Anzahl an Parametervariationen und Himmelsobjekten untersucht werden. Die gewonnenen Erkenntnisse gestatten zwar fundierte Aussagen über bestimmte Szenarien, erlauben jedoch keine vollständige Abdeckung aller möglichen Konfigurationen.
+Des Weiteren ist die qualitative Evaluation der Bilder trotz definierter Kriterien mit einem gewissen Maß an Subjektivität verbunden. Unterschiede in der visuellen Wahrnehmung oder in der Gewichtung einzelner Qualitätsaspekte können zu variierenden Einschätzungen führen. Es konnte festgestellt werden, dass dieser Effekt durch eine strukturierte Bewertungsmethodik reduziert werden kann. Allerdings konnte dieser Effekt nicht vollständig eliminiert werden.
+Schließlich ist zu berücksichtigen, dass das Stacking lediglich einen Teil des gesamten Bildverarbeitungsprozesses darstellt. Obwohl im Rahmen dieser Arbeit eine klare methodische Trennung zwischen Stacking und Nachbearbeitung vorgenommen wird, lassen sich Wechselwirkungen zwischen diesen Schritten nicht vollständig ausschließen. Dies kann insbesondere dann von Relevanz sein, wenn spezifische Bildartefakte erst durch nachgelagerte Verarbeitungsschritte evident oder verstärkt werden.
+
 
 = Praktische Umsetzung
 
