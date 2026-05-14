@@ -1076,11 +1076,11 @@ Bedingungen stellt eine strukturell nicht planbare Grenze dar, die auch durch te
 [IRGENDWO HIER DEN BERICHT VON DIR EINFÜGEN EDDIE]
 
 Da die Studienarbeit einem festen Abgabetermin unterliegt und Wetterunsicherheiten strukturell nicht planbar sind, 
-wurde in Absprache mit dem betreuenden Hochschullehrer, Prof. Dr. Ralph Lausen, ein alternatives Vorgehen beschlossen. 
+wurde in Absprache mit dem betreuenden Professor, Prof. Dr. Ralph Lausen, ein alternatives Vorgehen beschlossen. 
 Dieses gewährleistet die wissenschaftliche Integrität der Untersuchung, ohne die methodische Zielsetzung zu 
 kompromittieren.
 In einem ersten Schritt stellte der Betreuer einen eigenen Rohdatensatz astronomischer Aufnahmen zur Verfügung. 
-Dabei handelte es sich um FITS-Rohdateien, die an einem vorangegangenen Beobachtungsabend unter realen Bedingungen 
+Dabei handelte es sich um Rohdateien, die an einem vorangegangenen Beobachtungsabend unter realen Bedingungen 
 aufgenommen worden waren. Bei der Sichtung und ersten Bewertung dieses Datensatzes wurden jedoch mehrere 
 qualitätsmindernde Eigenschaften festgestellt, die eine belastbare und strukturierte Analyse der Stacking-Grenzen 
 erschwerten. Die Aufnahmen wiesen eine inhomogene Sternabbildungsqualität über die gesamte Bildserie hinweg auf. 
@@ -1096,22 +1096,19 @@ Himmelsobjekte: des offenen Sternhaufens Messier 45 (M45, Plejaden) sowie der An
 Es konnte festgestellt werden, dass beide Datensätze neben den eigentlichen Lichtaufnahmen vollständige 
 Kalibrierungsframe-Sätze enthalten, die aus Dark Frames und Flat Frames bestehen. Die freie Verfügbarkeit der Datensätze 
 sowie das explizite Einverständnis des Autors zur wissenschaftlichen Nutzung prädestinierten sie für den vorliegenden 
-Zweck [Wei-Hao Wang, öffentlicher Astrofotografie-Datensatz]. Die Entscheidung, zwei Objekte unterschiedlichen Typs und 
-mit unterschiedlicher Anzahl verfügbarer Light Frames zu verarbeiten, war methodisch motiviert. Der direkte Vergleich 
-der Stacking-Ergebnisse erlaubt eine differenziertere Beurteilung der algorithmischen und physikalischen Grenzen, als 
-es ein einzelner Datensatz ermöglichen würde.
+Zweck [Wei-Hao Wang, öffentlicher Astrofotografie-Datensatz].
 
 == Beschreibung der Datensätze
 
 Der Datensatz zu M45 umfasst acht Light Frames, die mit einer Canon EOS 5D Mark II aufgenommen wurden. Bei dem vorliegenden Objektiv handelt es sich um eine Vollformat-DSLR, die mit einem CMOS-Sensor ausgestattet ist. Die Auflösung des Sensors beträgt 5616 × 3744 Pixel bei einer Pixelgröße von 6,41 μm. Die primäre Konzeption der Canon EOS 5D Mark II ist die kommerzielle Fotografie, wobei die Integration einer aktiven Sensorkühlung sowie eines für die Astrofotografie optimierten Infrarotsperrfilters nicht vorgesehen ist. Der Datensatz beinhaltet zudem Dark Frames und Flat Frames, welche eine vollständige Kalibrierungspipeline ermöglichen.
 Der Plejadenhaufen (M45) ist einer der der Erde nächstgelegenen offenen Sternhaufen und enthält mehrere Sterne der Spektralklasse B, die von einer ausgedehnten Reflexionsnebel-Komponente umgeben sind [C. R. O'Dell, G. Ferland und M. Peimbert (1967) veröffentlichten ihre Forschungsergebnisse zum Thema "The Pleiades Nebula" im Fachmagazin "The Astrophysical Journal". Die vorliegende Kombination aus hellen Punktquellen und diffusen, flächigen Strukturen macht M45 zu einem geeigneten Testobjekt, an dem sich die Auswirkungen des Stackings auf unterschiedliche Signaltypen qualitativ beurteilen lassen.
 
-Der Datensatz zu M31 umfasst mehr als 40 Light Frames, die mit einer Sony Alpha 7R (A7R) aufgenommen wurden. Bei dem vorliegenden Objekt handelt es sich um eine spiegellose Vollformatkamera, die mit einem CMOS-Sensor ausgestattet ist. Die Auflösung des Sensors beträgt 7360 × 4912 Pixel bei einer Pixelgröße von 4,88 μm. Auch die Sony A7R ist kein auf die Astrofotografie spezialisiertes Instrument und verfügt ebenfalls über keinen aktiven Kühlmechanismus. Der Datensatz beinhaltet vollständige Kalibrierungsframe-Sätze.
+Der Datensatz zu M31 umfasst 11 Light Frames, die ebenfalls mit einer Canon EOS 5D Mark II aufgenommen wurden. Der Datensatz beinhaltet ebenfalls Kalibrierungsframe-Sätze.
 Die Andromedagalaxie (M31) ist die der Milchstraße nächstgelegene große Spiralgalaxie und mit einer scheinbaren Helligkeit von etwa m ≈ 3,4 mag das fernste mit bloßem Auge sichtbare Objekt. Ihre Winkelausdehnung von rund 3° × 1° bedingt eine besondere Eignung für Weitwinkeloptiken. V. Morrison und G. A. Wilkins, "Galactic Coordinates of M31", Monthly Notices of the Royal Astronomical Society, 1988]. Die Spiralstruktur, die ausgeprägte Zentralregion sowie die begleitenden Satellitengalaxien M32 und M110 bieten eine Vielzahl struktureller Details, anhand derer sich der Effekt des Stackings auf die Sichtbarkeit feiner astronomischer Strukturen qualitativ beurteilen lässt.
 
 == Verarbeitungspipeline mit DeepSkyStacker
 
-Die praktische Verarbeitung beider Datensätze erfolgte mit der Open-Source-Software DeepSkyStacker (DSS, Version 4.2) [DeepSkyStacker Development Team, "Technical Info", deepskystacker.free.fr, 2024]. DSS ist eine speziell für die Astrofotografie entwickelte Bildverarbeitungssoftware, die einen vollständigen Workflow von der Rohdatenverarbeitung bis zum fertigen Stack unterstützt und im Amateurbereich eine weite Verbreitung findet. Für die vorliegende Untersuchung wurde DSS ausgewählt, da es die in Abschnitt 2.8 beschriebenen gängigen Stacking-Verfahren implementiert, eine gute Dokumentation aufweist und die Verarbeitung von DSLR- und Systemkamera-RAW-Dateien nativ unterstützt.
+Die praktische Verarbeitung beider Datensätze erfolgte mit der Open-Source-Software DeepSkyStacker (DSS, Version 6.2.0). DSS ist eine speziell für die Astrofotografie entwickelte Bildverarbeitungssoftware, die einen vollständigen Workflow von der Rohdatenverarbeitung bis zum fertigen Stack unterstützt und im Amateurbereich eine weite Verbreitung findet. Für die vorliegende Untersuchung wurde DSS ausgewählt, da es die in Abschnitt 2.8 beschriebenen gängigen Stacking-Verfahren implementiert, eine gute Dokumentation aufweist und die Verarbeitung von DSLR- und Systemkamera-RAW-Dateien nativ unterstützt.
 Die Verarbeitungspipeline folgte in ihrer Struktur den in Abschnitt 4.4 konzipierten Hauptphasen und wurde für beide Datensätze identisch durchgeführt, um eine Vergleichbarkeit der Ergebnisse zu gewährleisten.
 Im ersten Schritt wurden alle verfügbaren Frames in DSS geladen und ihrem jeweiligen Typ zugeordnet: die Lichtaufnahmen als Light Frames, die Dunkelbilder als Dark Frames und die Flatfield-Aufnahmen als Flat Frames. 
 
@@ -1143,9 +1140,88 @@ direkte quantitative SNR-Messungen ungeeignet wird. Die qualitative Analyse in K
 auf das visuelle Erscheinungsbild der gestreckten Bilder sowie auf allgemeine Beobachtungen an den linearen 
 Stacking-Ergebnissen.
 
-Auf der folgenden Seite werden beide fertigen Bilder der Objekte M31 und M45 dargestellt.
+Nach dem eigentlichen Stacking-Prozess ist die Nachbearbeitung der erzeugten Bilder ein weiterer zentraler Bestandteil 
+der astrophotografischen Bildverarbeitung. Während das Stacking vor allem dazu dient, das Signal-Rausch-Verhältnis zu 
+verbessern und schwache astronomische Strukturen sichtbarer zu machen, zielt die anschließende Nachbearbeitung darauf ab, 
+die im Bild enthaltenen Informationen möglichst deutlich und visuell nachvollziehbar darzustellen. Dazu werden verschiedene 
+Bildverarbeitungstechniken eingesetzt, um Kontrast, Helligkeit, Farben und Detailstrukturen gezielt anzupassen.
 
-#pagebreak()
+In der Astrofotografie besitzt die Nachbearbeitung eine besonders hohe Bedeutung, da selbst hochwertige gestackte Rohbilder 
+häufig zunächst relativ kontrastarm und unscheinbar wirken. Dies liegt unter anderem daran, dass astronomische Objekte oft 
+nur sehr geringe Signalintensitäten aufweisen und große Teile der Bildinformationen im dunklen Hintergrund verborgen bleiben. 
+Erst durch geeignete Bearbeitungsschritte können diese schwachen Strukturen sichtbar gemacht werden.
+Im Rahmen dieser Arbeit wurde die Nachbearbeitung bewusst als eigenständiger Verarbeitungsschritt betrachtet und 
+methodisch vom eigentlichen Stacking getrennt. Diese Trennung ist notwendig, da andernfalls nur schwer nachvollziehbar wäre, 
+welche Verbesserungen tatsächlich auf den Stacking-Prozess zurückzuführen sind und welche erst durch spätere 
+Bearbeitungsschritte entstehen. Das Ziel bestand also darin, die Vorteile der Nachbearbeitung zu nutzen, sie jedoch 
+gleichzeitig analytisch von den eigentlichen Stacking-Verfahren abzugrenzen.
+Zu Beginn der Nachbearbeitung erfolgte zunächst eine grundlegende Anpassung von Histogramm und Helligkeit der gestackten Bilder. 
+Die Rohbilder nach dem Stacken besitzen typischerweise einen sehr geringen Dynamikumfang im sichtbaren Bereich. Oft konzentriert 
+sich ein Großteil der Bildinformationen in einem kleinen Helligkeitsbereich nahe des schwarzen Hintergrunds. Durch das 
+sogenannte „Stretching“ des Histogramms wird dieser Bereich erweitert, wodurch zuvor kaum sichtbare Details deutlicher 
+hervortreten.
+
+Dieser Schritt spielt besonders in der Deep-Sky-Astrofotografie eine entscheidende Rolle. Nebelstrukturen, Galaxienarme oder 
+schwache Sternfelder besitzen oft nur minimale Helligkeitsunterschiede gegenüber dem Hintergrundrauschen. Erst durch die 
+gezielte Anpassung der Helligkeitsverteilung werden diese Objekte sichtbar und können weiter analysiert werden. Dabei muss 
+gleichzeitig sorgfältig gearbeitet werden, da ein zu starkes Stretching das Bildrauschen erheblich verstärken kann.
+Neben der Helligkeitsanpassung wurde auch eine Kontrastbearbeitung der Bilder durchgeführt. Das Ziel hierbei war, feine 
+Strukturen deutlicher hervorzuheben und die visuelle Trennung zwischen Objekt und Hintergrund zu verbessern. Insbesondere 
+bei Nebelstrukturen erwies sich eine gezielte lokale Kontrastverstärkung als hilfreich, um Details besser sichtbar zu machen. 
+Es zeigte sich jedoch auch, dass eine zu aggressive Kontrastbearbeitung schnell zu unnatürlichen Übergängen oder Artefakten 
+führen kann.
+
+Ein weiterer wichtiger Bestandteil der Nachbearbeitung war die Rauschreduzierung. Zwar verringert das Stacking das 
+zufällige Bildrauschen bereits deutlich, bei Datensätzen mit geringer Ausgangsqualität verbleiben jedoch weiterhin 
+sichtbare Rauschanteile. Diese treten häufig in dunklen Bildbereichen oder auf gleichmäßigen Hintergrundflächen auf. 
+Zur Verbesserung der Bildwirkung wurden daher verschiedene Verfahren zur Rauschunterdrückung angewendet.
+Dabei zeigte sich jedoch deutlich, dass die Rauschreduzierung stets einen Kompromiss zwischen Glättung und Detailerhalt 
+darstellt. Eine zu starke Glättung kann feine astronomische Strukturen entfernen oder Sterne unnatürlich weich erscheinen 
+lassen. Umgekehrt führt eine zu geringe Rauschunterdrückung dazu, dass störende Artefakte im Bild verbleiben. Die optimale 
+Balance hängt somit stark von der Qualität der Ausgangsdaten sowie vom jeweiligen Motiv ab. #linebreak()
+Zusätzlich wurde eine Schärfung der Bilddetails durchgeführt. Dieser Schritt dient dazu, feine Strukturen hervorzuheben und 
+die wahrgenommene Detailauflösung zu verbessern. Besonders bei Galaxien- oder Mondaufnahmen kann eine moderate Schärfung die 
+Sichtbarkeit kleiner Strukturen deutlich erhöhen. Gleichzeitig besteht jedoch die Gefahr, dass Bildrauschen oder 
+Bearbeitungsartefakte ebenfalls verstärkt werden. Daher wurde die Schärfung nur vorsichtig eingesetzt und stets im 
+Zusammenhang mit der zuvor erfolgten Rauschreduzierung betrachtet.
+
+Ein weiterer relevanter Verarbeitungsschritt war die Farbkorrektur der Bilder. Astronomische Rohdaten weisen häufig einen Farbstich 
+auf. Dieser wird beispielsweise durch Lichtverschmutzung, atmosphärische Effekte oder Sensoreigenschaften verursacht. 
+Mithilfe von Weißabgleich und Farbkalibrierung wurde versucht, eine möglichst natürliche oder wissenschaftlich sinnvolle 
+Farbdarstellung zu erzeugen. #linebreak()
+Insbesondere bei Deep-Sky-Aufnahmen ist die Farbverarbeitung von großer Bedeutung, da unterschiedliche Farben Rückschlüsse 
+auf die physikalischen Eigenschaften astronomischer Objekte erlauben können. So treten beispielsweise Emissionsnebel häufig 
+in rötlichen Farbtönen auf, die durch Wasserstoffemissionen verursacht werden. Es zeigte sich jedoch auch, dass die 
+Farbdarstellung in der Astrofotografie teilweise stark subjektiv geprägt ist. Viele astrofotografische Bilder werden bewusst 
+künstlerisch bearbeitet, wodurch die Grenze zwischen wissenschaftlicher Darstellung und ästhetischer Optimierung fließend wird.
+
+Darüber hinaus wurde eine Hintergrundkorrektur als weiterer Bearbeitungsschritt durchgeführt. Insbesondere bei Aufnahmen 
+unter lichtverschmutztem Himmel treten häufig Helligkeitsgradienten auf, die durch künstliche Lichtquellen oder atmosphärische 
+Streuung verursacht werden. Diese Gradienten führen dazu, dass der Bildhintergrund ungleichmäßig erscheint und schwache 
+astronomische Strukturen schwerer erkennbar sind. Mithilfe geeigneter Hintergrundkorrekturen wurde versucht, diese Effekte 
+zu reduzieren und einen homogeneren Bildhintergrund zu erzeugen. #linebreak()
+Im Verlauf der Nachbearbeitung wurde deutlich, dass die Qualität des Endergebnisses stark von der Qualität der ursprünglichen 
+Rohdaten abhängt. Zwar können viele Defizite durch Bildverarbeitung teilweise kompensiert werden, jedoch lassen sich fehlende 
+Informationen nicht vollständig rekonstruieren. Insbesondere bei stark verrauschten oder unscharfen Datensätzen stößt auch 
+umfangreiche Nachbearbeitung schnell an ihre Grenzen. #linebreak()
+Diese Beobachtung stellt einen wichtigen Zusammenhang zur zentralen Fragestellung der Arbeit her. Die Nachbearbeitung kann 
+astrophotografische Bilder erheblich verbessern und visuell aufwerten, sie kann jedoch fundamentale physikalische oder 
+technische Grenzen nicht vollständig überwinden. Schlechte atmosphärische Bedingungen, unzureichende Nachführung oder geringe 
+Signalqualität bleiben auch nach umfangreicher Verarbeitung teilweise sichtbar. #linebreak()
+Ein weiterer wichtiger Aspekt betrifft die Reproduzierbarkeit der Nachbearbeitung. Viele Bearbeitungsschritte enthalten 
+subjektive Entscheidungen hinsichtlich Intensität, Farbgebung oder Kontrastgestaltung. Dadurch können unterschiedliche 
+Bearbeiter aus denselben Rohdaten teilweise deutlich unterschiedliche Endergebnisse erzeugen. Dies unterscheidet die 
+Nachbearbeitung in gewissem Maße von den stärker mathematisch definierten Stacking-Verfahren und erschwert eine vollständig 
+objektive Bewertung der Bildqualität.
+
+Zusammenfassend zeigt sich, dass die Nachbearbeitung einen essenziellen Bestandteil der modernen Astrofotografie darstellt. 
+Sie macht die durch das Stacking gewonnenen Bildinformationen sichtbar und verbessert die visuelle Qualität der Aufnahmen 
+erheblich. Gleichzeitig wurde deutlich, dass die Wirksamkeit der Nachbearbeitung durch die Qualität der Eingangsdaten begrenzt 
+wird. Die Nachbearbeitung kann vorhandene Informationen hervorheben und optimieren, jedoch keine physikalisch nicht erfassten 
+Details rekonstruieren. Damit bestätigt auch dieser Verarbeitungsschritt die zentrale Erkenntnis der Arbeit, dass die 
+Astrofotografie durch ein komplexes Zusammenspiel aus physikalischen, technischen und algorithmischen Grenzen geprägt ist.
+
+Nachfolgend werden beide fertigen Bilder der Objekte M31 und M45 dargestellt.
 
 #figure(
   image("assets/m31.jpg", width: 100%),
@@ -1163,17 +1239,18 @@ Auf der folgenden Seite werden beide fertigen Bilder der Objekte M31 und M45 dar
 
 Die Evaluation der Stacking-Ergebnisse erfolgt in diesem Kapitel auf qualitativer Grundlage, da die in Abschnitt 3.5 beschriebenen quantitativen Evaluationsmetriken aufgrund der limitierten Datenlage – insbesondere der geringen Anzahl von Light Frames im M45-Datensatz sowie der fehlenden Möglichkeit, mehrere Stacks mit systematisch variierender Bildanzahl N zu erzeugen – nicht in vollem Umfang angewendet werden konnten. Anstelle der Verwendung numerischer SNR-Tabellen wird eine strukturierte qualitative Analyse durchgeführt, die die beobachteten Bildeigenschaften systematisch den in Kapitel 2 identifizierten physikalischen, technischen und algorithmischen Einflussfaktoren zuordnet. Der Vergleich der beiden Datensätze M45 und M31 erlaubt dabei eine differenziertere Beurteilung, als es ein einzelner Datensatz ermöglichen würde, da sich die Datensätze hinsichtlich Objekttyp, Kameramodell und Bildanzahl wesentlich unterscheiden.
 
+
+== Qualitative Analyse des M31-Stacks
+
+Das gestackte und nachbearbeitete Bild von M31 zeigt die Andromedagalaxie mit einer deutlich höheren Detailtiefe als der M45-Stack. Dies ist in erster Linie auf die wesentlich größere Anzahl von mehr als 40 verfügbaren Light Frames zurückzuführen, die eine deutlich längere effektive Integrationszeit und damit ein substanziell höheres SNR im Endbild ermöglichen. Die Zentralregion der Galaxis weist eine klare Struktur auf und zeigt den für diese Art von Galaxie typischen Helligkeitsabfall vom kompakten, hellen Kern zur äußeren Scheibe. Die begleitenden Satellitengalaxien M32 und M110 sind im gestackten Bild als eigenständige, kompakte Objekte erkennbar und heben sich deutlich vom Hintergrund ab.
+Die äußeren Bereiche der galaktischen Scheibe, die eine sehr geringe Oberflächenhelligkeit aufweisen, werden im M31-Stack sichtbar, wenngleich das Hintergrundrauschen in diesen Regionen noch spürbar ist. Die großflächige Ausdehnung von M31 über mehrere Grad stellt zusätzliche Anforderungen an die Homogenität des Bildhintergrunds. Ein inhomogener Himmelshintergrund – etwa durch Lichtverschmutzung oder unvollständige Flat-Field-Korrektur – äußert sich bei einem so ausgedehnten Objekt als Helligkeitsgradient, der schwache Strukturen an der Peripherie der Galaxis überlagern kann (vgl. Müller 2020, S. 15). Im vorliegenden Stack ist ein solcher schwacher Gradient erkennbar, was die prinzipielle Grenze der Flat-Field-Kalibrierung bei ausgedehnten Flächenobjekten veranschaulicht.
+
 == Qualitative Analyse des M45-Stacks
 
 Das gestackte und nachbearbeitete Bild von M45 zeigt den zentralen Bereich des Pleja­denhaufens mit den dominanten Mitgliedssternen in klarer und scharfer Auflösung. Die hellsten Haufensterne – darunter Alcyone, Atlas, Electra, Maia, Merope, Taygeta und Pleione – sind mit runden, deutlich definierten Sternscheiben abgebildet, was auf eine ausreichende Nachführungsgenauigkeit und eine erfolgreiche Bildregistrierung hindeutet. Die Analyse ergab, dass keine Elongierungen oder Doppelkonturen als Indikatoren für Nachführfehler oder Fehlregistrierungen identifiziert werden konnten.
 In den unmittelbaren Umgebungen der hellsten Sterne ist die Reflexionsnebel-Komponente ansatzweise sichtbar. Bei adäquater Dehnung zeigen sich um Merope und Maia diffuse Aufhellungen, die der in der Literatur dokumentierten Nebelstruktur entsprechen. Die Sichtbarkeit dieser diffusen Strukturen ist jedoch begrenzt, was unmittelbar auf die geringe Anzahl von lediglich 8 Light Frames zurückzuführen ist. In Abschnitt 2.8 wurde theoretisch dargelegt, dass sich das SNR proportional zu√N verbessert. Für N = 8 ergibt sich demnach gegenüber einer Einzelaufnahme ein theoretischer SNR-Gewinn von√8 ≈ 2,83. Obwohl dieser Gewinn im Vergleich zur Einzelaufnahme spürbar ist, reicht er nicht aus, um die flächig schwachen Reflexionsnebel-Strukturen mit ausreichendem Kontrast sichtbar zu machen. Die tatsächlich erreichbare Detailtiefe entspricht nicht derjenigen, die durch eine Gesamtintegrationszeit von mehreren Stunden und einer erhöhten Bildanzahl erzielbar wäre.
 
 Darüber hinaus können bei starkem Stretching an den Bildrändern schwache Helligkeitsgradienten erkennbar sein, die auf Restkalibrierungsfehler oder auf einen leichten Himmelsgradienten infolge von Lichtverschmutzung am Aufnahmestandort zurückzuführen sein können. Dieser Befund steht im Einklang mit dem in Abschnitt 2.6 erörterten Flat-Field-Limit: Kalibrierungsresiduen repräsentieren eine systematische Untergrenze des erzielbaren Hintergrundrauschens, welche durch eine reine Erhöhung der Bildanzahl nicht überwindbar ist. Der systematische Fehleranteil korreliert in sämtlichen Frames und kann nicht durch Mittelung eliminiert werden.
-
-== Qualitative Analyse des M31-Stacks
-
-Das gestackte und nachbearbeitete Bild von M31 zeigt die Andromedagalaxie mit einer deutlich höheren Detailtiefe als der M45-Stack. Dies ist in erster Linie auf die wesentlich größere Anzahl von mehr als 40 verfügbaren Light Frames zurückzuführen, die eine deutlich längere effektive Integrationszeit und damit ein substanziell höheres SNR im Endbild ermöglichen. Die Zentralregion der Galaxis weist eine klare Struktur auf und zeigt den für diese Art von Galaxie typischen Helligkeitsabfall vom kompakten, hellen Kern zur äußeren Scheibe. Die begleitenden Satellitengalaxien M32 und M110 sind im gestackten Bild als eigenständige, kompakte Objekte erkennbar und heben sich deutlich vom Hintergrund ab.
-Die äußeren Bereiche der galaktischen Scheibe, die eine sehr geringe Oberflächenhelligkeit aufweisen, werden im M31-Stack sichtbar, wenngleich das Hintergrundrauschen in diesen Regionen noch spürbar ist. Die großflächige Ausdehnung von M31 über mehrere Grad stellt zusätzliche Anforderungen an die Homogenität des Bildhintergrunds. Ein inhomogener Himmelshintergrund – etwa durch Lichtverschmutzung oder unvollständige Flat-Field-Korrektur – äußert sich bei einem so ausgedehnten Objekt als Helligkeitsgradient, der schwache Strukturen an der Peripherie der Galaxis überlagern kann (vgl. Müller 2020, S. 15). Im vorliegenden Stack ist ein solcher schwacher Gradient erkennbar, was die prinzipielle Grenze der Flat-Field-Kalibrierung bei ausgedehnten Flächenobjekten veranschaulicht.
 
 == Übergreifende Reflexion der Grenzen
 
@@ -1186,4 +1263,40 @@ Erstens durch den abnehmenden Grenznutzen der √N-Skalierung. Jede weitere verd
 
 = Fazit
 
+Im Rahmen der vorliegenden Studienarbeit wurde eine Untersuchung durchgeführt, die darauf abzielte, die theoretischen und praktischen Grenzen der Astrofotografie zu ermitteln. Ein weiterer Schwerpunkt der Untersuchung lag auf dem Einfluss moderner Stacking-Verfahren auf die Bildqualität astronomischer Aufnahmen. Der Fokus der Untersuchung lag insbesondere auf den physikalischen, technischen und algorithmischen Rahmenbedingungen, welche die erreichbare Qualität astrophotografischer Bilder bestimmen. Darüber hinaus wurde analysiert, inwiefern die digitale Bildverarbeitung und insbesondere Stacking-Algorithmen dazu beitragen können, diese Grenzen zu kompensieren oder zumindest abzuschwächen.
+Zu Beginn der Arbeit wurden die theoretischen Grundlagen der Astrofotografie betrachtet. Die Analyse ergab, dass die Qualität astronomischer Aufnahmen maßgeblich durch eine Vielzahl miteinander verknüpfter Faktoren beeinflusst wird. Auf physikalischer Ebene ergeben sich fundamentale Grenzen, die durch die geringe Photonenzahl entfernter astronomischer Objekte, die Wellennatur des Lichts sowie atmosphärische Einflüsse wie Seeing und Extinktion bedingt sind. In der bodengebundenen Astrofotografie stellt insbesondere die Atmosphäre einen dominierenden, begrenzenden Faktor dar. Turbulente Brechungsindexschwankungen führen zu einer Vergrößerung der effektiven Punktspreizfunktion und damit zu einer erheblichen Reduktion der theoretisch erreichbaren Auflösung. Die theoretischen Zusammenhänge zwischen Fried-Parameter, Seeing und effektiver Bildauflösung wurden in Kapitel 2 ausführlich dargestellt.
+
+Darüber hinaus wurde deutlich, dass auch die verwendeten optischen Systeme sowie die digitale Sensorik entscheidende Auswirkungen auf die Bildqualität besitzen. Der erreichbare Bildmaßstab wird durch Apertur, Brennweite, Öffnungsverhältnis und Pixelgröße gemeinsam bestimmt. Zudem wird das Verhältnis zwischen Auflösung, Lichtausbeute und Rauschverhalten direkt beeinflusst. Von besonderer Relevanz ist hierbei die Abstimmung zwischen atmosphärischer Seeing-Grenze und dem Sampling des Sensorsystems, da sowohl Unter- als auch Oversampling die nutzbare Bildinformation reduzieren können. Die theoretische Analyse hat somit aufgezeigt, dass die Astrofotografie stets einen Kompromiss zwischen physikalischen Grenzen, technischer Realisierbarkeit und praktischer Umsetzbarkeit darstellt.
+
+Im methodischen Teil der Arbeit wurde anschließend ein Untersuchungsdesign entwickelt, das sowohl theoretische Analysen als auch praktische Versuche miteinander verbindet. Ziel der Untersuchung war die Analyse des Einflusses unterschiedlicher Stacking-Verfahren auf reale astrophotografische Daten sowie die Analyse der Grenzen dieser Verfahren im praktischen Einsatz. Zu diesem Zweck wurden Evaluationsmethoden definiert, die sowohl quantitative Metriken – insbesondere das Signal-Rausch-Verhältnis – als auch qualitative Bildbewertungen berücksichtigen. Diese kombinierte Vorgehensweise hat sich als notwendig erwiesen, da die Qualität der Bildaufnahme in der Astrofotografie nicht ausschließlich numerisch beschrieben werden kann. Es spielen vielmehr auch visuelle Aspekte wie die Detailerkennbarkeit, die Sternabbildung oder die Artefaktfreiheit eine wesentliche Rolle.
+Im Rahmen der empirischen Untersuchung wurde jedoch ersichtlich, dass die Realisierung astrophotografischer Aufnahmen unter realen Bedingungen mit signifikanten Herausforderungen verbunden ist. Obwohl es möglich war, das bereitgestellte Equipment erfolgreich aufzubauen und in Betrieb zu nehmen, konnten aufgrund ungünstiger Wetterbedingungen über einen längeren Zeitraum hinweg keine qualitativ verwertbaren Bilddaten aufgezeichnet werden. Die Generierung ausreichend konsistenter Datensätze wurde insbesondere durch die Präsenz von Bewölkung, hoher Luftfeuchtigkeit und instabilen atmosphärischen Bedingungen behindert. Diese empirische Evidenz stützt die zuvor postulierten Limitationen der bodengebundenen Astrofotografie und betont die signifikante Abhängigkeit astronomischer Beobachtungen von externen Umweltbedingungen.
+Um eine fundierte Analyse der Stacking-Verfahren durchführen zu können, wurden ergänzend Rohdaten verwendet, die vom betreuenden Professor bereitgestellt wurden. Darüber hinaus wurden frei verfügbare astrophotografische Datensätze aus wissenschaftlich nutzbaren Online-Archiven herangezogen. Diese Vorgehensweise ermöglichte es, trotz der praktischen Einschränkungen, verschiedene Stacking-Methoden zu untersuchen und miteinander zu vergleichen.
+
+Die Analyse der Bildverarbeitung ergab, dass Stacking-Verfahren eine signifikante Verbesserung der Bildqualität ermöglichen können. Die Kombination mehrerer Einzelaufnahmen ermöglicht die Reduzierung zufälligen Rauschens, was zu einer verbesserten Sichtbarkeit schwacher astronomischer Strukturen führt. Gleichzeitig wurde jedoch deutlich, dass Stacking keine universelle Lösung darstellt. Fehlerhafte Rohdaten, eine unzureichende Nachführung, starke atmosphärische Störungen oder eine unzulängliche Kalibrierung können durch nachträgliche Verarbeitung nur begrenzt kompensiert werden. Insbesondere Informationen, die aufgrund von schlechtem Seeing oder fehlerhaftem Sampling nie erfasst wurden, lassen sich durch algorithmische Verfahren nicht rekonstruieren.
+Darüber hinaus wurde ersichtlich, dass die Wahl des jeweiligen Stacking-Algorithmus einen signifikanten Einfluss auf das resultierende Bild besitzt. Verfahren wie Mittelwert-Stacking, Median-Stacking oder Sigma-Clipping weisen jeweils unterschiedliche Stärken und Schwächen hinsichtlich der Rauschreduktion, des Detailerhalts und der Artefaktunterdrückung auf. Die Untersuchung hat damit aufgezeigt, dass die Qualität des Endergebnisses nicht allein von der Anzahl der Bilder abhängt, sondern maßgeblich von der Qualität der Eingangsdaten sowie von der Wahl geeigneter Verarbeitungsparameter bestimmt wird.
+Ein zentrales Ergebnis der Arbeit besteht darin, dass die Grenzen der Astrofotografie nicht isoliert betrachtet werden können. Die erreichbare Bildqualität ergibt sich aus einer komplexen Interaktion zwischen physikalischen Bedingungen, technischen Systemen, algorithmischen Verfahren und praktischer Umsetzung. Selbst leistungsfähige Softwareverfahren sind nicht in der Lage, fundamentale physikalische Grenzen – wie atmosphärisches Seeing oder photonisches Rauschen – vollständig zu überwinden. Sie sind lediglich in der Lage, die Auswirkungen dieser Grenzen zu reduzieren.
+
+Zusammenfassend konnte gezeigt werden, dass Stacking-Verfahren ein essenzielles Werkzeug moderner Astrofotografie darstellen und erhebliche Verbesserungen der Bildqualität ermöglichen. Gleichzeitig wurde jedoch deutlich, dass ihre Wirksamkeit durch zahlreiche äußere Faktoren begrenzt wird. Die vorliegende Arbeit bestätigt damit, dass die Astrofotografie sowohl aus physikalischer als auch aus informatischer Sicht ein hochkomplexes, interdisziplinäres Anwendungsgebiet darstellt, in dem theoretische Modelle, technische Systeme und algorithmische Methoden eng miteinander verknüpft sind.
+
 = Ausblick
+
+Die in dieser Arbeit gewonnenen Erkenntnisse legen nahe, dass die Astrofotografie trotz moderner technischer und algorithmischer Entwicklungen weiterhin ein Forschungs- und Anwendungsgebiet mit zahlreichen offenen Herausforderungen darstellt. Insbesondere im Bereich der digitalen Bildverarbeitung und der algorithmischen Optimierung ergeben sich vielfältige Möglichkeiten für zukünftige Untersuchungen und Weiterentwicklungen.
+
+Ein zentraler Ansatzpunkt zukünftiger Arbeiten liegt in der Weiterentwicklung und Spezialisierung von Stacking-Algorithmen. Obwohl klassische Verfahren wie das Mittelwert- oder Median-Stacking bereits signifikante Verbesserungen ermöglichen, gewinnen adaptive Verfahren in jüngerer Zeit zunehmend an Bedeutung. Insbesondere auf künstlicher Intelligenz basierende Ansätze und Methoden des maschinellen Lernens könnten künftig eingesetzt werden, um Bildrauschen intelligenter zu reduzieren, Artefakte automatisch zu erkennen oder Bildinformationen rekonstruierend zu ergänzen. Der Einsatz solcher Verfahren ermöglicht eine signifikant effizientere Auswertung astrophotografischer Daten im Vergleich zu herkömmlichen statistischen Methoden.
+Desweiteren stellt die automatisierte Qualitätsbewertung von Rohbildern ein relevantes Forschungsfeld dar. Im Rahmen der praktischen Astrofotografie ist die Analyse und Bewertung einer hohen Anzahl an Einzelbildern ein wesentlicher Bestandteil des Forschungsprozesses. Es ist anzunehmen, dass automatisierte Verfahren zukünftig dazu in der Lage sein könnten, Frames mit schlechter Nachführung, starkem Seeing-Einfluss oder hoher Hintergrundstörung selbstständig zu erkennen und auszusortieren. Die vorliegende Untersuchung kommt zu dem Schluss, dass sich auf diese Weise der Verarbeitungsprozess nicht nur beschleunigen ließe, sondern möglicherweise auch die Qualität der Endergebnisse verbessert werden könnte.
+
+Ein weiterer wichtiger Entwicklungsbereich betrifft die Verbesserung der Hardware-Systeme. Fortschritte in der Sensortechnologie, beispielsweise hinsichtlich Quanteneffizienz, Ausleserauschen oder Kühlung, könnten die Grenzen der detektierbaren Signalstärke weiter verschieben. Moderne adaptive Optiksysteme ermöglichen bereits heute partiell eine Kompensation atmosphärischer Turbulenzen. Insbesondere im Amateur- und Semiprofibereich ist in Zukunft eine verstärkte Verfügbarkeit und Wirtschaftlichkeit solcher Technologien zu erwarten.
+Darüber hinaus eröffnet die zunehmende Verfügbarkeit umfangreicher astrophotografischer Datensätze neue Möglichkeiten. Es ist evident, dass öffentliche Datenarchive professioneller Observatorien sowie frei verfügbare Forschungsdaten umfangreiche algorithmische Untersuchungen ermöglichen, die unabhängig von lokalen Wetter- oder Standortbedingungen sind. Dies hat eine Erleichterung der informatischen Forschung im Bereich der Bildverarbeitung zur Folge, da reproduzierbare Datensätze für Analysen und Vergleiche genutzt werden können.
+
+Für eine weiterführende Untersuchung wäre es zudem sinnvoll, zusätzliche Einflussgrößen systematisch zu analysieren. Zu den potenziellen Auswirkungen zählen beispielsweise:
+
+- der Vergleich verschiedener Kameratypen,
+- die Untersuchung unterschiedlicher Sensorgrößen,
+- der Einfluss verschiedener Filtertechniken,
+- die Wirkung unterschiedlicher Nachführsysteme,
+- sowie die Analyse verschiedener Softwarelösungen und deren Implementierungsdetails.
+
+Darüber hinaus könnten zukünftige Arbeiten deutlich umfangreichere Datensätze verwenden und kontrollierte Aufnahmebedingungen schaffen, um quantitative Vergleiche präziser durchführen zu können. Die in dieser Arbeit aufgetretenen praktischen Einschränkungen – insbesondere wetterbedingte Probleme – verdeutlichen die hohe Relevanz stabiler und reproduzierbarer Aufnahmebedingungen für wissenschaftlich belastbare Untersuchungen in der Astrofotografie.
+Aus informatischer Sicht eröffnet die Astrofotografie ein besonders interessantes Forschungsfeld, da in diesem Bereich physikalische Signalverarbeitung, digitale Bildverarbeitung, statistische Methoden und algorithmische Optimierung unmittelbar zusammenwirken. Die Kombination aus realen physikalischen Grenzen und softwaregestützter Kompensation eröffnet ein breites Spektrum an Möglichkeiten für interdisziplinäre Forschung in den Bereichen Informatik, Physik und Ingenieurwissenschaften.
+
+Zusammenfassend lässt sich konstatieren, dass die Astrofotografie auch zukünftig durch fundamentale physikalische Limitierungen determiniert sein wird, ungeachtet der signifikanten technischen Fortschritte. Moderne Bildverarbeitungsverfahren demonstrieren, dass digitale Technologien einen signifikanten Beitrag zur Annäherung an diese Grenzen leisten und bislang unsichtbare astronomische Strukturen sichtbar machen können. Das langfristige Entwicklungspotenzial der Astrofotografie liegt insbesondere in dem Spannungsfeld zwischen physikalischen Begrenzungen und algorithmischen Verbesserungen.
