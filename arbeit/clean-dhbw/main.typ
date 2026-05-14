@@ -1060,9 +1060,7 @@ Schließlich ist zu berücksichtigen, dass das Stacking lediglich einen Teil des
 
 = Praktische Umsetzung
 
-= Analyse und Evaluation
-
-= Reflexion der Grenzen
+= Evaluation der Grenzen
 
 = Fazit
 
