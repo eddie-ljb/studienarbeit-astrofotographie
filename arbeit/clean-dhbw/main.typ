@@ -1060,7 +1060,129 @@ Schließlich ist zu berücksichtigen, dass das Stacking lediglich einen Teil des
 
 = Praktische Umsetzung
 
+== Ausgangssituation und Datenbeschaffun
+
+Die praktische Umsetzung der vorliegenden Studienarbeit sah sich von Beginn an mit erheblichen logistischen und 
+meteorologischen Herausforderungen konfrontiert, welche paradigmatisch für eine der grundlegendsten Grenzen der 
+bodengebundenen Astrofotografie stehen: die vollständige Abhängigkeit von externen, unkontrollierbaren Umweltbedingungen. 
+Wie bereits im Abschnitt 4.1 dargelegt, konnte das in Abschnitt 4.3 beschriebene Equipment für den Versuchsaufbau 
+aufgrund anhaltend ungünstiger Witterungsbedingungen nicht für eigene astronomische Aufnahmen eingesetzt werden. An 
+mehreren für die Beobachtung vorgesehenen Nächten führte eine durchgängige Bewölkung, Niederschlag oder eine Kombination 
+aus beiden Faktoren zu einer vollständigen Verhinderung der nutzbaren Beobachtungszeit. Diese Situation veranschaulicht 
+die in Abschnitt 1.8 beschriebenen praktischen Risiken der Astrofotografie. Die Abhängigkeit von atmosphärischen 
+Bedingungen stellt eine strukturell nicht planbare Grenze dar, die auch durch technisch optimiertes Equipment nicht 
+überwunden werden kann.
+
+[IRGENDWO HIER DEN BERICHT VON DIR EINFÜGEN EDDIE]
+
+Da die Studienarbeit einem festen Abgabetermin unterliegt und Wetterunsicherheiten strukturell nicht planbar sind, 
+wurde in Absprache mit dem betreuenden Hochschullehrer, Prof. Dr. Ralph Lausen, ein alternatives Vorgehen beschlossen. 
+Dieses gewährleistet die wissenschaftliche Integrität der Untersuchung, ohne die methodische Zielsetzung zu 
+kompromittieren.
+In einem ersten Schritt stellte der Betreuer einen eigenen Rohdatensatz astronomischer Aufnahmen zur Verfügung. 
+Dabei handelte es sich um FITS-Rohdateien, die an einem vorangegangenen Beobachtungsabend unter realen Bedingungen 
+aufgenommen worden waren. Bei der Sichtung und ersten Bewertung dieses Datensatzes wurden jedoch mehrere 
+qualitätsmindernde Eigenschaften festgestellt, die eine belastbare und strukturierte Analyse der Stacking-Grenzen 
+erschwerten. Die Aufnahmen wiesen eine inhomogene Sternabbildungsqualität über die gesamte Bildserie hinweg auf. 
+Dies lässt auf Schwankungen im atmosphärischen Seeing sowie auf periodische Nachführfehler der verwendeten Montierung 
+schließen. Darüber hinaus fehlten vollständige Sätze an Kalibrierungsframes, insbesondere Flat Frames mit passendem 
+Filter. Dies verhinderte eine saubere Korrektur von Vignettierung und Staubartefakten. Diese Mängel sind für sich 
+genommen bereits aufschlussreich im Sinne der Fragestellung dieser Arbeit, da sie veranschaulichen, unter welchen 
+realen Bedingungen Rohdaten entstehen, die von der in Kapitel 2 beschriebenen theoretischen Idealvorstellung abweichen.
+
+Aus diesem Grund wurde in einem zweiten Schritt auf öffentlich zugängliche astronomische Rohdatensätze zurückgegriffen. 
+Die verwendeten Datensätze wurden von Wei-Hao Wang zur Verfügung gestellt und umfassen Aufnahmen zweier unterschiedlicher 
+Himmelsobjekte: des offenen Sternhaufens Messier 45 (M45, Plejaden) sowie der Andromedagalaxie Messier 31 (M31). 
+Es konnte festgestellt werden, dass beide Datensätze neben den eigentlichen Lichtaufnahmen vollständige 
+Kalibrierungsframe-Sätze enthalten, die aus Dark Frames und Flat Frames bestehen. Die freie Verfügbarkeit der Datensätze 
+sowie das explizite Einverständnis des Autors zur wissenschaftlichen Nutzung prädestinierten sie für den vorliegenden 
+Zweck [Wei-Hao Wang, öffentlicher Astrofotografie-Datensatz]. Die Entscheidung, zwei Objekte unterschiedlichen Typs und 
+mit unterschiedlicher Anzahl verfügbarer Light Frames zu verarbeiten, war methodisch motiviert. Der direkte Vergleich 
+der Stacking-Ergebnisse erlaubt eine differenziertere Beurteilung der algorithmischen und physikalischen Grenzen, als 
+es ein einzelner Datensatz ermöglichen würde.
+
+== Beschreibung der Datensätze
+
+Der Datensatz zu M45 umfasst acht Light Frames, die mit einer Canon EOS 5D Mark II aufgenommen wurden. Bei dem vorliegenden Objektiv handelt es sich um eine Vollformat-DSLR, die mit einem CMOS-Sensor ausgestattet ist. Die Auflösung des Sensors beträgt 5616 × 3744 Pixel bei einer Pixelgröße von 6,41 μm. Die primäre Konzeption der Canon EOS 5D Mark II ist die kommerzielle Fotografie, wobei die Integration einer aktiven Sensorkühlung sowie eines für die Astrofotografie optimierten Infrarotsperrfilters nicht vorgesehen ist. Der Datensatz beinhaltet zudem Dark Frames und Flat Frames, welche eine vollständige Kalibrierungspipeline ermöglichen.
+Der Plejadenhaufen (M45) ist einer der der Erde nächstgelegenen offenen Sternhaufen und enthält mehrere Sterne der Spektralklasse B, die von einer ausgedehnten Reflexionsnebel-Komponente umgeben sind [C. R. O'Dell, G. Ferland und M. Peimbert (1967) veröffentlichten ihre Forschungsergebnisse zum Thema "The Pleiades Nebula" im Fachmagazin "The Astrophysical Journal". Die vorliegende Kombination aus hellen Punktquellen und diffusen, flächigen Strukturen macht M45 zu einem geeigneten Testobjekt, an dem sich die Auswirkungen des Stackings auf unterschiedliche Signaltypen qualitativ beurteilen lassen.
+
+Der Datensatz zu M31 umfasst mehr als 40 Light Frames, die mit einer Sony Alpha 7R (A7R) aufgenommen wurden. Bei dem vorliegenden Objekt handelt es sich um eine spiegellose Vollformatkamera, die mit einem CMOS-Sensor ausgestattet ist. Die Auflösung des Sensors beträgt 7360 × 4912 Pixel bei einer Pixelgröße von 4,88 μm. Auch die Sony A7R ist kein auf die Astrofotografie spezialisiertes Instrument und verfügt ebenfalls über keinen aktiven Kühlmechanismus. Der Datensatz beinhaltet vollständige Kalibrierungsframe-Sätze.
+Die Andromedagalaxie (M31) ist die der Milchstraße nächstgelegene große Spiralgalaxie und mit einer scheinbaren Helligkeit von etwa m ≈ 3,4 mag das fernste mit bloßem Auge sichtbare Objekt. Ihre Winkelausdehnung von rund 3° × 1° bedingt eine besondere Eignung für Weitwinkeloptiken. V. Morrison und G. A. Wilkins, "Galactic Coordinates of M31", Monthly Notices of the Royal Astronomical Society, 1988]. Die Spiralstruktur, die ausgeprägte Zentralregion sowie die begleitenden Satellitengalaxien M32 und M110 bieten eine Vielzahl struktureller Details, anhand derer sich der Effekt des Stackings auf die Sichtbarkeit feiner astronomischer Strukturen qualitativ beurteilen lässt.
+
+== Verarbeitungspipeline mit DeepSkyStacker
+
+Die praktische Verarbeitung beider Datensätze erfolgte mit der Open-Source-Software DeepSkyStacker (DSS, Version 4.2) [DeepSkyStacker Development Team, "Technical Info", deepskystacker.free.fr, 2024]. DSS ist eine speziell für die Astrofotografie entwickelte Bildverarbeitungssoftware, die einen vollständigen Workflow von der Rohdatenverarbeitung bis zum fertigen Stack unterstützt und im Amateurbereich eine weite Verbreitung findet. Für die vorliegende Untersuchung wurde DSS ausgewählt, da es die in Abschnitt 2.8 beschriebenen gängigen Stacking-Verfahren implementiert, eine gute Dokumentation aufweist und die Verarbeitung von DSLR- und Systemkamera-RAW-Dateien nativ unterstützt.
+Die Verarbeitungspipeline folgte in ihrer Struktur den in Abschnitt 4.4 konzipierten Hauptphasen und wurde für beide Datensätze identisch durchgeführt, um eine Vergleichbarkeit der Ergebnisse zu gewährleisten.
+Im ersten Schritt wurden alle verfügbaren Frames in DSS geladen und ihrem jeweiligen Typ zugeordnet: die Lichtaufnahmen als Light Frames, die Dunkelbilder als Dark Frames und die Flatfield-Aufnahmen als Flat Frames. 
+
+#figure(
+  image("assets/vor-stacking.png", width: 100%),
+  caption: [Screenshot aus DeepSkyStacker.]
+)
+
+Im zweiten Schritt erfolgte die Festlegung der Stack-Parameter für beide Datensätze. Für das Integrationsverfahren der Light Frames wurde Kappa-Sigma-Clipping mit einem Schwellenwert von κ = 2,0 und fünf Iterationen ausgewählt. Wie in Abschnitt 2.8 dargelegt, repräsentiert dieses Verfahren den optimalen Kompromiss zwischen statistischer Effizienz und Robustheit gegenüber Ausreißern, wie beispielsweise kosmischer Strahlung oder Satellitenspuren. Für die Kalibrierungsframes (Dark Frames und Flat Frames) wurde jeweils Median-Stacking verwendet, um die Master-Kalibrierbilder möglichst frei von sporadischen Störsignalen zu halten.
+Im dritten Schritt wurde die automatische Bildregistrierung durchgeführt. #linebreak()
+Im Rahmen dieses Prozesses werden in jedem Frame Sterne detektiert, deren Positionen bestimmt und eine Transformationsmatrix berechnet, die Translation, Rotation sowie gegebenenfalls geringfügige Skalierungsunterschiede zwischen den Frames ausgleicht. DSS berechnet für jeden Frame automatisch einen Quality-Score auf Basis der Sternschärfe und des Signalkontrasts. Frames mit einem deutlich unterdurchschnittlichen Quality-Score wurden von der weiteren Verarbeitung ausgeschlossen, was dem in Abschnitt 3.4 beschriebenen Qualitätsbewertungsschritt entspricht. Im vierten und finalen Schritt erfolgte das eigentliche Stacking. Das Resultat wurde seitens DSS im TIFF-Format (16 Bit pro Kanal) gespeichert, um den vollen Dynamikumfang des gestackten Bildes zu erhalten.
+
+== Nachbearbeitung der gestackten Bilder
+
+Die von DSS erzeugten TIFF-Ausgabebilder weisen anfänglich eine sehr geringe visuelle Helligkeit auf, da sie den linearen 
+Pixelwerten der Kameraaufnahmen entsprechen und die schwachen astronomischen Signale im Histogramm weit im unteren 
+Wertebereich konzentriert sind. Zur visuellen Aufbereitung der im gestackten Bild enthaltenen Informationen wurden beide 
+Bilder mit der Open-Source-Bildbearbeitungssoftware GIMP nachbearbeitet.
+Der zentrale Schritt der Nachbearbeitung bestand in beiden Fällen in einem manuellen Histogramm-Stretching. Zunächst 
+wurde sichergestellt, dass die Bilder im 16-Bit-Modus verarbeitet werden, um Quantisierungsartefakte bei der nichtlinearen
+Transformation zu minimieren. Im Anschluss wurde über das Kurven-Werkzeug der Schwarzpunkt knapp unterhalb des 
+Signalbeginns gesetzt, um den Hintergrund auf ein neutrales, dunkles Niveau zu normieren. Der Mittelpunkt der 
+Gradationskurve wurde leicht angehoben, um die Helligkeit schwacher Strukturen zu verstärken, ohne die hellsten 
+Bildbereiche in die Sättigung zu treiben. Dieses Vorgehen entspricht dem in der Astrofotografie verbreiteten Konzept 
+des nichtlinearen Stretchings.
+Aus methodischer Perspektive ist festzuhalten, dass das Stretching statistische Eigenschaften des Bildsignals 
+modifiziert. Eine nichtlineare Transformation skaliert Rauschen und Signal unterschiedlich, wodurch das Bild für 
+direkte quantitative SNR-Messungen ungeeignet wird. Die qualitative Analyse in Kapitel 6 fokussiert sich demzufolge 
+auf das visuelle Erscheinungsbild der gestreckten Bilder sowie auf allgemeine Beobachtungen an den linearen 
+Stacking-Ergebnissen.
+
+Auf der folgenden Seite werden beide fertigen Bilder der Objekte M31 und M45 dargestellt.
+
+#pagebreak()
+
+#figure(
+  image("assets/m31.jpg", width: 100%),
+  caption: [Fertig bearbeitetes Bild der Plejaden (M45).]
+)
+
+#figure(
+  image("assets/m45-edited-v2.jpg", width: 100%),
+  caption: [Fertig bearbeitetes Bild der Andromedagalaxie (M31).]
+)
+
 = Evaluation der Grenzen
+
+== Vorbemerkung zur Evaluationsmethodik
+
+Die Evaluation der Stacking-Ergebnisse erfolgt in diesem Kapitel auf qualitativer Grundlage, da die in Abschnitt 3.5 beschriebenen quantitativen Evaluationsmetriken aufgrund der limitierten Datenlage – insbesondere der geringen Anzahl von Light Frames im M45-Datensatz sowie der fehlenden Möglichkeit, mehrere Stacks mit systematisch variierender Bildanzahl N zu erzeugen – nicht in vollem Umfang angewendet werden konnten. Anstelle der Verwendung numerischer SNR-Tabellen wird eine strukturierte qualitative Analyse durchgeführt, die die beobachteten Bildeigenschaften systematisch den in Kapitel 2 identifizierten physikalischen, technischen und algorithmischen Einflussfaktoren zuordnet. Der Vergleich der beiden Datensätze M45 und M31 erlaubt dabei eine differenziertere Beurteilung, als es ein einzelner Datensatz ermöglichen würde, da sich die Datensätze hinsichtlich Objekttyp, Kameramodell und Bildanzahl wesentlich unterscheiden.
+
+== Qualitative Analyse des M45-Stacks
+
+Das gestackte und nachbearbeitete Bild von M45 zeigt den zentralen Bereich des Pleja­denhaufens mit den dominanten Mitgliedssternen in klarer und scharfer Auflösung. Die hellsten Haufensterne – darunter Alcyone, Atlas, Electra, Maia, Merope, Taygeta und Pleione – sind mit runden, deutlich definierten Sternscheiben abgebildet, was auf eine ausreichende Nachführungsgenauigkeit und eine erfolgreiche Bildregistrierung hindeutet. Die Analyse ergab, dass keine Elongierungen oder Doppelkonturen als Indikatoren für Nachführfehler oder Fehlregistrierungen identifiziert werden konnten.
+In den unmittelbaren Umgebungen der hellsten Sterne ist die Reflexionsnebel-Komponente ansatzweise sichtbar. Bei adäquater Dehnung zeigen sich um Merope und Maia diffuse Aufhellungen, die der in der Literatur dokumentierten Nebelstruktur entsprechen. Die Sichtbarkeit dieser diffusen Strukturen ist jedoch begrenzt, was unmittelbar auf die geringe Anzahl von lediglich 8 Light Frames zurückzuführen ist. In Abschnitt 2.8 wurde theoretisch dargelegt, dass sich das SNR proportional zu√N verbessert. Für N = 8 ergibt sich demnach gegenüber einer Einzelaufnahme ein theoretischer SNR-Gewinn von√8 ≈ 2,83. Obwohl dieser Gewinn im Vergleich zur Einzelaufnahme spürbar ist, reicht er nicht aus, um die flächig schwachen Reflexionsnebel-Strukturen mit ausreichendem Kontrast sichtbar zu machen. Die tatsächlich erreichbare Detailtiefe entspricht nicht derjenigen, die durch eine Gesamtintegrationszeit von mehreren Stunden und einer erhöhten Bildanzahl erzielbar wäre.
+
+Darüber hinaus können bei starkem Stretching an den Bildrändern schwache Helligkeitsgradienten erkennbar sein, die auf Restkalibrierungsfehler oder auf einen leichten Himmelsgradienten infolge von Lichtverschmutzung am Aufnahmestandort zurückzuführen sein können. Dieser Befund steht im Einklang mit dem in Abschnitt 2.6 erörterten Flat-Field-Limit: Kalibrierungsresiduen repräsentieren eine systematische Untergrenze des erzielbaren Hintergrundrauschens, welche durch eine reine Erhöhung der Bildanzahl nicht überwindbar ist. Der systematische Fehleranteil korreliert in sämtlichen Frames und kann nicht durch Mittelung eliminiert werden.
+
+== Qualitative Analyse des M31-Stacks
+
+Das gestackte und nachbearbeitete Bild von M31 zeigt die Andromedagalaxie mit einer deutlich höheren Detailtiefe als der M45-Stack. Dies ist in erster Linie auf die wesentlich größere Anzahl von mehr als 40 verfügbaren Light Frames zurückzuführen, die eine deutlich längere effektive Integrationszeit und damit ein substanziell höheres SNR im Endbild ermöglichen. Die Zentralregion der Galaxis weist eine klare Struktur auf und zeigt den für diese Art von Galaxie typischen Helligkeitsabfall vom kompakten, hellen Kern zur äußeren Scheibe. Die begleitenden Satellitengalaxien M32 und M110 sind im gestackten Bild als eigenständige, kompakte Objekte erkennbar und heben sich deutlich vom Hintergrund ab.
+Die äußeren Bereiche der galaktischen Scheibe, die eine sehr geringe Oberflächenhelligkeit aufweisen, werden im M31-Stack sichtbar, wenngleich das Hintergrundrauschen in diesen Regionen noch spürbar ist. Die großflächige Ausdehnung von M31 über mehrere Grad stellt zusätzliche Anforderungen an die Homogenität des Bildhintergrunds. Ein inhomogener Himmelshintergrund – etwa durch Lichtverschmutzung oder unvollständige Flat-Field-Korrektur – äußert sich bei einem so ausgedehnten Objekt als Helligkeitsgradient, der schwache Strukturen an der Peripherie der Galaxis überlagern kann (vgl. Müller 2020, S. 15). Im vorliegenden Stack ist ein solcher schwacher Gradient erkennbar, was die prinzipielle Grenze der Flat-Field-Kalibrierung bei ausgedehnten Flächenobjekten veranschaulicht.
+
+== Übergreifende Reflexion der Grenzen
+
+Die Synthese der theoretischen Grundlagen aus Kapitel 2 und der empirischen Ergebnisse aus Kapitel 5 sowie der vorangegangenen Abschnitte dieses Kapitels ermöglicht eine systematische Reflexion der Limitationen der Astrofotografie, wie sie im Titel dieser Studienarbeit formuliert sind.
+Auf physikalischer Ebene sind die fundamentalen Grenzen der Lichtwellen naturbedingt gegeben. Die Fraunhofer-Beugung definiert eine theoretische Auflösungsgrenze, während die turbulente Erdatmosphäre in der bodengebundenen Praxis diese Grenze signifikant überschreitet. Die FWHM der Sternabbildungen in beiden Stacks liegt visuell deutlich über der beugungsbedingten Auflösungsgrenze der verwendeten Optiken, was dem in Abschnitt 2.2 beschriebenen Seeing-Effekt entspricht. Diese atmosphärische Grenze ist durch Stacking-Algorithmen prinzipiell nicht zu überschreiten, da sie den Rahmen definiert, innerhalb dessen jede algorithmische Bildverbesserung operiert. Darüber hinaus setzt der Photonenfluss schwacher Himmelsobjekte eine absolute untere Grenze für die erreichbare Signalstärke bei gegebener Apertur und Belichtungszeit, die kein Stacking-Verfahren unterschreiten kann.
+Aus technischer Perspektive demonstrieren beide Experimente, dass die Qualität der Rohdaten und der Kalibrierung die absolute Obergrenze der erzielbaren Stack-Qualität definiert. Die Verwendung nicht gekühlter Consumer-Kameras anstelle spezialisierter Astrokameras manifestiert sich in erhöhtem Dunkelstromrauschen und eingeschränkter spektraler Empfindlichkeit. Diese Eigenschaften lassen sich zwar durch Stacking reduzieren, jedoch nicht gänzlich eliminieren. Insbesondere beim M45-Datensatz mit der Canon EOS 5D Mark II ist die fehlende Kühlungsmöglichkeit von signifikanter Relevanz, da thermisches Rauschen bei längeren Einzelbelichtungen zunehmend dominiert.
+
+Auf der algorithmischen Ebene verdeutlicht das Experiment, dass Stacking ein leistungsstarkes, jedoch klar begrenztes Werkzeug ist. Es verbessert das SNR statistisch zuverlässig und macht schwache Strukturen sichtbar, die in Einzelaufnahmen im Rauschen verborgen wären. Die vorliegende Optimierung ist jedoch durch zwei Mechanismen limitiert:
+Erstens durch den abnehmenden Grenznutzen der √N-Skalierung. Jede weitere verdoppelte Bildanzahl resultiert lediglich in einem Faktor √2 ≈ 1,41 an SNR-Gewinn, sodass der Aufwand für zusätzliche Verbesserungen überproportional ansteigt. Zweitens ist das Hervortreten systematischer Fehleranteile zu beobachten, die als Kalibrierungsresiduen, Seeing-Varianz und Lichtverschmutzungsgradienten bezeichnet werden. Diese werden mit wachsendem N zur dominanten Rauschquelle, wobei sie eine prinzipielle Untergrenze des erreichbaren Hintergrundrauschens darstellen. Es ist mathematisch bewiesen, dass kein statistisches Mittelungsverfahren diese unterschreiten kann. Dieser Befund stützt die in Abschnitt 1.4 aufgestellte These, dass Stacking-Algorithmen nicht isoliert, sondern stets im Kontext physikalischer, technischer und statistischer Randbedingungen analysiert werden müssen, und liefert eine unmittelbare empirische Grundlage für diese These.
 
 = Fazit
 
