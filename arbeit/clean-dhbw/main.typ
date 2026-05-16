@@ -4,19 +4,18 @@
 #show: clean-dhbw.with(
   title: "Grenzen der Astrofotografie",
   authors: (
-    (name: "Etienne Luke Josef Bader", student-id: "9578543", course: "TINF23B2", course-of-studies: "Informatik", company: (
-      (name: "Atruvia AG", post-code: "76227", city: "Karlsruhe")
+    (name: "Etienne Luke Josef Bader", student-id: "9578543", course: "TINF23B2", course-of-studies: "Informatik"
+    ),
+    (name: "Timo Kochanski", student-id: "8249833", course: "TINF23B2", course-of-studies: "Informatik"
     )),
-    (name: "Timo Kochanski", student-id: "8249833", course: "TINF23B2", course-of-studies: "Informatik", company: (
-      (name: "Atruvia AG", post-code: "76227", city: "Karlsruhe")
-    ))
     // (name: "Juan Pérez", student-id: "1234567", course: "TIM21", course-of-studies: "Mobile Computer Science", company: (
     //   (name: "ABC S.L.", post-code: "08005", city: "Barcelona", country: "Spain")
     // )),
-  ),
+  
   type-of-thesis: "Studienarbeit",
-  at-university: false, // if true the company name on the title page and the confidentiality statement are hidden
+  at-university: true, // if true the company name on the title page and the confidentiality statement are hidden
   bibliography: bibliography("sources.bib"),
+  city: "Karlsruhe",
   date: datetime.today(),
   glossary: glossary-entries, // displays the glossary terms defined in "glossary.typ"
   language: "de", // en, de
