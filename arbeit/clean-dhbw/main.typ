@@ -1030,8 +1030,6 @@ Diese Metadaten bilden die Grundlage für die in Abschnitt 4.5 diskutierte
 Evaluationsstrategie und ermöglichen es, in Kapitel 6 beobachtete Abweichungen von den
 theoretischen Erwartungen mit konkreten Verarbeitungsentscheidungen zu verknüpfen.@dss_technical_2008 @siril_stacking_2021
 
-SCHAUBILD EINFÜGEN MIT PROZESS
-
 == Evaluationsstrategie, Annahmen und Grenzen
 
 Die in dieser Arbeit verfolgte Evaluationsstrategie dient der systematischen Untersuchung der Leistungsfähigkeit und Grenzen von Stacking-Verfahren in der Astrofotografie. Aufbauend auf den zuvor definierten Evaluationsmethoden wird in diesem Kapitel dargelegt, nach welchen Prinzipien die Bewertung erfolgt, welche grundlegenden Annahmen getroffen werden und welche methodischen sowie praktischen Einschränkungen zu berücksichtigen sind. Das Ziel besteht darin, die spätere Analyse auf eine transparente und nachvollziehbare Grundlage zu stellen.
@@ -1060,7 +1058,7 @@ Schließlich ist zu berücksichtigen, dass das Stacking lediglich einen Teil des
 
 = Praktische Umsetzung
 
-== Ausgangssituation und Datenbeschaffun
+== Ausgangssituation und Datenbeschaffung
 
 Die praktische Umsetzung der vorliegenden Studienarbeit sah sich von Beginn an mit erheblichen logistischen und 
 meteorologischen Herausforderungen konfrontiert, welche paradigmatisch für eine der grundlegendsten Grenzen der 
@@ -1073,7 +1071,22 @@ die in Abschnitt 1.8 beschriebenen praktischen Risiken der Astrofotografie. Die 
 Bedingungen stellt eine strukturell nicht planbare Grenze dar, die auch durch technisch optimiertes Equipment nicht 
 überwunden werden kann.
 
-[IRGENDWO HIER DEN BERICHT VON DIR EINFÜGEN EDDIE]
+Im Folgenden wird der durchgeführte Equipmentaufbau dokumentiert, der trotz der ungünstigen Wetterlage mehrfach erprobt wurde und dabei wertvolle praktische Erkenntnisse über die Anforderungen an einen strukturierten Versuchsaufbau lieferte.
+Der Aufbau des Systems beginnt mit der Errichtung des Stativs, dessen Füße auf einer stabilen, möglichst horizontalen Fläche positioniert werden. Dabei ist darauf zu achten, dass der Fuß mit der "N"-Markierung in Richtung Norden (0°) ausgerichtet wird, da dies die spätere Polausrichtung der Montierung erleichtert. Im Anschluss wird die EQ5-Montierung auf das Stativ aufgesetzt und durch die vorgesehene Verschraubung mechanisch gesichert. Die horizontale Ausrichtung des gesamten Aufbaus wird mithilfe der integrierten Libelle (Wasserwaage) am Stativkopf kontrolliert und durch Anpassung der Stativbeine auf einen ausgeglichenen Stand gebracht, da eine Schräglage der Montierung die spätere Polausrichtung sowie die Nachführgenauigkeit direkt beeinträchtigt.
+Nach der Grundausrichtung wird die Gegengewichtsstange in die dafür vorgesehene Aufnahme der Montierung eingeschraubt und das Gegengewicht aufgesteckt sowie in einer vorläufigen Position gesichert. Die eigentliche Balance wird erst nach der Befestigung des Teleskops und des Zubehörs durch Verschieben des Gegengewichts entlang der Stange eingestellt, sodass das Gesamtsystem in allen drei Achsen frei von Drehmomenten ist. Ein nicht ausbalanciertes System belastet die Montierungsmotoren ungleichmäßig und kann zu periodischen Nachführfehlern führen, die durch Stacking-Verfahren nur bedingt kompensiert werden können.
+
+Der optische Tubus — ein Sky-Watcher Explorer 150PDS Newton-Reflektor — wird über die am Tubus angebrachten Rohrschellen an der Teleskopaufnahme der EQ5-Montierung befestigt. Die Rohrschellen werden zunächst geöffnet, der Tubus eingelegt und anschließend gleichmäßig festgezogen, sodass eine stabile und verkantungsfreie Verbindung entsteht. In diesem Schritt erfolgt auch die endgültige Balancejustierung durch axiales Verschieben des Tubus in den Rohrschellen sowie durch Nachjustieren des Gegengewichts.
+Im nächsten Schritt wird das Guidescope — ein 50-mm-Leitrohr von Omegon — auf dem Haupttubus montiert und die Guidingkamera ZWO ASI120MM-S am Okularauszug des Leitrohrs befestigt. Das Leitrohr muss dabei möglichst parallel zur optischen Achse des Hauptteleskops ausgerichtet werden, um eine stabile Sternauswahl für das Autoguiding zu gewährleisten. Anschließend wird die Hauptkamera — die gekühlte CMOS-Farbkamera ZWO ASI533MC Pro — am Okularauszug des Newton-Tubus befestigt, bei Bedarf nach Durchlaufen des Baader MPCC Mark III Koma-Korrektors sowie des ZWO EFW mini Filterrades.
+
+Die elektrische Verkabelung stellt den abschließenden und in der Praxis fehleranfälligsten Schritt des Aufbaus dar. Beide Kameras werden per USB mit dem Steuerrechner — der ZWO ASIAIR Plus — verbunden. Die EQ5-Montierung wird über den SynScan-Controller sowohl mit ihrem Schrittmotor als auch mit dem Steuerrechner verbunden. Die ASIAIR Plus kommuniziert drahtlos über eine dedizierte WLAN-Verbindung mit der zugehörigen Smartphone-Applikation, über die Kalibrierung, Goto-Steuerung, Guiding und Aufnahmesequenzen konfiguriert und ausgeführt werden. Die während der Aufnahme erzeugten RAW-Bilddaten werden schließlich per USB-Kabel vom Steuerrechner auf einen PC übertragen und dort in der in Abschnitt 4.3 beschriebenen Verzeichnisstruktur gesichert.
+Vor jeder Aufnahmesession ist zusätzlich eine Kollimationsprüfung des Newton-Tubus durchzuführen, da Transporterschütterungen die Ausrichtung von Haupt- und Fangspiegel verändern können. Unkollimierte Spiegel erzeugen asymmetrische Sternabbildungen, die weder durch Stacking noch durch Nachbearbeitung vollständig korrigiert werden können. Ebenso ist eine Taukappe am Tubus anzubringen, um Kondensationsbildung auf der Optik zu verhindern und Streulichteinfall in das offene Tubusmundstück zu reduzieren.
+
+Der gesamte Aufbauprozess beansprucht unter realen Bedingungen, abhängig von Erfahrungsgrad und Lichtverhältnissen, zwischen 30 und 60 Minuten. Diese Zeitspanne ist für die Planung nächtlicher Beobachtungssessions relevant, da ein Teil der nutzbaren Dunkelheit bereits für den Aufbau und die Akklimatisierung des optischen Systems an die Außentemperatur einzuplanen ist — letzteres ist notwendig, um thermisch bedingte Tubusströmungen zu minimieren, die das Seeing innerhalb des Instruments verschlechtern würden. Der finale Aufbau ist auch in der Abbildung @aufbauteleskop zu sehen.
+
+#figure(
+  image("assets/teleskop.jpeg", width: 55%),
+  caption: [Aufgebautes Teleskop mit Kameras. (Pfinztal)]
+) <aufbauteleskop>
 
 Da die Studienarbeit einem festen Abgabetermin unterliegt und Wetterunsicherheiten strukturell nicht planbar sind, 
 wurde in Absprache mit dem betreuenden Professor, Prof. Dr. Ralph Lausen, ein alternatives Vorgehen beschlossen. 
